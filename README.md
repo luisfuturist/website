@@ -1,17 +1,26 @@
-# Luis Float - Web Developer
+# luisfloat-homepage
 
-## About
+It's my personal website.
 
-### Hey there, it's Luis!
+## Technologies
 
-You can reach me at **contact@luisfloat.com** or any social media.<br> I'm interested in **Software Engineering**. Also interest in Philosophy, Digital Design and Scifi Art. <br> Currently learning **Web Technologies**.
+* **JavaScript** as programming language;
+* **Vue** as framework for building web user interfaces;
+* **SpongiaCSS** for CSS resetting;
+* **BootstrapIcons** for icons;
+* **Vite** for front-end tooling.
 
-> I also have interest in Philosophy, Digital Design and Scifi Art.
+## Installation
 
-## Projects
+Run:
 
-See my [GitHub](https://github.com/luisfloat).
+```bash
+git clone https://github.com/luisfloat/luisfloat.github.io
+cd luisfloat.github.io
+npm i
+npx vite
+```
 
-## Links
+## Author
 
-[![Twitter](https://img.shields.io/badge/-Twitter-333333?style=flat&logo=twitter)](https://twitter.com/luisfloat) [![GitHub](https://img.shields.io/badge/-GitHub-333333?style=flat&logo=github)](https://github.com/luisfloat) [![Instagram](https://img.shields.io/badge/-Instagram-333333?style=flat&logo=instagram)](https://instagram.com/luisfloat) [![Gmail](https://img.shields.io/badge/-Gmail-333333?style=flat&logo=gmail)](mailto:contact@luisfloat.com) 
+<a href="https://twitter.com/luisfloat"><img src="https://img.shields.io/badge/-Twitter-333333?style=flat-square&amp;logo=twitter" alt="Twitter"/></a> <a href="https://github.com/luisfloat"><img src="https://img.shields.io/badge/-GitHub-333333?style=flat-square&amp;logo=github" alt="GitHub"/></a> <a href="https://instagram.com/luisfloat"><img src="https://img.shields.io/badge/-Instagram-333333?style=flat-square&amp;logo=instagram" alt="Instagram"/></a> <a href="mailto:contact@luisfloat.com"><img src="https://img.shields.io/badge/-Gmail-333333?style=flat-square&amp;logo=gmail" alt="Gmail"/></a>
