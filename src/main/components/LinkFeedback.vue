@@ -1,13 +1,18 @@
 <script setup>
+import { computed } from 'vue';
+import { useContent } from '../composables/useContent';
+
 const { href } = defineProps({
     href: String,
     isFeedbackVisible: Boolean,
 });
+
+const content = computed(() => useContent().value.components.linkFeedback);
 </script>
 
 <template>
 <div v-show="isFeedbackVisible" class="feedback">
-    Copied <span class="feedback-href">{{ href }}</span> to clipboard.
+    {{ content.copiedStart }}<span class="feedback-href">{{ href }}</span>{{ content.copiedEnd }}
 </div>
 </template>
 

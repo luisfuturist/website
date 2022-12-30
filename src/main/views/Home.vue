@@ -1,4 +1,5 @@
 <script setup>
+import { computed, watch } from "vue";
 import Footer from "../components/Footer.vue";
 import Hero from "../components/Hero.vue";
 import Link from "../components/Link.vue";
@@ -7,53 +8,59 @@ import Matrix from "../components/Matrix.vue";
 import Navbar from "../components/Navbar.vue";
 import Section from "../components/Section.vue";
 import Topbar from "../components/Topbar.vue";
+import { useContent } from "../composables/useContent";
 import logo from "/logo.png";
 
 const { title } = defineProps({
     title: String,
 });
 
-const menu = [
-    { name: 'Home', href: '#' },
-    { name: 'About Me', href: '#about-me' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
-];
+const contentState = useContent();
+const content = computed(() => contentState.value.home);
+
+watch(contentState, (value) => {
+    document.title = value.home.meta.title;
+});
+
+const menu = computed(() => {
+    const menu = content.value.navbar.menu;
+    return Object.keys(menu).map(key => {
+        const item = menu[key];
+        return { name: item.name, href: "#" + item.id }
+    });
+});
 </script>
 
 <template>
-<Topbar text="WIP. Check back soon for updates!"/>
-<Navbar :logo="logo" name="Luis Float" link="#" :menu="menu"/>
-<Hero title="Luis Float" text="Hi, my name is"/>
+<Topbar :text="content.topbar.text"/>
+<Navbar :logo="logo" :logo-alt="content.navbar.logoAlt" :name="content.navbar.name" link="#" :menu="menu"/>
+<Hero :title="content.hero.title" :text="content.hero.text"/>
 <Main>
-    <Section title="About" id="about-me">
-        <p>Hi there! My name is Luis "Float" Emidio and I am a self-taught full stack web developer with a vocation in the JavaScript ecosystem. In my free time, I love exploring the world of science fiction and digital design, and I am particularly drawn to the cyberpunk genre and futurology. Technology and its impact on the world have always fascinated me, and I enjoy diving deep into philosophical discussions about the future. When I'm not coding or nerding out about the latest tech trends, you can find me tinkering with software or experiencing a work of sci-fi art.</p>
+    <Section :title="content.about.title" :id="content.navbar.menu.about.id">
+        <p>{{ content.about.text }}</p>
 
         <Matrix/>
     </Section>
 
-    <Section title="Projects" id="projects">
-        <p>I'm currently in the process of building out my portfolio, but in the meantime, you can follow my progress and check out some of my work on GitHub. Just click the link below to be redirected to my profile. I am always striving to improve and learn new skills, so you can check back in the future to see what I have been up to. Thank you for your interest in my work, and I hope to share more with you soon!</p>
+    <Section :title="content.projects.title" :id="content.navbar.menu.projects.id">
+        <p>{{ content.projects.text }}</p>
 
-        <Link label="luisfloat" icon="github" href="https://github.com/luisfloat" :ghost="true"/>
+        <Link v-bind="content.projects.link"/>
     </Section>
 
-    <Section title="Contact" id="contact">
-        <h2>Thank you for visiting my website! If you have any questions, comments, or just want to say hi, please don't hesitate to reach out at any of the social media sites below. I would love to hear from you, and I'm always open to connecting with new people. </h2>
+    <Section :title="content.contact.title" :id="content.navbar.menu.contact.id">
+        <h2>{{ content.contact.h2 }}</h2>
 
-        <p>Let's chat!</p>
+        <p>{{ content.contact.text }}</p>
         
         <div class="contact-links">
-            <Link label="contact@luisfloat.com" icon="envelope" href="mailto:contact@luisfloat.com"/>
-            <Link label="@luisfloat" icon="linkedin" href="https://linkedin.com/in/luisfloat"/>
-            <Link label="+55(47)99921-6685" icon="whatsapp" href="https://wa.me/+5547999216685"/>
-            <Link label="luisfloat#9971" icon="discord" href="luisfloat#9971" :copy="true"/>
+            <Link v-for="link of content.contact.links" v-bind="link" />
         </div>
     </Section>
 
 </Main>
 
-<Footer text="Design and Code by Luis Float"/>
+<Footer :text="content.footer.text" :links="content.footer.links"/>
 </template>
 
 <style scoped lang="stylus">

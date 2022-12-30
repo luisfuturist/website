@@ -1,17 +1,12 @@
 <script setup>
-import { ref, useCssModule } from 'vue';
+import { useCssModule } from 'vue';
 import Link from "./Link.vue";
 
 const classes = useCssModule();
 const { text } = defineProps({
     text: String,
+    links: Array,
 });
-
-const links = ref([
-    { icon: 'twitter', href: 'https://twitter.com/luisfloat' },
-    { icon: 'linkedin', href: 'https://linkedin.com/in/luisfloat' },
-    { icon: 'github', href: 'https://github.com/luisfloat' },
-]);
 </script>
 
 <template>

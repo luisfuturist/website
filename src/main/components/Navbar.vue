@@ -2,13 +2,15 @@
 import { ref } from 'vue';
 import Link from "./Link.vue";
 import { useBlurFocus } from "../composables/useBlurFocus";
+import LanguageSelector from './LanguageSelector.vue';
 
 const { blurFocus } = useBlurFocus();
-const { logo, name, menu, link } = defineProps({
+const { logo, name, menu, link, logoAlt } = defineProps({
     logo: String,
     name: String,
     menu: Object,
     link: String,
+    logoAlt: String,
 });
 
 const showMenu = ref(false);
@@ -28,23 +30,32 @@ function toggleMenu() {
     <div class="body">
         <div class="header">
             <a class="brand" :href="link" @click="blurFocus">
-                <img class="logo" :src="logo" alt="Brand logo">
+                <img class="logo" :src="logo" :alt="logoAlt">
                 <span class="name">{{ name }}</span>
             </a>
-            <button class="toggle" @click="toggleMenu">
-                <i :class="'togglerIcon bi-' + (showMenu ? 'dash' : 'plus')"/>
-            </button>
+            <span class="icons">
+                <LanguageSelector :toLeft="true" class="langSelector-mobile"/>
+                <button class="toggle" @click="toggleMenu">
+                    <i :class="'togglerIcon bi-' + (showMenu ? 'dash' : 'plus')"/>
+                </button>
+            </span>
         </div>
         <ul :class="'menu ' + (!showMenu ? 'isClosed' : '')">
             <li v-for="item in menu" :key="item.name" class="menuItem">
                 <Link :label="item.name" :href="item.href" :targetSelf="true" @click="hideMenu" />
             </li>
+            <LanguageSelector :toLeft="true" class="menuItem langSelector"/>
         </ul>
     </div>
 </nav>
 </template>
 
 <style scoped lang="stylus">
+.icons {
+    display: flex;
+    gap: 4px;
+}
+
 .nav {
     position: sticky;
     top: 0px;
@@ -57,13 +68,32 @@ function toggleMenu() {
     z-index: 1000;
 }
 
+.langSelector-mobile {
+    display: none;
+
+    @media (max-width: 600px) {
+        display: block;
+    }
+}
+
+.langSelector {
+    display: inline-block;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
+}
+
 .body {
-    max-width: 1000px;
     margin: 0 auto;    
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 600px) {
+        display: block;
+    }
 }
 
 .header {
@@ -106,6 +136,18 @@ function toggleMenu() {
 .menu {
     display: block;
     transition: max-height .5s motion-ease-1;
+
+    @media (max-width: 600px) {
+        overflow: hidden;
+        
+        display: flex;
+        flex-direction: column;
+        max-height: 256px;
+
+        &.isClosed {
+            max-height: 0px;
+        }
+    }
 }
 
 .menuItem {
@@ -154,22 +196,6 @@ function toggleMenu() {
 }
 
 @media (max-width: 600px) {
-    .body {
-        display: block;
-    }
-
-    .menu {
-        overflow: hidden;
-        
-        display: flex;
-        flex-direction: column;
-        max-height: 256px;
-
-        &.isClosed {
-            max-height: 0px;
-        }
-    }
-
     .menuItem {
         display: flex;
         justify-content: center;
