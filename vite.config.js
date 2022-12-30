@@ -1,7 +1,7 @@
 import vue from "@vitejs/plugin-vue";
 
 export default {
-    root: "./src/main/",
+    root: "./src/",
     publicDir: "./assets/",
     css: {
         preprocessorOptions: {
@@ -14,6 +14,6 @@ export default {
         vue(),
     ],
     build: {
-        outDir: "../../dist/",
+        outDir: "../dist/",
     },
 };
