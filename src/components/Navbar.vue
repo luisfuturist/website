@@ -68,22 +68,6 @@ function toggleMenu() {
     z-index: 1000;
 }
 
-.langSelector-mobile {
-    display: none;
-
-    @media (max-width: 600px) {
-        display: block;
-    }
-}
-
-.langSelector {
-    display: inline-block;
-
-    @media (max-width: 600px) {
-        display: none;
-    }
-}
-
 .body {
     margin: 0 auto;    
 
@@ -154,10 +138,36 @@ function toggleMenu() {
     display: inline-block;
     margin-inline: 10px;
 
+    @media (max-width: 600px) {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+        padding: 10px;
+        border-top: 1px solid #444;
+    }
+
     &:first-child {
         @media (max-width: 600px) {
             margin-top: 16px;
         }
+    }
+}
+
+.langSelector-mobile {
+    display: none;
+
+    @media (max-width: 600px) {
+        display: block;
+    }
+}
+
+.langSelector {
+    display: inline-block;
+
+    @media (max-width: 600px) {
+        display: none;
+        background: red;
     }
 }
 
@@ -188,24 +198,8 @@ function toggleMenu() {
 
     .{isClosed} { transform: rotate(90deg); }
     .{isOpened} { transform: rotate(180deg); }
-}
-.togglerIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-@media (max-width: 600px) {
-    .menuItem {
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        width: 100%;
-        padding: 10px;
-        border-top: 1px solid #444;
-    }
-
-    .toggle {
+    @media (max-width: 600px) {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -219,5 +213,10 @@ function toggleMenu() {
         border: none;
         cursor: pointer;
     }
+}
+.togglerIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>
