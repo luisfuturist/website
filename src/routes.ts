@@ -1,16 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "./views/Home.vue";
-
-function getDefaultLang() {
-    let defaultLang = "en";
-
-    let browserLang = navigator.language;
-
-    if(browserLang.startsWith("pt-")) {
-        defaultLang = "pt";
-    }
-    return defaultLang;
-}
+import { getDefaultLang } from "./utils/getDefaultLang";
 
 const routes: Array<RouteRecordRaw> = [
     { path: "/", redirect: "/" + getDefaultLang() },

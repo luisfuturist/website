@@ -3,6 +3,7 @@ import { computed } from '@vue/reactivity';
 import { useRouter } from 'vue-router';
 import { useContent } from '../composables/useContent';
 import Dropdown from "./Dropdown.vue";
+import { getDefaultLang } from "../utils/getDefaultLang";
 
 const content = computed(() => useContent().value.components.languageSelector);
 
@@ -10,11 +11,11 @@ const options = computed(() => [
     { label: content.value.en, href: "en" },
     { label: content.value.pt, href: "pt" },
 ]);
-const indexes = {
-    en: 0,
-    pt: 1,
-};
-let initialIndex = indexes[location.pathname.replace("/", "")];
+const pathname = location.pathname === "/" ?
+    getDefaultLang() :
+    location.pathname.replace("/", "");
+
+const initialIndex = options.value.findIndex(v => v.href === pathname);
 
 const router = useRouter();
 
