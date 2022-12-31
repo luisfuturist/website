@@ -10,6 +10,12 @@ const options = computed(() => [
     { label: content.value.en, href: "en" },
     { label: content.value.pt, href: "pt" },
 ]);
+const indexes = {
+    en: 0,
+    pt: 1,
+};
+let initialIndex = indexes[location.pathname.replace("/", "")];
+
 const router = useRouter();
 
 function handleClick(option) {
@@ -18,7 +24,7 @@ function handleClick(option) {
 </script>
 
 <template>
-<Dropdown icon="translate" :options="options" :initial-index="0" :click="handleClick"/>
+<Dropdown icon="translate" :options="options" :initial-index="initialIndex" :click="handleClick"/>
 </template>
 
 <style scoped lang="stylus">
