@@ -2,8 +2,12 @@
 import { computed } from '@vue/reactivity';
 import { useRouter } from 'vue-router';
 import { useContent } from '../composables/useContent';
+import { useInitialLang } from "../composables/useInitialLang";
+import { useUserPrefLang } from '../composables/useUserPrefLang';
 import Dropdown from "./Dropdown.vue";
-import { getDefaultLang } from "../utils/getDefaultLang";
+
+const { initialLang } = useInitialLang();
+const { setUserPrefLang } = useUserPrefLang();
 
 const content = computed(() => useContent().value.components.languageSelector);
 
@@ -12,8 +16,10 @@ const options = computed(() => [
     { label: content.value.pt, href: "pt" },
 ]);
 const pathname = location.pathname === "/" ?
-    getDefaultLang() :
+    initialLang :
     location.pathname.replace("/", "");
+
+console.log(pathname)
 
 const initialIndex = options.value.findIndex(v => v.href === pathname);
 
@@ -21,6 +27,7 @@ const router = useRouter();
 
 function handleClick(option) {
     router.push(option.href);
+    setUserPrefLang(option.href);
 }
 </script>
 
