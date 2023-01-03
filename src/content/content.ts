@@ -66,7 +66,7 @@ export const content: SimpleContentType = (tl, f) => ({
                 { label: `${f("contact", "contato")}@luisfloat.com`, icon: "envelope", href: `mailto:${f("contact", "contato")}@luisfloat.com` },
                 { label: "@luisfloat", icon: "linkedin", href: "https://linkedin.com/in/luisfloat" },
                 { label: "+55(47)99921-6685", icon: "whatsapp", href: "https://wa.me/+5547999216685" },
-                { label: "luisfloat#9971", icon: "discord", href: "luisfloat#997", copy: true },
+                { label: "luisfloat#9971", icon: "discord", href: "luisfloat#9971", copy: true },
             ],
         },
         footer: {
