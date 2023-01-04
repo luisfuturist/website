@@ -23,11 +23,10 @@ import Home from "./views/Home.vue";
 body {
     font-family: 'Roboto', sans-serif;
     background: var(--lfds-body-bg);
-    overflow: auto;
 }
 
 #app {
-    overflow: auto;
+    overflow: hidden auto;
     position: fixed;
     top: 0;
     bottom: 0;
