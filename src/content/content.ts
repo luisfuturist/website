@@ -14,6 +14,10 @@ export const content: SimpleContentType = (tl, f) => ({
             en: f("English", "Inglês"),
             pt: f("Portuguese", "Português"),
         },
+        themeSelector: {
+            dark: f("Dark", "Escuro"),
+            light: f("Light", "Claro"),
+        },
         linkFeedback: {
             copiedStart: f("Copied ", "Copiado "),
             copiedEnd: f(" to clipboard", " para clipboard"),

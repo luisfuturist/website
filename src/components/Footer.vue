@@ -24,8 +24,7 @@ const { text } = defineProps({
 
 <style module lang="stylus">
 .container {
-    background-color: color-gray-2;
-    color: #fff;
+    background: var(--lfds-footer-bg);
     padding: 16px;
 }
 
@@ -39,7 +38,7 @@ const { text } = defineProps({
 
 .text {
     margin: 0;
-    color: color-gray-8;
+    color: var(--lfds-footer-text-color);
 }
 
 .links {

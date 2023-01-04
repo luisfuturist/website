@@ -9,7 +9,11 @@ import Navbar from "../components/Navbar.vue";
 import Section from "../components/Section.vue";
 import Topbar from "../components/Topbar.vue";
 import { useContent } from "../composables/useContent";
+import { useUserPrefTheme } from "../composables/useUserPrefTheme";
 import logo from "/logo.png";
+import logoLight from "/logo-light.png";
+
+const { userPrefTheme } = useUserPrefTheme();
 
 const { title } = defineProps({
     title: String,
@@ -32,8 +36,9 @@ const menu = computed(() => {
 </script>
 
 <template>
+<div class="wrapper">
 <Topbar :text="content.topbar.text"/>
-<Navbar :logo="logo" :logo-alt="content.navbar.logoAlt" :name="content.navbar.name" link="#" :menu="menu"/>
+<Navbar :logo="userPrefTheme === 'dark' ? logo : logoLight" :logo-alt="content.navbar.logoAlt" :name="content.navbar.name" link="#" :menu="menu"/>
 <Hero :title="content.hero.title" :text="content.hero.text"/>
 <Main>
     <Section :title="content.about.title" :id="content.navbar.menu.about.id">
@@ -61,6 +66,7 @@ const menu = computed(() => {
 </Main>
 
 <Footer :text="content.footer.text" :links="content.footer.links"/>
+</div>
 </template>
 
 <style scoped lang="stylus">

@@ -20,7 +20,7 @@ const { text } = defineProps({
 
 span {
     position: relative;
-    color: color-gray-5;
+    color: var(--lfds-topbar-text-color);
 
     &::after {
         content: "";
@@ -29,7 +29,7 @@ span {
         bottom: -4px;
         width: 100%;
         height: 2px;
-        background: color-orange-2;
+        background: var(--lfds-topbar-border-color);
     }
 }
 </style>

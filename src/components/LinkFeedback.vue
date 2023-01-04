@@ -24,14 +24,14 @@ const content = computed(() => useContent().value.components.linkFeedback);
 
     z-index: 500;
 
-    color: color-gray-7;
-    background: color-gray-1;
+    color: var(--lfds-popover-text-color);
+    background: var(--lfds-popover-bg);
     width: max-content;
-    border: 1px solid color-gray-2;
+    border: 1px solid var(--lfds-popover-border-color);
     border-radius: 8px;
     margin: 0;
     padding: 4px 12px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: var(--lfds-popover-shadow) 0px 8px 24px;
     max-width: 50vw;
     word-break: break-word;
     animation: fadeout 0.5s motion-ease-1;
@@ -51,7 +51,7 @@ const content = computed(() => useContent().value.components.linkFeedback);
     }
 
     &-href {
-        color: color-white;
+        color: var(--lfds-link-color-normal);
     }
 }
 </style>

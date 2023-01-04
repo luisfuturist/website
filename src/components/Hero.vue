@@ -21,7 +21,7 @@ const { title, text } = defineProps({
 dot-grid() {
     grid-size = 20px;
     
-    background: radial-gradient(color-azure-4 1px, transparent 1px);
+    background: radial-gradient(var(--lfds-pattern-matrix-color) 1px, transparent 1px);
     background-position: 0;
     background-size: grid-size grid-size;
 
@@ -46,15 +46,15 @@ overlay() {
     align-items: center;
     justify-content: center;
 
-    background-color: color-gray-1;
-    color: #fff;
+    background: transparent;
     padding-inline: 32px;
     height: 20rem;
     
     dot-grid();
     +overlay() {
-        background: radial-gradient(ellipse at top, color-gray-1, transparent),
-            radial-gradient(ellipse at bottom, color-gray-1, transparent);
+        overlay-color = var(--lfds-pattern-matrix-overlay);
+        background: radial-gradient(ellipse at top, overlay-color, transparent),
+            radial-gradient(ellipse at bottom, overlay-color, transparent);
     };
 }
 
@@ -73,7 +73,7 @@ overlay() {
 }
 
 .title {
-    color: color-azure-5;
+    color: var(--lfds-hero-title-color);
 
     font-size: 64px;
     font-weight: 400;
@@ -85,7 +85,7 @@ overlay() {
 }
 
 .text {
-    color: color-gray-7;
+    color: var(--lfds-hero-text-color);
     font-size: 18px;
     margin: 0;
 }

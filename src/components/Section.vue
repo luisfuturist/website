@@ -31,20 +31,18 @@ section {
 }
 
 .post {
-    background-color: color-gray-1;
-
     padding: 16px;
 }
 
 .title {
     font-size: 32px;
     margin-bottom: 16px;
-    color: color-azure-5;
+    color: var(--lfds-section-title);
 }
 
 .number {
     font-size: 32px;
-    color: color-gray-2;
+    color: var(--lfds-section-number);
     margin-right: 8px;
 }
 
@@ -58,20 +56,21 @@ section {
     position: relative;
 }
 
-h1 {
-    color: color-gray-9;
+h1, h2 {
+    color: var(--lfds-section-title-2);
     font-weight: 400;
+}
+
+h1 {
     margin: 0;
 }
 
 h2 {
-    color: color-gray-9;
-    font-weight: 400;
     margin-bottom: 16px;
 }
 
 p {
-    color: color-gray-7;
+    color: var(--lfds-section-text);
     margin-bottom: 16px;
 }
 

@@ -12,22 +12,20 @@ const { setUserPrefLang } = useUserPrefLang();
 const content = computed(() => useContent().value.components.languageSelector);
 
 const options = computed(() => [
-    { label: content.value.en, href: "en" },
-    { label: content.value.pt, href: "pt" },
+    { label: content.value.en, id: "en" },
+    { label: content.value.pt, id: "pt" },
 ]);
 const pathname = location.pathname === "/" ?
     initialLang :
     location.pathname.replace("/", "");
 
-console.log(pathname)
-
-const initialIndex = options.value.findIndex(v => v.href === pathname);
+const initialIndex = options.value.findIndex(v => v.id === pathname);
 
 const router = useRouter();
 
 function handleClick(option) {
-    router.push(option.href);
-    setUserPrefLang(option.href);
+    router.push(option.id);
+    setUserPrefLang(option.id);
 }
 </script>
 

@@ -3,8 +3,10 @@ import { ref } from 'vue';
 import Link from "./Link.vue";
 import { useBlurFocus } from "../composables/useBlurFocus";
 import LanguageSelector from './LanguageSelector.vue';
+import ThemeSelector from './ThemeSelector.vue';
 
 const { blurFocus } = useBlurFocus();
+
 const { logo, name, menu, link, logoAlt } = defineProps({
     logo: String,
     name: String,
@@ -34,23 +36,29 @@ function toggleMenu() {
                 <span class="name">{{ name }}</span>
             </a>
             <span class="icons">
-                <LanguageSelector :toLeft="true" class="langSelector-mobile"/>
                 <button class="toggle" @click="toggleMenu">
                     <i :class="'togglerIcon bi-' + (showMenu ? 'dash' : 'plus')"/>
                 </button>
             </span>
         </div>
         <ul :class="'menu ' + (!showMenu ? 'isClosed' : '')">
-            <li v-for="item in menu" :key="item.name" class="menuItem">
+            <li v-for="item in menu" :key="item.name" class="menuItem menuItem-links">
                 <Link :label="item.name" :href="item.href" :targetSelf="true" @click="hideMenu" />
             </li>
-            <LanguageSelector :toLeft="true" class="menuItem langSelector"/>
+            <li class="selectors menuItem">
+                <ThemeSelector :toLeft="true" class="selector"/>
+                <LanguageSelector :toLeft="true" class="selector"/>
+            </li>
         </ul>
     </div>
 </nav>
 </template>
 
 <style scoped lang="stylus">
+.selectors {
+    display: flex;    
+}
+
 .icons {
     display: flex;
     gap: 4px;
@@ -61,11 +69,12 @@ function toggleMenu() {
     top: 0px;
     width: 100%;
 
-    background-color: color-gray-1;
+    background: var(--lfds-navbar-bg);
     padding: 16px;
-    border-bottom: 1px solid color-gray-2;
+    padding-bottom: 0px;
+    border-bottom: 1px solid var(--lfds-navbar-border-color);
 
-    z-index: 1000;
+    z-index: 6;
 }
 
 .body {
@@ -75,6 +84,8 @@ function toggleMenu() {
     justify-content: space-between;
     align-items: center;
 
+    position: relative;
+
     @media (max-width: 600px) {
         display: block;
     }
@@ -82,6 +93,7 @@ function toggleMenu() {
 
 .header {
     margin: 0;
+    padding-bottom: 16px;
 
     display: flex;
     justify-content: space-between;
@@ -96,7 +108,7 @@ function toggleMenu() {
     -webkit-tap-highlight-color: transparent;
 
     &:focus {
-        outline: 4px solid alpha(color-azure-4, 0.1);
+        outline: 4px solid var(--lfds-focus-outline);
     }
 
     &:active {
@@ -113,23 +125,30 @@ function toggleMenu() {
 .name {
     font-size: 18px;
     font-weight: 400;
-    color: color-white;
+    color: var(--lfds-link-color-normal);
     margin: 0;
 }
 
 .menu {
     display: block;
-    transition: max-height .5s motion-ease-1;
+    padding-bottom: 16px;
+    transition: height .5s motion-ease-1;
 
     @media (max-width: 600px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: -16px;
+        margin-top: calc(60px - 16px - 1px);
+        width: 100vw;
+        height: 100vh;
         overflow: hidden;
-        
-        display: flex;
-        flex-direction: column;
-        max-height: 256px;
+        z-index: 5;
+
+        background: var(--lfds-body-bg)
 
         &.isClosed {
-            max-height: 0px;
+            height: 0px;
         }
     }
 }
@@ -144,30 +163,7 @@ function toggleMenu() {
         margin: 0;
         width: 100%;
         padding: 10px;
-        border-top: 1px solid #444;
-    }
-
-    &:first-child {
-        @media (max-width: 600px) {
-            margin-top: 16px;
-        }
-    }
-}
-
-.langSelector-mobile {
-    display: none;
-
-    @media (max-width: 600px) {
-        display: block;
-    }
-}
-
-.langSelector {
-    display: inline-block;
-
-    @media (max-width: 600px) {
-        display: none;
-        background: red;
+        border-top: 1px solid var(--lfds-navbar-border-color);
     }
 }
 
@@ -178,11 +174,11 @@ function toggleMenu() {
     -webkit-tap-highlight-color: transparent;
 
     &:hover {
-        color: color-azure-5;
+        color: var(--lfds-link-color-hover);
     }
 
     &:focus {
-        outline: 4px solid alpha(color-azure-4, 0.1);
+        outline: 4px solid var(--lfds-focus-outline);
     }
 
     &:active {
@@ -208,8 +204,8 @@ function toggleMenu() {
         padding: 2px;
         font-size: 24px;
         
-        background-color: transparent;
-        color: #fff;
+        background: transparent;
+        color: var(--lfds-link-color-normal);
         border: none;
         cursor: pointer;
     }

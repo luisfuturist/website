@@ -22,7 +22,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
     margin-top: 16px;
-    color: red !important;
 }
 
 p {

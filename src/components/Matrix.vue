@@ -14,8 +14,8 @@ dot-grid() {
     
     grid-size = 20px;
     
-    background-color: color-white;
-    background: radial-gradient(color-azure-5 1px, transparent 1px);
+    background: transparent;
+    background: radial-gradient(var(--lfds-pattern-matrix-color) 1px, transparent 1px);
     background-position: 0;
     background-size: grid-size grid-size;
 }
@@ -72,7 +72,7 @@ dot-grid() {
         width: 100%;
         height: 100%;
         z-index: 2;
-        background: linear-gradient(color-gray-1, transparent);
+        background: linear-gradient(var(--lfds-pattern-matrix-overlay), transparent);
     }
 }
 </style>

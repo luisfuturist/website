@@ -50,14 +50,14 @@ const { handleClick, isFeedbackVisible } = useFeedback(href, copy);
 
 .isGhost {
     background: transparent;
-    border: 1px solid color-azure-4;
+    border: 1px solid var(--lfds-link-color-hover);
     padding: 4px 8px;
-    color: white;
-    transition: background-color 0.25s motion-ease-1;
+    color: var(--lfds-link-color-normal);
+    transition: background 0.25s motion-ease-1;
     
     &:hover {
         cursor: pointer;
-        background: alpha(color-azure-4, 0.4);
+        background: var(--lfds-link-bg-hover);
     }
 }
 
@@ -70,7 +70,7 @@ const { handleClick, isFeedbackVisible } = useFeedback(href, copy);
     text-decoration: none;
 
     &:focus {
-        outline: 4px solid alpha(color-azure-4, 0.1);
+        outline: 4px solid var(--lfds-focus-outline);
     }
 
     &:active {
@@ -91,11 +91,11 @@ const { handleClick, isFeedbackVisible } = useFeedback(href, copy);
     font-size: 20px;
     padding: 2px;
     
-    color: color-white;
+    color: var(--lfds-link-color-normal);
     transition: color 0.25s motion-ease-1;
 
     &:hover {
-        color: color-azure-5;
+        color: var(--lfds-link-color-hover);
     }
 }
 
@@ -103,12 +103,12 @@ const { handleClick, isFeedbackVisible } = useFeedback(href, copy);
     margin-right: 4px; 
 
     &:hover {
-        color: color-white;
+        color: var(--lfds-link-color-normal);
     }
 }
 
 .anchor {
-    color: color-white;
+    color: var(--lfds-link-color-normal);
     position: relative;
 
     &::after {
@@ -118,12 +118,12 @@ const { handleClick, isFeedbackVisible } = useFeedback(href, copy);
         left: 0;
         width: 0%;
         height: 2px;
-        background: color-azure-5;
+        background: var(--lfds-link-color-hover);
         transition: width motion-duration-xs motion-ease-1;
     }
 
     &:hover {
-        color: color-white;
+        color: var(--lfds-link-color-normal);
 
         &::after {
             width: 100%;

@@ -9,10 +9,30 @@ import Home from "./views/Home.vue";
 </template>
 
 <style lang="stylus">
+@import "./themes/dark.styl";
+@import "./themes/light.styl";
+
+:root {
+    theme-dark();
+
+    body[theme="light"] {
+        theme-light();
+    }
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    background: color-gray-1;
-    overflow-x: hidden;
+    background: var(--lfds-body-bg);
+    overflow: auto;
+}
+
+#app {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 * {
@@ -20,24 +40,25 @@ body {
 }
 
 *::selection {
-    background: color-gray-2;
-    color: color-gray-9;
+    background: var(--lfds-selection-bg);
+    color: var(--lfds-selection-color);
 }
 
 ::-webkit-scrollbar {
 	width: 6px;
+    z-index: -10;
 }
 
 ::-webkit-scrollbar-track {
-	background-color: color-gray-2;
+	background-color: var(--lfds-scrollbar-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: color-gray-3; 
+	background: var(--lfds-scrollbar-thumb-normal); 
 	border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: color-azure-5; 
+	background: var(--lfds-scrollbar-thumb-hover);
 }
 </style>
