@@ -138,10 +138,10 @@ function toggleMenu() {
         position: absolute;
         top: 0;
         left: 0;
-        margin-left: -16px;
-        margin-top: calc(60px - 16px - 1px);
         width: 100vw;
         height: 100vh;
+        margin-left: -16px;
+        margin-top: calc(60px - 16px - 1px);
         overflow: hidden;
         z-index: 5;
 
@@ -149,6 +149,7 @@ function toggleMenu() {
 
         &.isClosed {
             height: 0px;
+            padding: 0;
         }
     }
 }
