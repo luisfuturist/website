@@ -16,7 +16,7 @@ export const content: SimpleContentType = (tl, f) => ({
         },
         linkFeedback: {
             copiedStart: f("Copied ", "Copiado "),
-            copiedEnd: f(" to clipboard", " para clipbard"),
+            copiedEnd: f(" to clipboard", " para clipboard"),
         },
     },
     home: {
