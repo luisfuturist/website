@@ -11,3 +11,11 @@ const { menu } = defineProps({
     <MainNav :items="menu"/>
 </header>
 </template>
+
+<style scoped lang="stylus">
+.header {
+    position: sticky;
+    top: 0px;
+    z-index: 6;
+}
+</style>

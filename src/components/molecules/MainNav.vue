@@ -88,14 +88,11 @@ function toggleMenu() {
 }
 
 .nav {
-    position: sticky;
-    top: 0px;
     width: 100%;
     background: var(--lfds-navbar-bg);
     padding: 16px;
     padding-bottom: 0px;
     border-bottom: 1px solid var(--lfds-navbar-border-color);
-    z-index: 6;
 }
 
 .body {
@@ -138,8 +135,6 @@ function toggleMenu() {
     display: block;
     transition: max-height .5s motion-ease-1;
 
-    //padding-bottom: 16px;
-
     @media (max-width: 600px) {
         padding: 0;
 
@@ -153,7 +148,6 @@ function toggleMenu() {
         z-index: 5;
         background: var(--lfds-body-bg);
         border-bottom: 1px solid var(--lfds-navbar-border-color);
-        //padding-top: 32px;
 
         &.isClosed {
             max-height: 0px;
