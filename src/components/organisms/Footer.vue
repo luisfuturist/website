@@ -1,6 +1,6 @@
 <script setup>
+import LinkIcon from "@/components/molecules/LinkIcon.vue";
 import { useCssModule } from 'vue';
-import Link from "./Link.vue";
 
 const classes = useCssModule();
 const { text } = defineProps({
@@ -15,7 +15,7 @@ const { text } = defineProps({
         <p :class="classes.text">{{ text }}</p>
         <ul :class="classes.links">
             <li v-for="link in links" :key="link.name" :class="classes.link">
-                <Link :href="link.href" :icon="link.icon" />
+                <LinkIcon :href="link.href" :icon="link.icon"/>
             </li>
         </ul>
     </div>

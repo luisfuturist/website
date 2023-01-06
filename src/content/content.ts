@@ -57,7 +57,7 @@ export const content: SimpleContentType = (tl, f) => ({
                 en: "I'm currently in the process of building out my portfolio, but in the meantime, you can follow my progress and check out some of my work on GitHub. Just click the link below to be redirected to my profile. I am always striving to improve and learn new skills, so you can check back in the future to see what I have been up to. Thank you for your interest in my work, and I hope to share more with you soon!",
                 pt: "No momento, estou construindo meu portfólio, mas, enquanto isso, você pode acompanhar meu progresso e conferir alguns de meus trabalhos no GitHub. Basta clicar no link abaixo para ser redirecionado ao meu perfil. Estou sempre me esforçando para melhorar e aprender novas habilidades, então você pode voltar no futuro para ver o que tenho feito. Obrigado pelo seu interesse em meu trabalho, e espero compartilhar mais com você em breve!",
             }),
-            link: { label: "luisfloat", icon: "github", href: "https://github.com/luisfloat", ghost: true },
+            link: { label: "luisfloat", icon: "github", href: "https://github.com/luisfloat" },
         },
         contact: {
             title: f("Contact", "Contato"),
@@ -70,7 +70,9 @@ export const content: SimpleContentType = (tl, f) => ({
                 { label: `${f("contact", "contato")}@luisfloat.com`, icon: "envelope", href: `mailto:${f("contact", "contato")}@luisfloat.com` },
                 { label: "@luisfloat", icon: "linkedin", href: "https://linkedin.com/in/luisfloat" },
                 { label: "+55(47)99921-6685", icon: "whatsapp", href: "https://wa.me/+5547999216685" },
-                { label: "luisfloat#9971", icon: "discord", href: "luisfloat#9971", copy: true },
+            ],
+            clips: [
+                { label: "luisfloat#9971", icon: "discord", text: "luisfloat#9971" },
             ],
         },
         footer: {

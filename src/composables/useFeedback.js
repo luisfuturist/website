@@ -1,28 +1,26 @@
 import { ref } from "vue";
 import { useBlurFocus } from "./useBlurFocus";
 
-export function useFeedback(href, copy) {
+export function useFeedback(text) {
     const { blurFocus } = useBlurFocus();
 
-    const isFeedbackVisible = ref(false); 
+    const isFeedbackVisible = ref(false);
 
-    function handleClick(e) {
+    const handleClick = (e) => {
         blurFocus();
 
-        if(copy) {
-            e.preventDefault();
+        e.preventDefault();
 
-            navigator.clipboard.writeText(href);
-            isFeedbackVisible.value = true;
+        navigator.clipboard.writeText(text);
+        isFeedbackVisible.value = true;
 
-            setTimeout(() => {
-                isFeedbackVisible.value = false; 
-            }, 4000);
-        }
-    }
+        setTimeout(() => {
+            isFeedbackVisible.value = false;
+        }, 4000);
+    };
 
     return {
         isFeedbackVisible,
         handleClick,
-    }
+    };
 }

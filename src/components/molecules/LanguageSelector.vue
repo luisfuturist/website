@@ -1,10 +1,10 @@
 <script setup>
+import Dropdown from "@/components/atoms/Dropdown.vue";
+import { useContent } from '@/composables/useContent';
+import { useInitialLang } from "@/composables/useInitialLang";
+import { useUserPrefLang } from '@/composables/useUserPrefLang';
 import { computed } from '@vue/reactivity';
 import { useRouter } from 'vue-router';
-import { useContent } from '../composables/useContent';
-import { useInitialLang } from "../composables/useInitialLang";
-import { useUserPrefLang } from '../composables/useUserPrefLang';
-import Dropdown from "./Dropdown.vue";
 
 const { initialLang } = useInitialLang();
 const { setUserPrefLang } = useUserPrefLang();

@@ -1,18 +1,23 @@
 <script setup>
-import { ref } from 'vue';
-import Link from "./Link.vue";
-import { useBlurFocus } from "../composables/useBlurFocus";
-import LanguageSelector from './LanguageSelector.vue';
-import ThemeSelector from './ThemeSelector.vue';
+import Link from "@/components/atoms/Link.vue";
+import Brand from "@/components/molecules/Brand.vue";
+import LanguageSelector from '@/components/molecules/LanguageSelector.vue';
+import ThemeSelector from '@/components/molecules/ThemeSelector.vue';
+import { useBlurFocus } from "@/composables/useBlurFocus";
+import { useContent } from "@/composables/useContent";
+import { useUserPrefTheme } from "@/composables/useUserPrefTheme";
+import { computed, ref } from 'vue';
+import logoLight from "/logo-light.png";
+import logoDark from "/logo.png";
+
+const { userPrefTheme } = useUserPrefTheme();
+
+const contentState = useContent();
+const content = computed(() => contentState.value.home);
 
 const { blurFocus } = useBlurFocus();
-
-const { logo, name, menu, link, logoAlt } = defineProps({
-    logo: String,
-    name: String,
-    menu: Object,
-    link: String,
-    logoAlt: String,
+const { logo, name, items, link, logoAlt } = defineProps({
+    items: Object,
 });
 
 const showMenu = ref(false);
@@ -31,10 +36,12 @@ function toggleMenu() {
 <nav class="nav">
     <div class="body">
         <div class="header">
-            <a class="brand" :href="link" @click="blurFocus">
-                <img class="logo" :src="logo" :alt="logoAlt">
-                <span class="name">{{ name }}</span>
-            </a>
+            <Brand v-bind="{
+                logo: (userPrefTheme === 'dark' ? logoDark : logoLight),
+                logoAlt: content.navbar.logoAlt,
+                name: content.navbar.name,
+                link: '#',
+            }"/>
             <span class="icons">
                 <button class="toggle" @click="toggleMenu">
                     <i :class="'togglerIcon bi-' + (showMenu ? 'dash' : 'plus')"/>
@@ -42,19 +49,35 @@ function toggleMenu() {
             </span>
         </div>
         <ul :class="'menu ' + (!showMenu ? 'isClosed' : '')">
-            <li v-for="item in menu" :key="item.name" class="menuItem menuItem-links">
-                <Link :label="item.name" :href="item.href" :targetSelf="true" @click="hideMenu" />
+            <li v-for="item in items" :key="item.name" class="menuItem menuItem-links">
+                <Link :href="item.href" :targetSelf="true" @click="hideMenu">
+                    {{ item.name }}
+                </Link>
             </li>
             <li class="selectors menuItem">
                 <ThemeSelector :toLeft="true" class="selector"/>
                 <LanguageSelector :toLeft="true" class="selector"/>
             </li>
+            <div class="menu-minus">
+                <button class="toggle" @click="toggleMenu">
+                    <i :class="'togglerIcon bi-' + (showMenu ? 'dash' : 'plus')"/>
+                </button>
+            </div>
         </ul>
     </div>
 </nav>
 </template>
 
 <style scoped lang="stylus">
+.menu-minus {
+    display: flex;
+    //align-items: center;
+    justify-content: flex-end;
+    margin-left: 16px;
+    margin-right: calc(16px + 6px);
+    padding-bottom: 16px;
+}
+
 .selectors {
     display: flex;    
 }
@@ -68,22 +91,18 @@ function toggleMenu() {
     position: sticky;
     top: 0px;
     width: 100%;
-
     background: var(--lfds-navbar-bg);
     padding: 16px;
     padding-bottom: 0px;
     border-bottom: 1px solid var(--lfds-navbar-border-color);
-
     z-index: 6;
 }
 
 .body {
     margin: 0 auto;    
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     position: relative;
 
     @media (max-width: 600px) {
@@ -94,7 +113,6 @@ function toggleMenu() {
 .header {
     margin: 0;
     padding-bottom: 16px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -116,40 +134,30 @@ function toggleMenu() {
     }
 }
 
-.logo {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-}
-
-.name {
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--lfds-link-color-normal);
-    margin: 0;
-}
-
 .menu {
     display: block;
-    padding-bottom: 16px;
-    transition: height .5s motion-ease-1;
+    transition: max-height .5s motion-ease-1;
+
+    //padding-bottom: 16px;
 
     @media (max-width: 600px) {
-        position: absolute;
-        top: 0;
+        padding: 0;
+
+        position: fixed;
+        top: 60px;
         left: 0;
         width: 100vw;
-        height: 100vh;
-        margin-left: -16px;
-        margin-top: calc(60px - 16px - 1px);
+        max-height: 100vh;
+        margin-top: calc(-60px);
         overflow: hidden;
         z-index: 5;
-
-        background: var(--lfds-body-bg)
+        background: var(--lfds-body-bg);
+        border-bottom: 1px solid var(--lfds-navbar-border-color);
+        //padding-top: 32px;
 
         &.isClosed {
-            height: 0px;
-            padding: 0;
+            max-height: 0px;
+            border-bottom: none;
         }
     }
 }

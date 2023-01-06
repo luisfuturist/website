@@ -1,9 +1,9 @@
 <script setup>
-import { useSectionCount } from "../composables/useSectionCount.js";
+import Title from "@/components/atoms/Title.vue";
+import { useSectionCount } from "@/composables/useSectionCount.js";
 
-const { title, text } = defineProps({
+const { title } = defineProps({
     title: String,
-    text: String,
 });
 
 let { count } = useSectionCount();
@@ -12,18 +12,15 @@ let { count } = useSectionCount();
 <template>
 <section class="post">
     <div class="post-body">
-        <h1 class="title">
-            <span class="number">0{{ count }}</span>
-            — {{ title }}
-        </h1>
+        <Title :title="title" :number="count"/>
         <slot/>
     </div>
 </section>
 </template>
 
 <style lang="stylus">
-html {
-  scroll-behavior: smooth;
+* {
+    scroll-behavior: smooth;
 }
 
 section {
@@ -32,18 +29,6 @@ section {
 
 .post {
     padding: 16px;
-}
-
-.title {
-    font-size: 32px;
-    margin-bottom: 16px;
-    color: var(--lfds-section-title);
-}
-
-.number {
-    font-size: 32px;
-    color: var(--lfds-section-number);
-    margin-right: 8px;
 }
 
 .post-body {

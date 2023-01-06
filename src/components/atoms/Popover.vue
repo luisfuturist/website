@@ -1,23 +1,18 @@
 <script setup>
-import { computed } from 'vue';
-import { useContent } from '../composables/useContent';
-
-const { href } = defineProps({
-    href: String,
-    isFeedbackVisible: Boolean,
+const { click, toLeft } = defineProps({
+    click: Function,
+    toLeft: Boolean,
 });
-
-const content = computed(() => useContent().value.components.linkFeedback);
 </script>
 
 <template>
-<div v-show="isFeedbackVisible" class="feedback">
-    {{ content.copiedStart }}<span class="feedback-href">{{ href }}</span>{{ content.copiedEnd }}
+<div class="popover">
+    <slot/>
 </div>
 </template>
 
 <style scoped lang="stylus">
-.feedback {
+.popover {
     position: absolute;
     bottom: 2em;
     cursor: default;
@@ -49,9 +44,6 @@ const content = computed(() => useContent().value.components.linkFeedback);
             opacity: 0;
         }
     }
-
-    &-href {
-        color: var(--lfds-link-color-normal);
-    }
 }
 </style>
+  

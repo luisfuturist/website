@@ -1,8 +1,14 @@
 import vue from "@vitejs/plugin-vue";
+import path from "path";
 
 export default {
     root: "./src/",
     publicDir: "./assets/",
+    resolve: {
+        alias: {
+            "@": path.resolve("./src/"),
+        },
+    },
     css: {
         preprocessorOptions: {
             stylus: {

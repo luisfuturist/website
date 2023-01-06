@@ -1,8 +1,8 @@
 <script setup>
+import Dropdown from "@/components/atoms/Dropdown.vue";
+import { useContent } from '@/composables/useContent';
+import { useUserPrefTheme } from '@/composables/useUserPrefTheme';
 import { computed, ref } from "vue";
-import { useContent } from '../composables/useContent';
-import { useUserPrefTheme } from '../composables/useUserPrefTheme';
-import Dropdown from "./Dropdown.vue";
 
 const content = computed(() => useContent().value.components.themeSelector);
 
@@ -17,38 +17,48 @@ const colorScheme = userPrefTheme.value || "dark";
 const initialIndex = options.value.findIndex(v => v.id === colorScheme);
 
 const animationDelay = 500;
-const animationDelayQty = animationDelay + "ms"
+const animationDelayQty = animationDelay + "ms";
 const changingTheme = ref(false);
 
-updateTheme(colorScheme);
-
-function updateTheme(themeId) {
+const updateTheme = (themeId) => {
     document.body.setAttribute("theme", themeId);
-}
+};
 
-function handleClick(option) {
+const initAnimation = (option) => {
     setUserPrefTheme(option.id);
-
     changingTheme.value = true;
+};
+const startAnimation = (option) => {
+    updateTheme(option.id);
+};
+const endAnimation = () => {
+    changingTheme.value = false;
+};
+
+const handleClick = (option) => {
+    initAnimation(option);
 
     setTimeout(() => {
-        updateTheme(option.id);
-
-        console.log("start")
+        startAnimation(option);
         
-        setTimeout(() => {
-            changingTheme.value = false;
-
-            console.log("end")
-        }, animationDelay);
+        setTimeout(() => endAnimation(option), animationDelay);
     }, animationDelay);
-}
+};
+
+updateTheme(colorScheme);
 </script>
 
 <template>
-<Dropdown icon="palette-fill" :options="options" :initial-index="initialIndex" :click="handleClick">
+<Dropdown
+    icon="palette-fill"
+    :options="options"
+    :initial-index="initialIndex"
+    :click="handleClick">
     <Teleport to="body">
-        <div class="theme-transition" :class="{ 'is-theme-transition-start': (changingTheme) }"></div>
+        <div
+            class="theme-transition"
+            :class="{ 'is-theme-transition-start': (changingTheme) }">
+        </div>
     </Teleport>
 </Dropdown>
 </template>
@@ -59,7 +69,7 @@ function handleClick(option) {
         opacity: 0;
     }
     to {
-        opacity: 1;   
+        opacity: 1;
     }
 }
 
@@ -68,7 +78,7 @@ function handleClick(option) {
     position: fixed;
     top: 0;
     right: 0;
-    width: 100vw;    
+    width: 100vw;
     height: 100vh;
     display: none;
     background: color-gray-1;
@@ -76,6 +86,6 @@ function handleClick(option) {
 
 .is-theme-transition-start {
     display: block;
-    animation: a-theme v-bind(animationDelayQty) ease infinite alternate;    
+    animation: a-theme v-bind(animationDelayQty) ease infinite alternate;
 }
 </style>
