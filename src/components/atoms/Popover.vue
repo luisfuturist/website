@@ -32,8 +32,12 @@ const { click, toLeft } = defineProps({
     animation: fadeout 0.5s motion-ease-1;
     animation-delay: 3.5s;
 
-    @media (max-width: 600px) {
-        max-width: max-content;
+    @media (max-width: 900px) {
+        right: 0;   
+    }
+
+    @media (max-width: 690px) {
+        left: 0;
     }
 
     @keyframes fadeout {
