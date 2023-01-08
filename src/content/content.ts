@@ -79,8 +79,8 @@ export const content: SimpleContentType = (tl, f) => ({
         donate: {
             title: "Donate",
             text: tl({
-                en: "Thank you for considering donating to me! Your support helps me to continue creating and sharing valuable content with the community. Any amount, big or small, is greatly appreciated. If you are unable to donate at this time, please consider sharing my website with your friends and followers. Thank you for your support! Click the button below to open a donate modal.",
-                pt: "pt",
+                en: "Thank you for considering a donation! Your support helps me to continue creating and sharing content with the community. Any amount, big or small, is greatly appreciated. If you can't make this moment, please consider sharing my site with your friends and followers. Thank you for your support! Click on the button below to open a donation modal.",
+                pt: "Obrigado por considerar uma doação! Seu apoio me ajuda a continuar criando e compartilhando conteúdo com a comunidade. Qualquer quantia, grande ou pequena, é muito apreciada. Se não puder doar neste momento, considere compartilhar meu site com seus amigos e seguidores. Obrigado pelo seu apoio! Clique no botão abaixo para abrir um modal de doação.",
             }),
             items: {
                 "Pix (BRL)": "(47) 99921-6685",
