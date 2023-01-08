@@ -19,7 +19,9 @@ const { handleClick, isFeedbackVisible } = useFeedback(text);
         class="icon"
         :class="{ 'is-alone': $slots.default }"
     />
-    <slot/>
+    <span class="content">
+        <slot/>
+    </span>
     <ButtonIcon
         icon="clipboard-fill"
         class="clipboard-icon"
@@ -51,7 +53,36 @@ const { handleClick, isFeedbackVisible } = useFeedback(text);
     align-items: center;
     gap: 4px;
 
-    color: var(--lfds-link-color-normal)
+    color: var(--lfds-link-color-normal);
+}
+
+.content {
+    border-radius: 4px;
+    overflow: hidden;
+    color: var(--lfds-popover-text-color);
+    max-width: 400px;
+    padding: 0 4px;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overlay-color = var(--lfds-body-bg);
+        background: linear-gradient(to right, overlay-color, transparent, transparent, transparent, overlay-color);
+    }
+
+    @media (max-width: 600px) {
+        max-width: 200px;
+    }
+
+    &::-webkit-scrollbar {
+        width: 2px;
+        height: 2px;
+    }
 }
 
 .icon {
