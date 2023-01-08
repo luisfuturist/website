@@ -38,6 +38,7 @@ export const content: SimpleContentType = (tl, f) => ({
                 about: { name: f("About", "Sobre"), id: f("about", "sobre") },
                 projects: { name: f("Projects", "Projetos"), id: f("projects", "projetos") },
                 contact: { name: f("Contact", "Contato"), id: f("contact", "contato") },
+                donate: { name: "Donate", id: "donate" },
             },
         },
         hero: {
@@ -74,6 +75,20 @@ export const content: SimpleContentType = (tl, f) => ({
             clips: [
                 { label: "luisfloat#9971", icon: "discord", text: "luisfloat#9971" },
             ],
+        },
+        donate: {
+            title: "Donate",
+            text: tl({
+                en: "Thank you for considering donating to me! Your support helps me to continue creating and sharing valuable content with the community. Any amount, big or small, is greatly appreciated. If you are unable to donate at this time, please consider sharing my website with your friends and followers. Thank you for your support! Click the button below to open a donate modal.",
+                pt: "pt",
+            }),
+            items: {
+                "Pix (BRL)": "(47) 99921-6685",
+                "Nano": "nano_3ke34tcxrqz38s91dw8stxdoqodwffmar34txn7hh9tfbw9r4y6mxyz85iey",
+                "Monero": "4A6M81P8WuKM26cMCcuRXSFKZsLcUEjWNYfCRErffw9qLguwMLcnNjdHNs8QDJAsg1J4zhTR9hkszMcg2duRAa5p76usJPM",
+                "Bitcoin": "1Bfrd9aRgtQXmoSoPaRpKqWa1YLFmgGXTw",
+                "Ethereum": "0x291AC43629ac7BFD514d0251aab6c1099B052571",
+            },
         },
         footer: {
             text: f("Design and Code by Luis Float", "Design e Code por Luis Float"),
