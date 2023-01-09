@@ -24,7 +24,6 @@ const { handleClick, isFeedbackVisible } = useFeedback(text);
     </span>
     <ButtonIcon
         icon="clipboard-fill"
-        class="clipboard-icon"
         :is-transparent="true"
         @click="handleClick">
     </ButtonIcon>
@@ -35,14 +34,6 @@ const { handleClick, isFeedbackVisible } = useFeedback(text);
 </template>
 
 <style scoped lang="stylus">
-.clipboard-icon {
-    color: var(--lfds-link-color-normal);
-    transition: color 0.25s motion-ease-1;
-
-    &:hover {
-        color: var(--lfds-link-color-hover);
-    }
-}
 .link {
     gap: 4px;
 }
@@ -92,13 +83,7 @@ const { handleClick, isFeedbackVisible } = useFeedback(text);
     width: 24px;
     height: 24px;
     font-size: 20px;
-    
-    color: var(--lfds-link-color-normal);
     transition: color 0.25s motion-ease-1;
-
-    &:hover {
-        color: var(--lfds-link-color-hover);
-    }
 }
 
 .icon.is-alone:hover {

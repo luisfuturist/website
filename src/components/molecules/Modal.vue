@@ -1,4 +1,5 @@
 <script setup>
+import FadeTransition from '../styles/FadeTransition.vue';
 import ButtonIcon from './ButtonIcon.vue';
 
 const { title, onClose, closeable } = defineProps({
@@ -15,7 +16,7 @@ const handleClick = () => {
 
 <template>
 <Teleport to="body">
-    <Transition>
+    <FadeTransition>
         <div v-if="open">
             <div class="modal">
                 <div class="modal-header">
@@ -34,21 +35,11 @@ const handleClick = () => {
             </div>
             <div class="modal-bg" @click="handleClick"/>
         </div>
-    </Transition>
+    </FadeTransition>
 </Teleport>
 </template>
 
 <style scoped lang="stylus">
-.v-enter-active,
-.v-leave-active {
-    transition: opacity 0.25s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-    opacity: 0;
-}
-
 .modal-header {
     display: flex;
     justify-content: space-between;

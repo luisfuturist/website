@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { useBlurFocus } from '../../composables/useBlurFocus';
 import Icon from "./Icon.vue";
+import FadeTransition from "../styles/FadeTransition.vue";
 
 const { options, initialIndex, click, icon, toLeft } = defineProps({
     options: Array,
@@ -36,11 +37,13 @@ const selectOption = (option) => {
         <Icon v-if="!isOpen" name="caret-down-fill"/>
         <Icon v-if="isOpen" name="caret-up-fill"/>
     </button>
-    <ul v-if="isOpen" class="menu" :class="{ 'toLeft': toLeft }">
-        <li v-for="option in options" :key="option" class="menu-item" @click="selectOption(option)">
-            <button class="menu-btn" :disabled="option.id === currentOption.id">{{ option.label }}</button>
-        </li>
-    </ul>
+    <FadeTransition>
+        <ul v-if="isOpen" class="menu" :class="{ 'toLeft': toLeft }">
+            <li v-for="option in options" :key="option" class="menu-item" @click="selectOption(option)">
+                <button class="menu-btn" :disabled="option.id === currentOption.id">{{ option.label }}</button>
+            </li>
+        </ul>
+    </FadeTransition>
     <slot/>
 </div>
 </template>
@@ -63,6 +66,7 @@ style-focus() {
 .icon {
     color: var(--lfds-link-color-normal);
     margin-right: 4px;
+    transition: color 0.25s motion-ease-1;
 }
 
 .container {
@@ -76,6 +80,8 @@ style-focus() {
     color: var(--lfds-link-color-normal);
     border: none;
     cursor: pointer;
+
+    transition: color 0.25s motion-ease-1;
 
     style-focus();
 

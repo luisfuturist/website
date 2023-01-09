@@ -32,7 +32,9 @@ const { text, isGhost, icon, isTransparent } = defineProps({
     width: 24px;
     height: 24px;
     font-size: 20px;
+
     
+    transition: background 0.25s motion-ease-1, color 0.25s motion-ease-1;
     color: var(--lfds-link-color-normal);
 
     &:hover {
