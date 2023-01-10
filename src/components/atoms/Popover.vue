@@ -1,14 +1,19 @@
 <script setup>
-const { click, toLeft } = defineProps({
+import FadeTransition from '../styles/FadeTransition.vue';
+
+const { click, toLeft, isVisible } = defineProps({
     click: Function,
     toLeft: Boolean,
+    isVisible: Boolean,
 });
 </script>
 
 <template>
-<div class="popover">
-    <slot/>
-</div>
+<FadeTransition>
+    <div class="popover" v-if="isVisible">
+        <slot/>
+    </div>
+</FadeTransition>
 </template>
 
 <style scoped lang="stylus">
@@ -27,10 +32,7 @@ const { click, toLeft } = defineProps({
     margin: 0;
     padding: 4px 12px;
     box-shadow: var(--lfds-popover-shadow) 0px 8px 24px;
-    max-width: 50vw;
     word-break: break-word;
-    animation: fadeout 0.5s motion-ease-1;
-    animation-delay: 3.5s;
 
     @media (max-width: 900px) {
         right: 0;   
@@ -38,15 +40,6 @@ const { click, toLeft } = defineProps({
 
     @media (max-width: 690px) {
         left: 0;
-    }
-
-    @keyframes fadeout {
-        0% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
     }
 }
 </style>

@@ -27,7 +27,7 @@ const { handleClick, isFeedbackVisible } = useFeedback(text);
         :is-transparent="true"
         @click="handleClick">
     </ButtonIcon>
-    <Popover v-show="isFeedbackVisible">
+    <Popover :isVisible="isFeedbackVisible">
         <LinkFeedback :text="text"/>
     </Popover>
 </div>
