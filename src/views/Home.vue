@@ -37,7 +37,6 @@ const isModalOpen = ref(false);
 </script>
 
 <template>
-<Topbar :text="content.topbar.text"/>
 <Header :menu="menu"/>
 <Hero
     :title="content.hero.title"
