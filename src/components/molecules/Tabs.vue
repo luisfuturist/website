@@ -1,10 +1,18 @@
 <script setup>
 import { ref } from 'vue';
+import { useBlurFocus } from '../../composables/useBlurFocus';
+
+const { blurFocus } = useBlurFocus();
 
 const { labels } = defineProps({
     labels: Array,
 });
 const labelActive = ref(0);
+
+const handleClick = (i) => {
+    blurFocus();
+    labelActive.value = i;
+}
 </script>
 
 <template>
@@ -16,7 +24,7 @@ const labelActive = ref(0);
             :class="{ isActive: labelActive === i }"
             v-for="label, i in labels"
             key="label"
-            @click.prevent="() => labelActive = i">
+            @click.prevent="handleClick(i)">
             {{ label }}
         </button>
     </ul>
@@ -84,6 +92,10 @@ const labelActive = ref(0);
     &:focus {
         outline: none;
         border-top-color: var(--lfds-focus-outline);
+    }
+
+    &:active {
+        border-top-color: transparent;
     }
 
     &.isActive {
