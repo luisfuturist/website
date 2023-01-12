@@ -82,12 +82,28 @@ export const content: SimpleContentType = (tl, f) => ({
                 en: "Thank you for considering a donation! Your support helps me to continue creating and sharing content with the community. Any amount, big or small, is greatly appreciated. If you can't make this moment, please consider sharing my site with your friends and followers. Thank you for your support! Click on the button below to open a donation modal.",
                 pt: "Obrigado por considerar uma doação! Seu apoio me ajuda a continuar criando e compartilhando conteúdo com a comunidade. Qualquer quantia, grande ou pequena, é muito apreciada. Se não puder doar neste momento, considere compartilhar meu site com seus amigos e seguidores. Obrigado pelo seu apoio! Clique no botão abaixo para abrir um modal de doação.",
             }),
+            key: f("Key", "Chave"),
             items: {
-                "Pix (BRL)": "(47) 99921-6685",
-                "Nano": "nano_3ke34tcxrqz38s91dw8stxdoqodwffmar34txn7hh9tfbw9r4y6mxyz85iey",
-                "Monero": "4A6M81P8WuKM26cMCcuRXSFKZsLcUEjWNYfCRErffw9qLguwMLcnNjdHNs8QDJAsg1J4zhTR9hkszMcg2duRAa5p76usJPM",
-                "Bitcoin": "1Bfrd9aRgtQXmoSoPaRpKqWa1YLFmgGXTw",
-                "Ethereum": "0x291AC43629ac7BFD514d0251aab6c1099B052571",
+                "Pix": {
+                    name: "Pix",
+                    key: "(47) 99921-6685",
+                },
+                "XNO": {
+                    name: "Nano",
+                    key: "nano_3ke34tcxrqz38s91dw8stxdoqodwffmar34txn7hh9tfbw9r4y6mxyz85iey",
+                },
+                "XMR": {
+                    name: "Monero",
+                    key:  "4A6M81P8WuKM26cMCcuRXSFKZsLcUEjWNYfCRErffw9qLguwMLcnNjdHNs8QDJAsg1J4zhTR9hkszMcg2duRAa5p76usJPM",
+                },
+                "BTC": {
+                    name: "Bitcoin",
+                    key: "1Bfrd9aRgtQXmoSoPaRpKqWa1YLFmgGXTw",
+                },
+                "ETH": {
+                    name: "Ether",
+                    key: "0x291AC43629ac7BFD514d0251aab6c1099B052571",
+                },
             },
         },
         footer: {

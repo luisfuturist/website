@@ -1,76 +1,117 @@
 <script setup>
-import { ref } from 'vue';
+import { onUnmounted, ref } from 'vue';
 import { useBlurFocus } from '../../composables/useBlurFocus';
+import { useQueueableAnimation } from '../../composables/useQueueableAnimation';
 
 const { blurFocus } = useBlurFocus();
 
-const { labels } = defineProps({
+const { labels, isUnboxed } = defineProps({
     labels: Array,
+    isUnboxed: {
+        type: Boolean,
+        default: true,
+    },
 });
-const labelActive = ref(0);
+const {
+    indexAfterTransition,
+    selectedIndex,
+    closing,
+    startAnimation,
+    clearTimers
+} = useQueueableAnimation();
 
 const handleClick = (i) => {
     blurFocus();
-    labelActive.value = i;
-}
+    startAnimation(i);
+};
+
+onUnmounted(() => {
+    clearTimers();
+})
 </script>
 
 <template>
-<div class="tab-container">
+<div class="tab-container" :class="{ isUnboxed }">
     <ul class="tab-header">
         <button
             :id="'tab-btn-' + i"
             class="tab-label"
-            :class="{ isActive: labelActive === i }"
+            :class="{ isActive: indexAfterTransition === i }"
+            :disabled="indexAfterTransition === i"
+            @click.prevent="handleClick(i)"
             v-for="label, i in labels"
-            key="label"
-            @click.prevent="handleClick(i)">
+            key="label">
             {{ label }}
         </button>
     </ul>
     <div class="tab-body">
-        <div v-for="label, i in labels">
-            <div class="isOpen" v-if="labelActive === i">
-                <slot :name="i"/>
+        <template v-for="slot, i in $slots" :key="i">
+            <div
+                v-if="selectedIndex == i"
+                :class="{
+                    isClose: closing && selectedIndex == i,
+                    isOpen: !closing && selectedIndex == i,
+                }">
+                <component :is="slot"/>
             </div>
-        </div>
+        </template>
     </div>
 </div>
 </template>
 
 <style scoped lang="stylus">
+.isOpen, .isClose {
+    animation: fade 0.5s ease 1;
+}
+
 .isOpen {
-    animation: fade 1s ease 1;
-
-    @keyframes fade {
-        from { opacity: 0; }
-        to { opacity: 1; }
+    @keyframes fade-normal {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
     }
+
+    animation-name: fade-normal;
 }
 
-.line {
-    width: 100%;
-    height: 2px;
-    background: red;
+.isClose {
+    opacity: 0;
+
+    @keyframes fade-rev {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+    animation-name: fade-rev;
 }
+
 .tab-container {
-    border: 1px solid color-gray-2;
+    border: 1px solid var(--lfds-popover-border-color);
     border-radius: 4px;
     padding: 16px;
+
+    &.isUnboxed {
+        border: none;
+        padding: 0;
+    }
 }
 
 .tab-header {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    width: 100%;
+    position: relative;
 
     &:after {
+        position: absolute;
         content: '';
-        bottom: 0;
+        bottom: 0px;
         left: 0;
         width: 100%;
         z-index: -1;
-        border-bottom: 2px solid color-gray-2;
+        border-bottom: 2px solid var(--lfds-navbar-border-color);
     }
 }
 
@@ -78,15 +119,20 @@ const handleClick = (i) => {
     list-style: none;
     padding-bottom: 4px;
     margin: 0;
-    color: color-white;
+    color: var(--lfds-link-color-normal);
     background: transparent;
     border: none;
-    border-bottom: 2px solid color-gray-2;
+    border-bottom: 2px solid var(--lfds-navbar-border-color);
     border-top: 2px solid transparent;
     transition: border-color 0.25s ease;
 
     &:hover {
-        border-bottom-color: color-gray-3;
+        cursor: pointer;
+        border-bottom-color: var(--lfds-link-color-hover);
+    }
+
+    &[disabled] {
+        color: var(--lfds-link-color-disabled);
     }
 
     &:focus {
@@ -99,13 +145,14 @@ const handleClick = (i) => {
     }
 
     &.isActive {
-        border-bottom-color: color-azure-5;
+        border-bottom-color: var(--lfds-link-color-disabled);
+        color: var(--lfds-link-color-normal);
     }
 }
 
 .tab-body {
     padding: 0px;
     padding-top: 8px;
-    color: color-gray-7;
+    color: var(--lfds-section-text);
 }
 </style>
