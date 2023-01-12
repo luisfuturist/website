@@ -55,10 +55,20 @@ export const content: SimpleContentType = (tl, f) => ({
         projects: {
             title: f("Projects", "Projetos"),
             text: tl({
-                en: "I'm currently in the process of building out my portfolio, but in the meantime, you can follow my progress and check out some of my work on GitHub. Just click the link below to be redirected to my profile. I am always striving to improve and learn new skills, so you can check back in the future to see what I have been up to. Thank you for your interest in my work, and I hope to share more with you soon!",
-                pt: "No momento, estou construindo meu portfólio, mas, enquanto isso, você pode acompanhar meu progresso e conferir alguns de meus trabalhos no GitHub. Basta clicar no link abaixo para ser redirecionado ao meu perfil. Estou sempre me esforçando para melhorar e aprender novas habilidades, então você pode voltar no futuro para ver o que tenho feito. Obrigado pelo seu interesse em meu trabalho, e espero compartilhar mais com você em breve!",
+                en: "I'm currently in the process of building out my portfolio, but in the meantime, you can follow my progress and check out some of my work on GitHub. For more details, just click on the links below to be redirected to the respective repository on GitHub.",
+                pt: "No momento, estou construindo meu portfólio, mas, enquanto isso, você pode acompanhar meu progresso e conferir alguns de meus trabalhos no GitHub. Para mais detalhes, basta clicar nos links abaixo para ser redirecionado ao respectivo repositório no GitHub.",
             }),
             link: { label: "luisfloat", icon: "github", href: "https://github.com/luisfloat" },
+            fetch: {
+                err: f("There was an error loading projects from GitHub.", "Ocorreu algum erro ao carregar os projetos do GitHub."),
+                success: f("Project data has been successfully fetched from GitHub.", "Os dados dos projetos foram obtidos com sucesso do GitHub."),
+                loading: f("Loading...", "Carregando..."),
+            },
+            thanks: tl({
+                en: "I am always striving to improve and learn new skills, so you can check back in the future to see what I have been up to. Thank you for your interest in my work, and I hope to share more with you soon!",
+                pt: "Estou sempre me esforçando para melhorar e aprender novas habilidades, então você pode voltar no futuro para ver o que tenho feito. Obrigado pelo seu interesse em meu trabalho, e espero compartilhar mais com você em breve!",
+            }),
+            more: f("See my full GitHub profile:", "Veja meu perfil completo do GitHub:"),
         },
         contact: {
             title: f("Contact", "Contato"),

@@ -3,13 +3,13 @@ import Button from "@/components/atoms/Button.vue";
 import Matrix from "@/components/atoms/Matrix.vue";
 import ContactLinks from "@/components/molecules/ContactLinks.vue";
 import CopyToClipboard from "@/components/molecules/CopyToClipboard.vue";
-import LinkIcon from "@/components/molecules/LinkIcon.vue";
 import Modal from "@/components/molecules/Modal.vue";
 import Section from "@/components/molecules/Section.vue";
 import Footer from "@/components/organisms/Footer.vue";
 import Header from "@/components/organisms/Header.vue";
 import Hero from "@/components/organisms/Hero.vue";
 import Main from "@/components/organisms/Main.vue";
+import Projects from "@/components/organisms/Projects.vue";
 import { useContent } from "@/composables/useContent";
 import { computed, ref, watch } from "vue";
 import DonateTabs from "../components/molecules/DonateTabs.vue";
@@ -53,11 +53,7 @@ const isModalOpen = ref(false);
     <Section
         :title="content.projects.title"
         :id="content.navbar.menu.projects.id">
-        <p>{{ content.projects.text }}</p>
-
-        <LinkIcon :is-button="true" :is-ghost="true" v-bind="content.projects.link">
-            {{ content.projects.link.label }}
-        </LinkIcon>
+        <Projects/>
     </Section>
 
     <Section

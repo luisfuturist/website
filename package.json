@@ -1,6 +1,6 @@
 {
   "name": "luisfloat-homepage",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Luis Float's homepage",
   "keywords": [
     "homepage"
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
+    "axios": "^1.2.2",
     "bootstrap-icons": "^1.10.2",
     "lfds-tokens": "github:luisfloat/lfds-tokens",
     "spongia-css": "github:inforgdev/spongia-css",
