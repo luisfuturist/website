@@ -81,6 +81,12 @@ const content = computed(() => contentState.value.home.projects);
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-bottom: 16px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        align-items: flex-start; 
+    }
 }
 
 .more {
