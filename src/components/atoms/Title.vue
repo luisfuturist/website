@@ -8,7 +8,7 @@ const { title, number } = defineProps({
 <template>
 <h1 class="title">
     <span class="number">0{{ number }}</span>
-    — {{ title }}
+    <span class="text">{{ title }}</span>
 </h1>
 </template>
 
@@ -17,6 +17,23 @@ const { title, number } = defineProps({
     font-size: 32px;
     margin-bottom: 16px;
     color: var(--lfds-section-title);
+}
+
+.text {
+    margin-left: 40px;
+
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: -30px;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 2px;
+        background: var(--lfds-section-title);
+    }
 }
 
 .number {
