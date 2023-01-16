@@ -13,7 +13,7 @@ import logoDark from "/logo.png";
 const { userPrefTheme } = useUserPrefTheme();
 
 const contentState = useContent();
-const content = computed(() => contentState.value.home);
+const content = computed(() => contentState.value.app.navbar);
 
 const { blurFocus } = useBlurFocus();
 const { logo, name, items, link, logoAlt } = defineProps({
@@ -38,8 +38,8 @@ function toggleMenu() {
         <div class="header">
             <Brand v-bind="{
                 logo: (userPrefTheme === 'dark' ? logoDark : logoLight),
-                logoAlt: content.navbar.logoAlt,
-                name: content.navbar.name,
+                logoAlt: content.logoAlt,
+                name: content.name,
                 link: '#',
             }"/>
             <span class="icons">
@@ -50,7 +50,7 @@ function toggleMenu() {
         </div>
         <ul :class="'menu ' + (!showMenu ? 'isClosed' : '')">
             <li v-for="item in items" :key="item.name" class="menuItem menuItem-links">
-                <Link :href="item.href" :targetSelf="true" @click="hideMenu">
+                <Link :isCsn="true" :href="item.href" :targetSelf="true" @click="hideMenu">
                     {{ item.name }}
                 </Link>
             </li>
@@ -71,7 +71,6 @@ function toggleMenu() {
 <style scoped lang="stylus">
 .menu-minus {
     display: flex;
-    //align-items: center;
     justify-content: flex-end;
     margin-left: 16px;
     margin-right: calc(16px + 6px);

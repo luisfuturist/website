@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "./views/Home.vue";
 import { useInitialLang } from "./composables/useInitialLang";
+import Home from "./views/Home.vue";
 
 const { initialLang } = useInitialLang();
 
 const routes: Array<RouteRecordRaw> = [
     { path: "/", redirect: "/" + initialLang },
-    { path: "/:lang", component: Home },
+    { path: "/pt", component: Home },
+    { path: "/en", component: Home },
 ];
 
 export const router = createRouter({

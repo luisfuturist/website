@@ -1,14 +1,11 @@
 <script setup>
 import { computed } from 'vue';
 import { useContent } from '../../composables/useContent';
-import { useUserPrefTheme } from '../../composables/useUserPrefTheme';
 import CopyToClipboard from './CopyToClipboard.vue';
 import Tabs from './Tabs.vue';
 
 const contentState = useContent();
-const content = computed(() => contentState.value.home);
-
-const { userPrefTheme } = useUserPrefTheme();
+const content = computed(() => contentState.value.views.home);
 </script>
 
 <template>

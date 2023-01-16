@@ -1,5 +1,6 @@
 
 import { useUserPrefLang } from '../composables/useUserPrefLang';
+import { getLangByPathname } from './useContent';
 const { userPrefLang } = useUserPrefLang();
 
 export function useInitialLang() {
@@ -20,4 +21,12 @@ export function useInitialLang() {
     return {
         initialLang: defaultLang,
     };
+}
+
+export function getInitialLang() {
+    const { initialLang } = useInitialLang();
+
+    return location.pathname === "/" ?
+        initialLang :
+        getLangByPathname()
 }

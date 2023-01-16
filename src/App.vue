@@ -1,11 +1,42 @@
 <script setup>
-import "spongia-css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Home from "./views/Home.vue";
+import "spongia-css";
+import { computed, watch } from "vue";
+import { RouterView } from 'vue-router';
+import Footer from "./components/organisms/Footer.vue";
+import Header from "./components/organisms/Header.vue";
+import { useContent } from "./composables/useContent";
+import { useUserPrefLang } from "./composables/useUserPrefLang";
+
+const contentState = useContent();
+const content = computed(() => contentState.value.app);
+
+watch(contentState, () => {
+    const title = contentState.value.views.home.meta.title;
+
+    if(title) {
+        document.title = title;
+    }
+});
+
+const menu = computed(() => {
+    const menu = content.value.navbar.menu;
+    return Object.keys(menu).map(key => {
+        const item = menu[key];
+        const { userPrefLang } = useUserPrefLang();
+        const langId = userPrefLang.value;
+        return { name: item.name, href: `/${langId}#${item.id}` };
+    });
+});
 </script>
 
 <template>
-<Home></Home>
+<Header :menu="menu"/>
+<RouterView/>
+<Footer
+    :text="content.footer.text"
+    :links="content.footer.links"
+/>
 </template>
 
 <style lang="stylus">

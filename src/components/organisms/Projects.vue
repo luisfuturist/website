@@ -17,7 +17,7 @@ onBeforeMount(() => {
 });
 
 const contentState = useContent();
-const content = computed(() => contentState.value.home.projects);
+const content = computed(() => contentState.value.views.home.projects);
 </script>
 
 <template>

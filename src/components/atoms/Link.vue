@@ -1,7 +1,8 @@
 <script setup>
+import { RouterLink } from "vue-router";
 import classes from "./Button.module.styl";
 
-const { href, targetSelf, hasUnderline, isButton } = defineProps({
+const { href, targetSelf, hasUnderline, isButton, isCsn } = defineProps({
     href: String,
     targetSelf: Boolean,
     isButton: Boolean,
@@ -10,11 +11,24 @@ const { href, targetSelf, hasUnderline, isButton } = defineProps({
         type: Boolean,
         default: true,
     },
+    isCsn: Boolean,
 });
 </script>
 
 <template>
-<a
+<RouterLink v-if="isCsn"
+    :to="href"
+    :class="{
+        'link': true,
+        'anchor': !isButton,
+        'has-underline': hasUnderline && !isButton,
+        [classes.button]: isButton,
+        [classes.isNormal]: isButton && !isGhost,
+        [classes.isGhost]: isButton && isGhost,
+    }">
+    <slot/>
+</RouterLink>
+<a v-else
     :href="href"
     :target="!targetSelf ? '_blank' : ''"
     :class="{

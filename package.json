@@ -1,6 +1,6 @@
 {
   "name": "luisfloat-homepage",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Luis Float's homepage",
   "keywords": [
     "homepage"
@@ -27,6 +27,6 @@
     "lfds-tokens": "github:luisfloat/lfds-tokens",
     "spongia-css": "github:inforgdev/spongia-css",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "4.0.1"
   }
 }
