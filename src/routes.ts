@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import { useInitialLang } from "./composables/useInitialLang";
+import { useUserPrefLang } from "./plugins/content/composables/useUserPrefLang";
 import Home from "./views/Home.vue";
 
-const { initialLang } = useInitialLang();
+const { setDefaultLang, getMainLang } = useUserPrefLang();
+setDefaultLang("en");
 
 const routes: Array<RouteRecordRaw> = [
-    { path: "/", redirect: "/" + initialLang },
+    { path: "/", redirect: "/" + getMainLang() },
     { path: "/pt", component: Home },
     { path: "/en", component: Home },
 ];

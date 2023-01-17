@@ -1,14 +1,14 @@
 <script setup>
 import Dropdown from "@/components/atoms/Dropdown.vue";
-import { useContent } from '@/composables/useContent';
-import { useUserPrefTheme } from '@/composables/useUserPrefTheme';
 import { computed, ref } from "vue";
+import { useUserPrefTheme } from "../../composables/useUserPrefTheme";
+import { useContent } from "../../plugins/content/composables/useContent";
 
-const content = computed(() => useContent().value.components.themeSelector);
+const { t } = useContent();
 
 const options = computed(() => [
-    { label: content.value.dark, id: "dark" },
-    { label: content.value.light, id: "light" },
+    { label: t({ en: 'Dark', pt: 'Escuro' }), id: "dark" },
+    { label: t({ en: 'Light', pt: 'Claro' }), id: "light" },
 ]);
 
 const { userPrefTheme, setUserPrefTheme } = useUserPrefTheme();

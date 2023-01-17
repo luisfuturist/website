@@ -1,23 +1,22 @@
 <script setup>
 import Dropdown from "@/components/atoms/Dropdown.vue";
-import { useCurLang, useContent } from '@/composables/useContent';
-import { getInitialLang } from "../../composables/useInitialLang";
 import { computed } from '@vue/reactivity';
 import { useRouter } from "vue-router";
+import { useRouteLang } from "../../plugins/content/composables/useRouteLang";
+import { useContent } from "../../plugins/content/composables/useContent";
 
-const content = computed(() => useContent().value.components.languageSelector);
+const { t } = useContent();
+const router = useRouter();
+const { setRoute, getInitialLang } = useRouteLang(router);
 
 const options = computed(() => [
-    { id: "en", label: content.value.en },
-    { id: "pt", label: content.value.pt },
+    { id: "en", label: t("English", "Inglês") },
+    { id: "pt", label: t("Portuguese", "Português") },
 ]);
-const pathname = getInitialLang();
-const initialIndex = options.value.findIndex(v => v.id === pathname);
-const router = useRouter();
+const initialIndex = options.value.findIndex(v => v.id === getInitialLang());
 
 function handleClick(option) {
-    const { setCurLang } = useCurLang(router);
-    setCurLang(option.id);
+    setRoute(option.id);
 }
 </script>
 

@@ -1,28 +1,31 @@
 <script setup>
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "spongia-css";
-import { computed, watch } from "vue";
+import { computed } from "vue";
 import { RouterView } from 'vue-router';
 import Footer from "./components/organisms/Footer.vue";
 import Header from "./components/organisms/Header.vue";
-import { useContent } from "./composables/useContent";
-import { useUserPrefLang } from "./composables/useUserPrefLang";
+import { useMenuLinks } from "./composables/useMenuLinks";
+import { useUserPrefTheme } from "./composables/useUserPrefTheme";
+import { useHeadTitleContent } from "./plugins/content/composables/useHeadTitleContent";
+import { useContent } from "./plugins/content/composables/useContent";
+import { useUserPrefLang } from "./plugins/content/composables/useUserPrefLang";
+import logoLight from "/logo-light.png";
+import logoDark from "/logo.png";
 
-const contentState = useContent();
-const content = computed(() => contentState.value.app);
+useHeadTitleContent({ en: 'Luis Float | Home', pt: 'Luis Float | Início' });
+const { userPrefTheme } = useUserPrefTheme();
+const { t } = useContent();
+const { menuLinks } = useMenuLinks();
 
-watch(contentState, () => {
-    const title = contentState.value.views.home.meta.title;
-
-    if(title) {
-        document.title = title;
-    }
-});
-
+const footerLinks = computed(() => [
+    { icon: 'twitter', href: 'https://twitter.com/luisfloat' },
+    { icon: 'linkedin', href: 'https://linkedin.com/in/luisfloat' },
+    { icon: 'github', href: 'https://github.com/luisfloat' },
+]);
 const menu = computed(() => {
-    const menu = content.value.navbar.menu;
-    return Object.keys(menu).map(key => {
-        const item = menu[key];
+    return Object.keys(menuLinks.value).map(key => {
+        const item = menuLinks.value[key];
         const { userPrefLang } = useUserPrefLang();
         const langId = userPrefLang.value;
         return { name: item.name, href: `/${langId}#${item.id}` };
@@ -31,12 +34,19 @@ const menu = computed(() => {
 </script>
 
 <template>
-<Header :menu="menu"/>
+<!-- <Topbar :text="t({en: 'Check back soon for updates!', pt: 'Em breve mais atualizações!' })"/> -->
+<Header v-bind="{
+    logo: (userPrefTheme === 'dark' ? logoDark : logoLight),
+    logoAlt: 'Luis Float Logo',
+    name: 'Luis Float',
+    link: '#',
+    menu,
+}"/>
 <RouterView/>
-<Footer
-    :text="content.footer.text"
-    :links="content.footer.links"
-/>
+<Footer v-bind="{
+    text: t({ en: 'Design and Code by Luis Float', pt: 'Design e Code por Luis Float' }),
+    links: footerLinks,
+}"/>
 </template>
 
 <style lang="stylus">

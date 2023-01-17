@@ -1,8 +1,8 @@
 <script setup>
 import LinkIcon from "@/components/molecules/LinkIcon.vue";
-import { computed, onBeforeMount } from "vue";
-import { useContent } from "../../composables/useContent";
+import { onBeforeMount } from "vue";
 import { useGithubPinnedRepos } from "../../composables/useGithubPinnedRepos";
+import { useComputedContent } from "../../plugins/content/composables/useComputedContent";
 import Project from "../molecules/Project.vue";
 
 const {
@@ -16,13 +16,19 @@ onBeforeMount(() => {
     fetchData(["luisfloat", "inforgdev"]);
 });
 
-const contentState = useContent();
-const content = computed(() => contentState.value.views.home.projects);
+const { content: fetchContent } = useComputedContent((t) => ({
+    err: t({ en: 'There was an error loading projects from GitHub.', pt: 'Ocorreu algum erro ao carregar os projetos do GitHub.' }),
+    success: t({ en: 'Project data has been successfully fetched from GitHub.', pt: 'Os dados dos projetos foram obtidos com sucesso do GitHub.' }),
+    loading: t({ en: 'Loading...', pt: 'Carregando...' }),
+}));
 </script>
 
 <template>
 <div class="projects">
-    <p>{{ content.text }}</p>
+    <p v-content="{
+        en: `I'm currently in the process of building out my portfolio, but in the meantime, you can follow my progress and check out some of my work on GitHub. For more details, just click on the links below to be redirected to the respective repository on GitHub.`,
+        pt: `No momento, estou construindo meu portfólio, mas, enquanto isso, você pode acompanhar meu progresso e conferir alguns de meus trabalhos no GitHub. Para mais detalhes, basta clicar nos links abaixo para ser redirecionado ao respectivo repositório no GitHub.`,
+    }"/>
 
     <div class="data">
         <Project v-for="project, i in data" :key="i" v-bind="project"/>
@@ -30,25 +36,34 @@ const content = computed(() => contentState.value.views.home.projects);
 
     <div class="feedback">
         <p v-if="err" class="fetch fetch--err">
-            {{ content.fetch.err }}
+            {{ fetchContent.err }}
         </p>
         <p v-else-if="isLoading">
-            {{ content.fetch.loading }}
+            {{ fetchContent.loading }}
         </p>
         <p v-else class="fetch fetch--success">
-            {{ content.fetch.success }}
+            {{ fetchContent.success }}
         </p>
     </div>
 
     <div class="more-body">
-        <span class="more">{{ content.more }}</span>
+        <span
+            class="more"
+            v-content="{ en: `See my full GitHub profile:`, pt: `Veja meu perfil completo do GitHub:` }"
+        />
 
-        <LinkIcon v-bind="content.link">
-            {{ content.link.label }}
+        <LinkIcon v-bind="{
+            icon: 'github',
+            href: 'https://github.com/luisfloat',
+        }">
+            luisfloat
         </LinkIcon>
     </div>
 
-    <p>{{ content.thanks }}</p>
+    <p v-content="{
+        en: `I am always striving to improve and learn new skills, so you can check back in the future to see what I have been up to. Thank you for your interest in my work, and I hope to share more with you soon!`,
+        pt: `Estou sempre me esforçando para melhorar e aprender novas habilidades, então você pode voltar no futuro para ver o que tenho feito. Obrigado pelo seu interesse em meu trabalho, e espero compartilhar mais com você em breve!`,
+    }"/>
 </div>
 </template>
 

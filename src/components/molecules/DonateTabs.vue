@@ -1,24 +1,26 @@
 <script setup>
-import { computed } from 'vue';
-import { useContent } from '../../composables/useContent';
 import CopyToClipboard from './CopyToClipboard.vue';
 import Tabs from './Tabs.vue';
 
-const contentState = useContent();
-const content = computed(() => contentState.value.views.home);
+const { items } = defineProps({
+    items: Object, 
+});
 </script>
 
 <template>
 <div class="donate-container">
-    <Tabs :labels="Object.keys(content.donate.items)" :is-unboxed="true">
-        <template #[i] v-for="item, k, i of content.donate.items" :key="i">
+    <Tabs :labels="Object.keys(items)" :is-unboxed="true">
+        <template #[i] v-for="item, k, i of items" :key="i">
             <div class="donate-header">
                 <h1 class="title">{{ item.name }}</h1>
             </div>
 
             <div class="donate-body">
                 <div class="donate-key">
-                    <h2 class="donate-item-name">{{ content.donate.key }}</h2>
+                    <h2
+                        class="donate-item-name"
+                        v-content="{ en: 'Key', pt: 'Chave' }"
+                    />
                 
                     <CopyToClipboard :label="k" :text="k" class="donate-clip">
                         {{ item.key }}

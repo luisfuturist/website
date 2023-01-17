@@ -4,19 +4,15 @@ import Brand from "@/components/molecules/Brand.vue";
 import LanguageSelector from '@/components/molecules/LanguageSelector.vue';
 import ThemeSelector from '@/components/molecules/ThemeSelector.vue';
 import { useBlurFocus } from "@/composables/useBlurFocus";
-import { useContent } from "@/composables/useContent";
-import { useUserPrefTheme } from "@/composables/useUserPrefTheme";
-import { computed, ref } from 'vue';
-import logoLight from "/logo-light.png";
-import logoDark from "/logo.png";
-
-const { userPrefTheme } = useUserPrefTheme();
-
-const contentState = useContent();
-const content = computed(() => contentState.value.app.navbar);
+import { ref } from 'vue';
 
 const { blurFocus } = useBlurFocus();
+
 const { logo, name, items, link, logoAlt } = defineProps({
+    logo: String,
+    logoAlt: String,
+    name: String,
+    link: String,
     items: Object,
 });
 
@@ -37,10 +33,10 @@ function toggleMenu() {
     <div class="body">
         <div class="header">
             <Brand v-bind="{
-                logo: (userPrefTheme === 'dark' ? logoDark : logoLight),
-                logoAlt: content.logoAlt,
-                name: content.name,
-                link: '#',
+                logo,
+                logoAlt,
+                name,
+                link,
             }"/>
             <span class="icons">
                 <button class="toggle" @click="toggleMenu">

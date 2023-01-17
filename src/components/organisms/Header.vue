@@ -1,14 +1,18 @@
 <script setup>
 import MainNav from "@/components/molecules/MainNav.vue";
 
-const { menu } = defineProps({
+const props = defineProps({
+    logo: String,
+    logoAlt: String,
+    name: String,
+    link: String,
     menu: Object,
 });
 </script>
 
 <template>
 <header class="header">
-    <MainNav :items="menu"/>
+    <MainNav v-bind="props" :items="menu"/>
 </header>
 </template>
 
