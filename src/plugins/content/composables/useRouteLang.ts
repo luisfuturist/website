@@ -1,13 +1,13 @@
-import { Router } from "vue-router";
+import { RouteLocationNormalized, Router } from "vue-router";
 import { useUserPrefLang } from "./useUserPrefLang";
 
 export function useRouteLang(router: Router) {
-    const setRoute = (langId: string) => {
+    const updateLangAndRoute = (langId: string) => {
         const { setUserPrefLang } = useUserPrefLang();
-        let route = getRouteByPath(langId);
-
-        router.push(route);
         setUserPrefLang(langId);
+        
+        let route = getRouteByPath(langId);
+        router.push(route);
     };
 
     const getLangByPathname = (path = location.pathname) => {
@@ -31,18 +31,18 @@ export function useRouteLang(router: Router) {
         return route;
     };
 
-    const getInitialLang = () => {
-        const { getMainLang } = useUserPrefLang();
-    
-        return location.pathname === "/" ?
-            getMainLang() :
-            getLangByPathname();
+    const handleLangSpec = (guard: RouteLocationNormalized) => {
+        const { getLangByPathname } = useRouteLang(router);
+        const langId = getLangByPathname(guard.path);
+
+        const { seeLang } = useUserPrefLang();
+        seeLang(langId);
     };
 
     return {
-        setRoute,
+        updateLangAndRoute,
         getRouteByPath,
         getLangByPathname,
-        getInitialLang,
+        handleLangSpec,
     };
 }

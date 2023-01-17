@@ -26,8 +26,8 @@ const footerLinks = computed(() => [
 const menu = computed(() => {
     return Object.keys(menuLinks.value).map(key => {
         const item = menuLinks.value[key];
-        const { userPrefLang } = useUserPrefLang();
-        const langId = userPrefLang.value;
+        const { getUserPrefLang } = useUserPrefLang();
+        const langId = getUserPrefLang().value;
         return { name: item.name, href: `/${langId}#${item.id}` };
     });
 });

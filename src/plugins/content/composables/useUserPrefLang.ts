@@ -1,37 +1,45 @@
 import { ref } from "vue";
+import { useContent } from "./useContent";
 
-const defaultLang = ref(null);
 const userPrefLang = ref(localStorage.getItem("lang"));
 
 export function useUserPrefLang() {
-    const browserIsoCode = navigator.language;
-    const langCode = browserIsoCode.split("-")[0];
+    let browserIsoCode = navigator.language;
+    const browserLangCode = browserIsoCode.split("-")[0];
 
     const setUserPrefLang = (langId: string) => {
         localStorage.setItem("lang", langId);
         userPrefLang.value = langId;
     };
 
-    const setDefaultLang = (langId: string) => {
-        defaultLang.value = langId;
-    };
+    const getUserPrefLang = () => {
+        if(!userPrefLang.value) {
+            const { defaultLang, availableLangs } = useContent();
+            let langId = localStorage.getItem("lang");
 
-    const getMainLang = () => {
-        if(userPrefLang.value) {
-            return userPrefLang.value;
+            if(!langId) {
+                langId = browserLangCode;
+            }
+            
+            if(!availableLangs.value?.includes(langId)) {
+                langId = defaultLang.value;
+            }
+
+            setUserPrefLang(langId);
         }
 
-        setUserPrefLang(defaultLang.value);
-    
-        return langCode;
+        return userPrefLang;
+    }
+
+    const seeLang = (langId: string) => {
+        userPrefLang.value = langId;
     };
 
     return {
-        defaultLang,
-        setDefaultLang,
         userPrefLang,
+        getUserPrefLang,
         setUserPrefLang,
-        browserLangCode: langCode,
-        getMainLang,
+        seeLang,
+        browserLangCode,
     };
 }
