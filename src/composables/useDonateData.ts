@@ -6,6 +6,10 @@ export function useDonateData() {
             name: "Pix",
             key: "(47) 99921-6685",
         },
+        "Paypal": {
+            name: "Paypal",
+            key: "+55 47 99921-6685",
+        },
         "XNO": {
             name: "Nano",
             key: "nano_3ke34tcxrqz38s91dw8stxdoqodwffmar34txn7hh9tfbw9r4y6mxyz85iey",
