@@ -10,7 +10,7 @@ export function useContactData() {
             links: [
                 { label: email, icon: "envelope", href: `mailto:${email}` },
                 { label: "@luisfloat", icon: "linkedin", href: "https://linkedin.com/in/luisfloat" },
-                { label: "+55(47)99921-6685", icon: "whatsapp", href: "https://wa.me/+5547999216685" },
+                { label: "+55 47 99921-6685", icon: "whatsapp", href: "https://wa.me/+5547999216685" },
             ],
             clips: [
                 { label: "luisfloat#9971", icon: "discord", text: "luisfloat#9971" },
