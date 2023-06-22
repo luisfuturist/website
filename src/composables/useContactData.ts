@@ -13,7 +13,7 @@ export function useContactData() {
                 { label: "+55 47 99921-6685", icon: "whatsapp", href: "https://wa.me/+5547999216685" },
             ],
             clips: [
-                { label: "luisfloat#9971", icon: "discord", text: "luisfloat#9971" },
+                { label: "luisfloat#9971", icon: "discord", text: "luisfloat" },
             ],
         };
     });
