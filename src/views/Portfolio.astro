@@ -4,6 +4,7 @@ import Stack from "../components/Stack.astro";
 import Project from "../components/Project.astro";
 import { getPinnedRepos, type Repo } from "../utils/github";
 import Title from "../components/Title.astro";
+import t from "../../content/lib/t";
 
 let repos: Repo[] | null;
 let error;
@@ -19,7 +20,9 @@ try {
 }
 ---
 
-<Title> Portfolio </Title>
+<Title>
+  {t("Portfolio")}
+</Title>
 
 <div
   role="alert"
@@ -28,8 +31,7 @@ try {
   <Icon name="info-circle" />
 
   <span>
-    Currently, I'm in the process of building my portfolio. Meanwhile, you can
-    track my progress and explore some of my work on <a
+    {t("Currently, I'm in the process of building my portfolio. Meanwhile, you can track my progress and explore some of my work on")} <a
       class="text-azure-6"
       target="_blank"
       href="https://github.com/luisfuturist">GitHub</a
@@ -38,20 +40,27 @@ try {
 </div>
 
 <p class="text-azure-9 mb-12">
-  I'm constantly striving to enhance my skills and learn new things. Feel free
-  to check back in the future to see what I've been working on. Thank you for
-  your interest in my work, and I look forward to sharing more with you soon!
+  {
+    t(
+      "I'm constantly striving to enhance my skills and learn new things. Feel free to check back in the future to see what I've been working on. Thank you for your interest in my work, and I look forward to sharing more with you soon!",
+    )
+  }
 </p>
 
 <div
   class="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
 >
   <div class="w-full min-h-36 text-azure-6">
-    <h3 class="text-sm uppercase mb-4">Recent Repositories</h3>
+    <h3 class="text-sm uppercase mb-4">
+      {t("Recent Repositories")}
+    </h3>
 
     <p class="bg-azure-1 text-xs text-azure-9 pb-4">
-      Click on the icons below to visit the respective source code or demo for
-      more details.
+      {
+        t(
+          "Click on the icons to visit the respective source code or demo for more details.",
+        )
+      }
     </p>
   </div>
 
@@ -68,7 +77,7 @@ try {
 {
   error && (
     <small class="text-red-6">
-      There was an error loading projects from GitHub. 😭
+      {t("There was an error loading projects from GitHub. 😭")}
     </small>
   )
 }
@@ -77,13 +86,13 @@ try {
   <div></div>
 
   <h3 class="text-2xl font-display font-medium text-center">
-    Explore all my repositories
+    {t("Explore all my repositories")}
   </h3>
 
   <div class="space-y-2 text-center">
     <div class="text-xs font-mono uppercase font-medium">
       <span aria-hidden>[</span>
-      Access my GitHub Profile
+      {t("Access my GitHub Profile")}
       <span aria-hidden>]</span>
     </div>
   </div>

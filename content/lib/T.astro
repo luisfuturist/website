@@ -1,0 +1,70 @@
+---
+import type { Register, RegisteredMessages } from "@psitta/core";
+import {
+  collect,
+  formatToSegments,
+  getConfig,
+  getFormatOptions,
+  localizeKey,
+} from "@psitta/core";
+import { getLocale } from "../lib/state";
+import type { Segment } from "@psitta/core";
+import type { HTMLAttributes } from "astro/types";
+import type { InferValues } from "@psitta/core";
+
+interface Props extends HTMLAttributes<'span'> {
+  text: keyof Register["messages"];
+  values?: InferValues<keyof Register["messages"]>;
+  tag?: string;
+}
+
+const {
+  tag = "span",
+  class: className,
+  text,
+  values = {},
+  ...rest
+} = Astro.props;
+
+const options = getConfig();
+const locale = getLocale();
+
+const getSegments = () => {
+  const localeValue = locale;
+  const localizedText = localizeKey(text as any, localeValue, options);
+  const formatOptions = getFormatOptions(localeValue, options);
+  const segments = formatToSegments(localizedText, values, formatOptions);
+
+  return segments;
+};
+
+const getSlotProps = (segment: Segment<any, any>) => {
+  return {
+    ...(segment.values as any),
+    decline: segment.decline,
+  };
+};
+
+const segments = getSegments();
+
+if (import.meta.env.DEV) {
+  collect(text as any, values as any);
+}
+
+const Element = tag;
+---
+
+<Element class:list={[className]} {...rest}>
+  {
+    segments.map((segment, i) =>
+      segment.type === "text" ||
+      (segment.key && !Astro.slots.has(segment.key)) ? (
+        segment.part
+      ) : (
+        <Fragment
+          set:html={Astro.slots.render(segment.key!, [getSlotProps(segment)])}
+        />
+      ),
+    )
+  }
+</Element>

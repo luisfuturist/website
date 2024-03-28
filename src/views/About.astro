@@ -1,88 +1,99 @@
 ---
+import t from "../../content/lib/t";
 import Accordion from "../components/Accordion.astro";
 import Title from "../components/Title.astro";
 
 const skills = [
   {
-    name: "I learn things fast",
+    name: t("I learn things fast"),
     description:
-      "I possess a keen ability to swiftly absorb new concepts and technologies, enabling me to stay ahead in a fast-paced tech environment.",
+      t("I possess a keen ability to swiftly absorb new concepts and technologies, enabling me to stay ahead in a fast-paced tech environment."),
   },
   {
-    name: "The new cativates me",
-    description:
-      "I am constantly captivated by new developments in technology, maintaining a perpetual curiosity that drives me to explore without succumbing to boredom.",
+    name: t("The new cativates me"),
+    description: t("I am constantly captivated by new developments in technology, maintaining a perpetual curiosity that drives me to explore without succumbing to boredom."),
   },
   {
-    name: "I think computationally",
+    name: t("I think computationally"),
     description:
-      "I excel at computational thinking, leveraging analytical skills and innovative approaches to solve complex tech problems.",
+      t("I excel at computational thinking, leveraging analytical skills and innovative approaches to solve complex tech problems."),
   },
   {
-    name: "I have a creative mindset",
+    name: t("I have a creative mindset"),
     description:
-      "I possess a creative mindset, constantly generating new ideas and thinking outside the box when tackling tech-related challenges.",
+      t("I possess a creative mindset, constantly generating new ideas and thinking outside the box when tackling tech-related challenges."),
   },
   {
-    name: "I am future-focused",
+    name: t("I am future-focused"),
     description:
-      "I prioritize potential over past knowledge, embracing a deep understanding of forthcoming technologies and focusing on what I can deeply continue to comprehend and improve even more in the future.",
+      t("I prioritize potential over past knowledge, embracing a deep understanding of forthcoming technologies and focusing on what I can deeply continue to comprehend and improve even more in the future."),
   },
   {
-    name: "I like to go deep on topics",
+    name: t("I like to go deep on topics"),
     description:
-      "I have a passion for delving deep into topics, exploring intricate details and gaining a comprehensive understanding that goes beyond surface-level knowledge. This depth of exploration enables me to uncover valuable insights and innovative solutions.",
+      t("I have a passion for delving deep into topics, exploring intricate details and gaining a comprehensive understanding that goes beyond surface-level knowledge. This depth of exploration enables me to uncover valuable insights and innovative solutions."),
   },
 ];
 ---
 
-<Title> About me </Title>
+<Title>
+  {t("About me")}
+</Title>
 
 <div class="grid grid-cols-1 sm:grid-cols-2">
-  <h3 class="w-full mb-4 text-sm text-azure-6 uppercase">Who I am</h3>
+  <h3 class="w-full mb-4 text-sm text-azure-6 uppercase">
+    {t('Who I am')}
+  </h3>
 
   <p class="text-azure-9 text-xl mb-4">
-    I'm a natural neural network navigating the digital cosmos, powered by
-    curiosity and a relentless drive to explore the future. As a self-taught
-    Full Stack Web Developer, I merge technology and creativity, weaving code
-    into innovative solutions. My journey unfolds in the realm of cybernetic
-    creativity, where every line of code is a brushstroke on the canvas of
-    tomorrow.
+    {
+      t(
+        "I'm a natural neural network navigating the digital cosmos, powered by curiosity and a relentless drive to explore the future. As a self-taught Full Stack Web Developer, I merge technology and creativity, weaving code into innovative solutions. My journey unfolds in the realm of cybernetic creativity, where every line of code is a brushstroke on the canvas of tomorrow.",
+      )
+    }
   </p>
 </div>
 
 <h3
   class="mt-16 mb-4 font-mono text-azure-6 font-bold italic uppercase text-center"
 >
-  My mission
+  {t("My mission")}
 </h3>
 
 <div class="max-w-2xl mx-auto">
   <p class="mb-4 text-azure-9">
-    My mission is deeply rooted in the observation that technology evolves exponentially and rapidly, far outpacing the pace of advancements in other contexts. I aim to explore and innovate in the intersection of technology and other realms, with a focus on understanding how technology can be seamlessly integrated into various aspects of life, from professional endeavors in tech development to hobbies. This mission involves fostering a holistic approach to embracing technology's potential, creating a convergence where slower aspects can catch up and align with the lightning-fast pace of technological progress.
+    {
+      t(
+        "My mission is deeply rooted in the observation that technology evolves exponentially and rapidly, far outpacing the pace of advancements in other contexts. I aim to explore and innovate in the intersection of technology and other realms, with a focus on understanding how technology can be seamlessly integrated into various aspects of life, from professional endeavors in tech development to hobbies. This mission involves fostering a holistic approach to embracing technology's potential, creating a convergence where slower aspects can catch up and align with the lightning-fast pace of technological progress.",
+      )
+    }
   </p>
 
-  <span class="text-azure-5 italic"> TL;DR </span>
+  <span class="text-azure-5 italic"> {t("TL;DR")} </span>
 
-  <span class="text-azure-6"> Embracing tech integration </span>
+  <span class="text-azure-6"> {t("Embracing tech integration")} </span>
 </div>
 
 <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 mt-12 mb-12">
   <hgroup>
-    <h3 class="w-full mb-4 text-sm text-azure-6 uppercase">My skills</h3>
+    <h3 class="w-full mb-4 text-sm text-azure-6 uppercase">{t("My skills")}</h3>
 
     <p class="text-azure-6 text-xs font-mono w-full">
-      Skills, whether innate or acquired, are instrumental in fulfilling my
-      mission to embrace and harness the power of technology for transformative
-      endeavors.
+      {
+        t(
+          "Skills, whether innate or acquired, are instrumental in fulfilling my mission to embrace and harness the power of technology for transformative endeavors.",
+        )
+      }
     </p>
   </hgroup>
 
   <div class="text-azure-9 w-full">
     <p>
-      I'm not one to often list my skills publicly, as they constantly evolve
-      through continuous study and improvement. However, I'd like to highlight
-      some innate rare skills that I leverage:
+      {
+        t(
+          "I'm not one to often list my skills publicly, as they constantly evolve through continuous study and improvement. However, I'd like to highlight some innate rare skills that I leverage:",
+        )
+      }
     </p>
 
     <div class="space-y-4 mt-8">
@@ -107,19 +118,24 @@ const skills = [
 
 <div class="sm:w-1/2 sm:pr-8">
   <h3 class="font-display text-azure-6 text-4xl mb-4">
-    Want to know more about me?
+    {t("Want to know more about me?")}
   </h3>
 
   <p class="text-azure-9">
-    I've curated a collection of my favorite content that resonate deeply with
-    me. If you are curious, you can explore it here:
+    {
+      t(
+        "I've curated a collection of my favorite content that resonate deeply with me. If you are curious, you can explore it here:",
+      )
+    }
 
     <br />
 
     <a
       class="text-azure-6 mt-4 block"
-      href="https://youtube.com/@luisfuturist/playlists">My YouTube playlists</a
+      href="https://youtube.com/@luisfuturist/playlists"
     >
+      {t("My YouTube playlists")}
+    </a>
   </p>
 </div>
 

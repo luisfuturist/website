@@ -1,4 +1,5 @@
 ---
+import t from "../../content/lib/t";
 import CopyToClipboard from "../components/CopyToClipboard";
 import Icon from "../components/Icon";
 import Title from "../components/Title.astro";
@@ -32,17 +33,20 @@ const links = [
 ---
 
 <Title>
-  Contact
+  {t("Contact")}
 </Title>
 
 <p class="text-lg text-azure-9 mb-4">
-  If you share similar interests or want to chat about exciting futuristic
-  projects, don't hesitate to reach out. I would love to hear from you!
+  {
+    t(
+      "If you share similar interests or want to chat about exciting futuristic projects, don't hesitate to reach out. I would love to hear from you!",
+    )
+  }
 </p>
 
 <div class="justify-between flex flex-col sm:flex-row">
   <p class="text-azure-9 text-lg w-fit mb-6">
-    Let's be part of the future together!
+    {t("Let's be part of the future together!")}
   </p>
 
   <nav
@@ -76,16 +80,20 @@ const links = [
     <div></div>
 
     <h3 class="text-2xl font-display font-medium text-center">
-      Something important?
+      {t("Something important?")}
     </h3>
 
     <div class="space-y-2 text-center">
-      <p class="mb-1 text-xs">Send me an email at</p>
+      <p class="mb-1 text-xs">
+        {t("Send me an email at")}
+      </p>
 
       <a
         class="text-sm font-mono font-medium"
-        href="mailto:luisfuturist@gmail.com">luisfuturist@gmail.com</a
+        href="mailto:luisfuturist@gmail.com"
       >
+        luisfuturist@gmail.com
+      </a>
     </div>
   </div>
 
@@ -95,16 +103,20 @@ const links = [
     <div></div>
 
     <h3 class="text-2xl text-azure-9 font-display font-medium text-center">
-      Just want to chat?
+      {t('Just want to chat?')}
     </h3>
 
     <div class="space-y-2 text-center">
-      <p class="mb-1 text-xs">Send me a message on Discord</p>
+      <p class="mb-1 text-xs">
+        {t('Send me a message on Discord')}
+      </p>
 
       <CopyToClipboard
         class="cursor-pointer text-sm w-fit mx-auto font-mono font-medium flex gap-1 items-center justify-center"
         client:idle
         text="luisfuturist"
+        successMessage={t('Discord copied successfully!')}
+        errorMessage={t('Error copying Discord!') }
       >
         <Icon name="discord" />
         <span>luisfuturist</span>

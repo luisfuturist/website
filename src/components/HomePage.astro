@@ -1,0 +1,58 @@
+---
+import Document from "../layouts/Document.astro";
+import Hero from "../views/Hero.astro";
+import About from "../views/About.astro";
+import Portfolio from "../views/Portfolio.astro";
+import Contact from "../views/Contact.astro";
+import Footer from "../views/Footer.astro";
+import Icon from "./Icon";
+import t from "../../content/lib/t";
+import Nav from "./Nav";
+
+const navItems = [
+  { label: t("English"), href: "/en" },
+  { label: t("Portuguese"), href: "/pt" },
+];
+---
+
+<Document
+  title={t("Luis Emidio | Homepage")}
+  description={t("Explore my personal website.")}
+  keywords={t("Luis Emidio, website, technology, developer")}
+>
+  <main>
+    <section id="home" class="max-w-4xl mx-auto relative">
+      <Hero />
+    </section>
+
+    <header class="border-t border-azure-3 px-4 sm:px-0 py-4 max-w-4xl mx-auto">
+      <Nav items={navItems} client:idle />
+    </header>
+
+    <section id="about" class="px-4 py-8 max-w-4xl mx-auto">
+      <About />
+    </section>
+
+    <section id="portfolio" class="px-4 py-8 max-w-4xl mx-auto">
+      <Portfolio />
+    </section>
+
+    <section id="contact" class="px-4 py-8 max-w-4xl mx-auto">
+      <Contact />
+    </section>
+
+    <section class="px-4 max-w-4xl mx-auto mt-12">
+      <a
+        href="/#contact"
+        class="flex items-end rounded-lg bg-azure-6 text-black p-4 text-4xl font-display mb-12 min-h-[50dvh]"
+      >
+        <p class="flex gap-2 items-center">
+          {t("Let's connect!")}
+          <Icon class="text-black" name="arrow-up-right" />
+        </p>
+      </a>
+    </section>
+  </main>
+
+  <Footer />
+</Document>

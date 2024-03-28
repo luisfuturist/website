@@ -40,38 +40,3 @@ export async function getPinnedRepos(username: string) {
 
   return repos;
 }
-
-/* export function useGithubPinnedRepos() {
-  const data = ref([]);
-  const err = ref(undefined);
-  const isLoading = ref(null);
-
-  const handleFetch = (username) => {
-    fetchPinnedRepos(username, (er, repos) => {
-      if (er) {
-        err.value = er;
-      } else {
-        data.value = [...data.value, ...repos];
-      }
-
-      isLoading.value--;
-    });
-  };
-  const fetchData = (accounts) => {
-    if (!Array.isArray(accounts)) {
-      handleFetch([accounts]);
-      return;
-    }
-
-    isLoading.value = accounts.length;
-
-    accounts.forEach(account => handleFetch(account));
-  };
-
-  return {
-    isLoading: computed(() => isLoading.value !== 0),
-    data,
-    err,
-    fetchData,
-  };
-} */

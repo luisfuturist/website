@@ -1,6 +1,7 @@
 ---
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Toast from "../components/Toast";
+import { getLocale } from "../../content/lib/state";
 
 interface Props {
   title: string;
@@ -8,11 +9,14 @@ interface Props {
   keywords: string;
 }
 
+const lang = getLocale();
+Astro.cookies.set('locale', lang);
+
 const { title, description, keywords } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,6 +39,14 @@ const { title, description, keywords } = Astro.props;
     <slot />
 
     <Toast client:idle />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const id = new URL(location.href).hash.replace("#", "");
+        const el = document.getElementById(id);
+        el?.scrollIntoView();
+      });
+    </script>
   </body>
 </html>
 
@@ -115,6 +127,35 @@ const { title, description, keywords } = Astro.props;
     .no-print {
       display: none !important;
     }
+  }
+
+  /* #endregion */
+
+  /* #region animations */
+
+  @keyframes fadeIn {
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-fadein {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 300ms;
+  }
+
+  @keyframes slidedown {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slidedown {
+    animation: slidedown 600ms ease forwards;
   }
 
   /* #endregion */

@@ -6,6 +6,8 @@ interface Props {
   text: string
   children: ComponentChildren
   class?: string
+  successMessage: string
+  errorMessage: string
 }
 
 function CopyToClipboard(props: Props) {

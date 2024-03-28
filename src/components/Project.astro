@@ -1,4 +1,5 @@
 ---
+import { getLocale } from "../../content/lib/state";
 import type { Repo } from "../utils/github";
 import Icon from "./Icon";
 
@@ -8,6 +9,8 @@ interface Props extends Repo {
 }
 
 const { i, class: className, ...repo } = Astro.props;
+
+const locale = getLocale()
 ---
 
 <article
@@ -54,7 +57,7 @@ const { i, class: className, ...repo } = Astro.props;
 
       <small class="font-mono text-azure-6">
         {
-          new Date(repo.updated_at).toLocaleString("en", {
+          new Date(repo.updated_at).toLocaleString(locale, {
             dateStyle: "medium",
           })
         }
