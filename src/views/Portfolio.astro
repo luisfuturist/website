@@ -1,0 +1,92 @@
+---
+import Icon from "../components/Icon";
+import Stack from "../components/Stack.astro";
+import Project from "../components/Project.astro";
+import { getPinnedRepos, type Repo } from "../utils/github";
+import Title from "../components/Title.astro";
+
+let repos: Repo[] | null;
+let error;
+
+try {
+  const myRepos = await getPinnedRepos("luisfuturist");
+  const neogaiaRepos = await getPinnedRepos("neogaialab");
+  repos = [...myRepos, ...neogaiaRepos];
+} catch (e) {
+  console.error(e);
+  error = e;
+  repos = null;
+}
+---
+
+<Title> Portfolio </Title>
+
+<div
+  role="alert"
+  class="rounded-lg bg-orange-6/20 px-4 py-2 text-azure-9 text-sm flex gap-2 mb-8"
+>
+  <Icon name="info-circle" />
+
+  <span>
+    Currently, I'm in the process of building my portfolio. Meanwhile, you can
+    track my progress and explore some of my work on <a
+      class="text-azure-6"
+      target="_blank"
+      href="https://github.com/luisfuturist">GitHub</a
+    >.
+  </span>
+</div>
+
+<p class="text-azure-9 mb-12">
+  I'm constantly striving to enhance my skills and learn new things. Feel free
+  to check back in the future to see what I've been working on. Thank you for
+  your interest in my work, and I look forward to sharing more with you soon!
+</p>
+
+<div
+  class="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+>
+  <div class="w-full min-h-36 text-azure-6">
+    <h3 class="text-sm uppercase mb-4">Recent Repositories</h3>
+
+    <p class="bg-azure-1 text-xs text-azure-9 pb-4">
+      Click on the icons below to visit the respective source code or demo for
+      more details.
+    </p>
+  </div>
+
+  {
+    repos?.map((repo, i) => (
+      <>
+        {i === 3 && <div class="min-h-36 hidden sm:block" />}
+        <Project class:list={{ "sm:col-span-2": i === 0 }} i={i} {...repo} />
+      </>
+    ))
+  }
+</div>
+
+{
+  error && (
+    <small class="text-red-6">
+      There was an error loading projects from GitHub. 😭
+    </small>
+  )
+}
+
+<Stack class="mx-auto max-w-lg">
+  <div></div>
+
+  <h3 class="text-2xl font-display font-medium text-center">
+    Explore all my repositories
+  </h3>
+
+  <div class="space-y-2 text-center">
+    <div class="text-xs font-mono uppercase font-medium">
+      <span aria-hidden>[</span>
+      Access my GitHub Profile
+      <span aria-hidden>]</span>
+    </div>
+  </div>
+</Stack>
+
+<hr class="border-azure-3 mt-12" />

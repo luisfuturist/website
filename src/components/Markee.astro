@@ -1,0 +1,36 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div
+  class="animate-slidedown absolute w-full h-fit top-0 bottom-0 text-azure-9 text-sm flex items-center justify-center bg-azure-6 text-black font-mono"
+>
+  <div class="text-loop">
+    <span>{text}</span>
+    <span>{text}</span>
+    <span>{text}</span>
+  </div>
+</div>
+
+<style>
+  .text-loop {
+    @apply flex gap-1 overflow-hidden flex-nowrap items-center;
+  }
+  .text-loop span {
+    @apply whitespace-nowrap max-w-[none];
+    animation: marquee 20s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+</style>

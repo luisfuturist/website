@@ -1,0 +1,27 @@
+---
+import Marquee from "../components/Markee.astro";
+---
+
+<Marquee
+    text={`"That's all it is: information. Even a simulated experience or a dream; simultaneous reality and fantasy. Any way you look at it, all the information that a person accumulates in a lifetime is just a drop in the bucket." — Batou"`}
+/>
+
+<div class="flex items-end">
+    <hgroup
+        class="px-4 py-8 w-full flex flex-col sm:flex-row justify-between sm:items-end"
+    >
+        <h1
+            class="translate-x-[-0.07em] order-2 sm:order-1 font-display animate-fadein text-azure-6 font-medium text-4xl sm:text-6xl md:text-7xl lg:text-8xl"
+        >
+            Luis<span aria-hidden>^</span><span class="text-azure-9"
+                >Emidio</span
+            >
+        </h1>
+
+        <p
+            class="order:1 sm:order-2 text-azure-9 font-display animate-fadein text-right text-lg sm:text-xl md:text-2xl lg:text-3xl"
+        >
+            Full Stack Developer
+        </p>
+    </hgroup>
+</div>

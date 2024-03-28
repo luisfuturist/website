@@ -1,0 +1,121 @@
+---
+import "bootstrap-icons/font/bootstrap-icons.css";
+import Toast from "../components/Toast";
+
+interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+}
+
+const { title, description, keywords } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <title>{title}</title>
+
+    <link rel="icon" href="/fav.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Michroma&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+
+    <Toast client:idle />
+  </body>
+</html>
+
+<style is:global>
+  /* #region reset */
+
+  * {
+    @apply scroll-smooth;
+  }
+
+  * {
+    font: inherit;
+  }
+
+  html,
+  body {
+    @apply w-full h-dvh bg-azure-1;
+  }
+
+  html {
+    font-family: "Roboto Condensed", sans-serif;
+  }
+
+  /* #endregion */
+
+  /* #region selection */
+
+  *::selection {
+    @apply bg-azure-6 text-azure-1;
+  }
+
+  /* #endregion */
+
+  /* #region selection */
+
+  *::selection {
+    @apply bg-azure-6 text-azure-1;
+  }
+
+  /* #endregion */
+
+  /* #region scrollbar */
+
+  ::-webkit-scrollbar {
+    @apply w-[6px] z-[-10];
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-azure-6 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-azure-5;
+  }
+
+  /* #endregion */
+
+  /* #region Focus */
+
+  *:focus {
+    @apply focus:outline focus:outline-2 focus:outline-offset-[0.5em] focus:outline-azure-6 focus:rounded-lg;
+  }
+
+  /* #endregion */
+
+  /* #region Print */
+
+  @page {
+    size: auto;
+    margin: 0mm;
+  }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+
+  /* #endregion */
+</style>

@@ -1,0 +1,64 @@
+---
+import type { Repo } from "../utils/github";
+import Icon from "./Icon";
+
+interface Props extends Repo {
+  i: number;
+  class?: string;
+}
+
+const { i, class: className, ...repo } = Astro.props;
+---
+
+<article
+  class:list={[
+    "min-h-36 flex w-full h-full flex-col justify-between rounded-lg border border-azure-6 p-4",
+    className,
+  ]}
+>
+  <div class="w-full">
+    <header>
+      <h1
+        class="text-azure-6 mb-4 font-medium font-mono"
+        class:list={[i === 0 ? "text-2xl" : "text-lg"]}
+      >
+        <a target="_blank" href={repo.website || repo.html_url}>
+          {repo.name}
+        </a>
+      </h1>
+    </header>
+
+    <main>
+      <p class="text-azure-9 mb-4 leading-5">{repo.description}</p>
+
+      <ul class="flex justify-end gap-1 flex-wrap text-azure-5 text-xs">
+        {
+          repo.keywords.map((keyword) => (
+            <li class="rounded-lg bg-azure-6/10 px-2">{keyword}</li>
+          ))
+        }
+      </ul>
+    </main>
+  </div>
+
+  <footer>
+    <div class="flex gap-1 flex-wrap items-center justify-between mt-4">
+      <div class="flex gap-2 text-azure-9">
+        <a target="_blank" href={repo.html_url}>
+          <Icon name="code" />
+        </a>
+        <a target="_blank" href={repo.website}>
+          <Icon name="globe" />
+        </a>
+      </div>
+
+      <small class="font-mono text-azure-6">
+        {
+          new Date(repo.updated_at).toLocaleString("en", {
+            dateStyle: "medium",
+          })
+        }
+      </small>
+    </div>
+  </footer>
+</article>
