@@ -2,6 +2,7 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Toast from "../components/Toast";
 import { getLocale } from "../../content/lib/state";
+import { getThemeMeta } from "../../lib/design/theme/utils";
 
 interface Props {
   title: string;
@@ -13,10 +14,13 @@ const lang = getLocale();
 Astro.cookies.set('locale', lang);
 
 const { title, description, keywords } = Astro.props;
+
+const theme = Astro.locals.theme;
+const { themeClass, colorScheme } = getThemeMeta(theme);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class={themeClass}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,7 +30,7 @@ const { title, description, keywords } = Astro.props;
     <meta name="keywords" content={keywords} />
     <title>{title}</title>
 
-    <link rel="icon" href="/fav.png" />
+    <link rel="icon" href={theme === 'dark' ? '/fav.png' : '/fav-light.png'} id="fav-icon" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,6 +38,8 @@ const { title, description, keywords } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Michroma&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
+
+    <meta name="color-scheme" content={colorScheme} />
   </head>
   <body>
     <slot />
@@ -63,11 +69,11 @@ const { title, description, keywords } = Astro.props;
 
   html,
   body {
-    @apply w-full h-dvh bg-azure-1;
+    @apply w-full bg-white dark:bg-azure-1 transition-colors duration-500;
   }
 
   html {
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   /* #endregion */
@@ -75,15 +81,7 @@ const { title, description, keywords } = Astro.props;
   /* #region selection */
 
   *::selection {
-    @apply bg-azure-6 text-azure-1;
-  }
-
-  /* #endregion */
-
-  /* #region selection */
-
-  *::selection {
-    @apply bg-azure-6 text-azure-1;
+    @apply bg-azure-6 text-black;
   }
 
   /* #endregion */
@@ -103,7 +101,7 @@ const { title, description, keywords } = Astro.props;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-azure-5;
+    @apply bg-azure-5 dark:bg-azure-5;
   }
 
   /* #endregion */
@@ -111,7 +109,7 @@ const { title, description, keywords } = Astro.props;
   /* #region Focus */
 
   *:focus {
-    @apply focus:outline focus:outline-2 focus:outline-offset-[0.5em] focus:outline-azure-6 focus:rounded-lg;
+    @apply focus:outline focus:outline-2 focus:outline-offset-[0.5em] focus:outline-azure-4 dark:focus:outline-azure-6 focus:rounded-lg;
   }
 
   /* #endregion */

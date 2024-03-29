@@ -10,8 +10,8 @@ import t from "../../content/lib/t";
 import Nav from "./Nav";
 
 const navItems = [
-  { label: t("English"), href: "/en" },
-  { label: t("Portuguese"), href: "/pt" },
+  { label: "English", href: "/en" },
+  { label: "Português", href: "/pt" },
 ];
 ---
 
@@ -25,7 +25,7 @@ const navItems = [
       <Hero />
     </section>
 
-    <header class="border-t border-azure-3 px-4 sm:px-0 py-4 max-w-4xl mx-auto">
+    <header class="border-t border-azure-8 dark:border-azure-3 px-4 sm:px-0 py-4 max-w-4xl mx-auto">
       <Nav items={navItems} client:idle />
     </header>
 
@@ -44,11 +44,11 @@ const navItems = [
     <section class="px-4 max-w-4xl mx-auto mt-12">
       <a
         href="/#contact"
-        class="flex items-end rounded-lg bg-azure-6 text-black p-4 text-4xl font-display mb-12 min-h-[50dvh]"
+        class="flex items-end rounded-lg bg-azure-6 dark:bg-azure-6 text-azure-2 dark:text-black p-4 text-4xl font-display mb-12 min-h-[50dvh]"
       >
         <p class="flex gap-2 items-center">
           {t("Let's connect!")}
-          <Icon class="text-black" name="arrow-up-right" />
+          <Icon name="arrow-up-right" />
         </p>
       </a>
     </section>

@@ -1,6 +1,7 @@
 ---
 import t from "../../content/lib/t";
 import Accordion from "../components/Accordion.astro";
+import Link from "../components/Link";
 import Title from "../components/Title.astro";
 
 const skills = [
@@ -41,11 +42,11 @@ const skills = [
 </Title>
 
 <div class="grid grid-cols-1 sm:grid-cols-2">
-  <h3 class="w-full mb-4 text-sm text-azure-6 uppercase">
+  <h3 class="w-full font-display mb-4 text-sm text-azure-3 dark:text-azure-6">
     {t('Who I am')}
   </h3>
 
-  <p class="text-azure-9 text-xl mb-4">
+  <p class="text-azure-2 dark:text-azure-9 text-xl mb-4">
     {
       t(
         "I'm a natural neural network navigating the digital cosmos, powered by curiosity and a relentless drive to explore the future. As a self-taught Full Stack Web Developer, I merge technology and creativity, weaving code into innovative solutions. My journey unfolds in the realm of cybernetic creativity, where every line of code is a brushstroke on the canvas of tomorrow.",
@@ -55,13 +56,13 @@ const skills = [
 </div>
 
 <h3
-  class="mt-16 mb-4 font-mono text-azure-6 font-bold italic uppercase text-center"
+  class="mt-16 mb-4 font-display text-azure-3 dark:text-azure-6 text-center"
 >
   {t("My mission")}
 </h3>
 
 <div class="max-w-2xl mx-auto">
-  <p class="mb-4 text-azure-9">
+  <p class="mb-4 text-azure-2 dark:text-azure-9">
     {
       t(
         "My mission is deeply rooted in the observation that technology evolves exponentially and rapidly, far outpacing the pace of advancements in other contexts. I aim to explore and innovate in the intersection of technology and other realms, with a focus on understanding how technology can be seamlessly integrated into various aspects of life, from professional endeavors in tech development to hobbies. This mission involves fostering a holistic approach to embracing technology's potential, creating a convergence where slower aspects can catch up and align with the lightning-fast pace of technological progress.",
@@ -69,16 +70,16 @@ const skills = [
     }
   </p>
 
-  <span class="text-azure-5 italic"> {t("TL;DR")} </span>
+  <span class="text-azure-4 dark:text-azure-5 italic"> {t("TL;DR")} </span>
 
-  <span class="text-azure-6"> {t("Embracing tech integration")} </span>
+  <span class="text-azure-2 dark:text-azure-6"> {t("Embracing tech integration")} </span>
 </div>
 
 <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 mt-12 mb-12">
   <hgroup>
-    <h3 class="w-full mb-4 text-sm text-azure-6 uppercase">{t("My skills")}</h3>
+    <h3 class="text-azure-2 font-display dark:text-azure-6 w-full mb-4 text-sm">{t("My skills")}</h3>
 
-    <p class="text-azure-6 text-xs font-mono w-full">
+    <p class="text-azure-4 dark:text-azure-6 text-xs font-mono w-full">
       {
         t(
           "Skills, whether innate or acquired, are instrumental in fulfilling my mission to embrace and harness the power of technology for transformative endeavors.",
@@ -87,7 +88,7 @@ const skills = [
     </p>
   </hgroup>
 
-  <div class="text-azure-9 w-full">
+  <div class="text-azure-2 dark:text-azure-9 w-full">
     <p>
       {
         t(
@@ -99,14 +100,14 @@ const skills = [
     <div class="space-y-4 mt-8">
       {
         skills.map((skill, i) => (
-          <Accordion name="accordion-skills" class="border-b border-azure-3">
+          <Accordion name="accordion-skills" class="border-b border-azure-8 dark:border-azure-3">
             <div
               slot="title"
-              class="text-base font-display text-azure-6 flex items-center pb-4"
+              class="text-base font-display text-azure-1 dark:text-azure-6 flex items-center pb-4"
             >
               {skill.name}
             </div>
-            <p slot="description" class="text-azure-9 mb-4">
+            <p slot="description" class="text-azure-2 dark:text-azure-9 mb-4">
               {skill.description}
             </p>
           </Accordion>
@@ -117,11 +118,11 @@ const skills = [
 </div>
 
 <div class="sm:w-1/2 sm:pr-8">
-  <h3 class="font-display text-azure-6 text-4xl mb-4">
+  <h3 class="text-azure-2 dark:text-azure-6 font-display text-4xl mb-4">
     {t("Want to know more about me?")}
   </h3>
 
-  <p class="text-azure-9">
+  <p class="text-azure-2 dark:text-azure-9">
     {
       t(
         "I've curated a collection of my favorite content that resonate deeply with me. If you are curious, you can explore it here:",
@@ -130,12 +131,12 @@ const skills = [
 
     <br />
 
-    <a
-      class="text-azure-6 mt-4 block"
+    <Link
+      class="mt-4 block"
       href="https://youtube.com/@luisfuturist/playlists"
     >
       {t("My YouTube playlists")}
-    </a>
+    </Link>
   </p>
 </div>
 

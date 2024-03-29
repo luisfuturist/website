@@ -2,6 +2,7 @@
 import t from "../../content/lib/t";
 import CopyToClipboard from "../components/CopyToClipboard";
 import Icon from "../components/Icon";
+import Link from "../components/Link";
 import Title from "../components/Title.astro";
 
 const links = [
@@ -36,7 +37,7 @@ const links = [
   {t("Contact")}
 </Title>
 
-<p class="text-lg text-azure-9 mb-4">
+<p class="text-azure-2 dark:text-azure-9 text-lg mb-4">
   {
     t(
       "If you share similar interests or want to chat about exciting futuristic projects, don't hesitate to reach out. I would love to hear from you!",
@@ -45,7 +46,7 @@ const links = [
 </p>
 
 <div class="justify-between flex flex-col sm:flex-row">
-  <p class="text-azure-9 text-lg w-fit mb-6">
+  <p class="text-azure-2 dark:text-azure-9 text-lg w-fit mb-6">
     {t("Let's be part of the future together!")}
   </p>
 
@@ -56,16 +57,16 @@ const links = [
       {
         links.map((link) => (
           <li class="flex">
-            <a
+            <Link
               href={link.href}
               target="_blank"
-              class="w-fit text-azure-6 flex items-center justify-center"
+              class="no-underline group w-fit flex items-center justify-center"
             >
               <span aria-hidden>&lt;</span>
-              <Icon name={link.icon} class="mr-1 text-azure-9" />
+              <Icon name={link.icon} class="mr-1 text-azure-2 dark:text-azure-6 group-hover:text-azure-1 dark:group-hover:text-azure-5" />
 
               <span aria-hidden>/&gt;</span>
-            </a>
+            </Link>
           </li>
         ))
       }
@@ -73,9 +74,9 @@ const links = [
   </nav>
 </div>
 
-<div class="text-azure-6 grid grid-cols-1 lg:grid-cols-2 gap-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
   <div
-    class="bg-azure-6 text-black rounded-lg flex flex-col items-between items-center justify-between min-h-56 p-4"
+    class="bg-azure-6 dark:bg-azure-6 text-azure-2 dark:text-black rounded-lg flex flex-col items-between items-center justify-between min-h-56 p-4"
   >
     <div></div>
 
@@ -98,15 +99,15 @@ const links = [
   </div>
 
   <div
-    class="border border-azure-6 rounded-lg flex flex-col items-between items-center justify-between min-h-56 p-4"
+    class="border border-azure-6 dark:border-azure-6 rounded-lg flex flex-col items-between items-center justify-between min-h-56 p-4"
   >
     <div></div>
 
-    <h3 class="text-2xl text-azure-9 font-display font-medium text-center">
+    <h3 class="text-azure-2 dark:text-azure-9 text-2xl font-display font-medium text-center">
       {t('Just want to chat?')}
     </h3>
 
-    <div class="space-y-2 text-center">
+    <div class="text-azure-2 dark:text-azure-9 space-y-2 text-center">
       <p class="mb-1 text-xs">
         {t('Send me a message on Discord')}
       </p>
@@ -127,4 +128,4 @@ const links = [
   </div>
 </div>
 
-<hr class="border-azure-3 mt-12" />
+<hr class="border-azure-8 mt-12" />

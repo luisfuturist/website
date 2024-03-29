@@ -13,5 +13,6 @@ export default {
       display: ['Michroma', 'sans-serif'],
     },
   },
+  darkMode: "class",
   plugins: [],
 }

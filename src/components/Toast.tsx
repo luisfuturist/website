@@ -45,12 +45,12 @@ const Toast = () => {
   return (
     <div
       className={clsx(
-        'flex gap-1 fixed rounded-lg bg-azure-1/60 backdrop-blur-sm bottom-4 right-4 px-4 py-2 z-50 transition-opacity duration-300 shadow-lg text-xs',
+        'flex gap-1 fixed rounded-lg bg-white/60 dark:bg-azure-1/60 backdrop-blur-sm bottom-4 right-4 px-4 py-2 z-50 transition-opacity duration-300 shadow-lg text-xs',
         {
-          'text-green-6': state.value?.type === 'success',
-          'text-red-6': state.value?.type === 'error',
-          'text-orange-6': state.value?.type === 'warning',
-          'text-blue-6': state.value?.type === 'info',
+          'text-green-1 dark:text-green-6': state.value?.type === 'success',
+          'text-red-1 dark:text-red-6': state.value?.type === 'error',
+          'text-orange-1 dark:text-orange-6': state.value?.type === 'warning',
+          'text-blue-1 dark:text-blue-6': state.value?.type === 'info',
         },
         state.value?.visible ? 'opacity-100' : 'opacity-0'
       )}>

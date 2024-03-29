@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import Icon from "./Icon";
+
+type AlertType = "info" | "success" | "warning" | "error";
+
+interface Props extends HTMLAttributes<"div"> {
+  type?: AlertType;
+}
+
+const { type, class: className, ...rest } = Astro.props;
+
+const icons: Record<AlertType, string> = {
+  success: "check",
+  error: "exclamation-diamond",
+  info: "info-circle",
+  warning: "exclamation-triangle",
+};
+
+const icon = icons[type || "info"] || icons.info;
+---
+
+<div
+  role="alert"
+  class:list={[
+    "rounded-lg px-4 py-2 text-sm flex gap-2 mb-8",
+    {
+      "bg-azure-6 dark:bg-green-6/20 text-azure-2 dark:text-azure-9": type === "success",
+      "bg-red-5/20 dark:bg-red-6/20 text-red-5 dark:text-azure-9": type === "error",
+      "bg-yellow-6 dark:bg-orange-6/20 text-azure-2 dark:text-azure-9": type === "warning",
+      "bg-azure-6 dark:bg-yellow-6/20 text-azure-2 dark:text-azure-9": type === "info",
+    },
+    className,
+  ]}
+  {...rest}
+>
+  <Icon name={icon} />
+
+  <span>
+    <slot />
+  </span>
+</div>

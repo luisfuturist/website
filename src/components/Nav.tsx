@@ -1,5 +1,7 @@
 import clsx from "clsx";
-import type { ComponentProps } from "preact/compat";
+import type { ComponentProps } from "preact";
+import ThemeSwitch from "./ThemeSwitch";
+import Link from "./Link";
 
 export type NavItem = {
   label: string;
@@ -14,19 +16,21 @@ const Nav = (props: Props) => {
   const { class: className, items, ...rest } = props;
 
   return <nav class={clsx([className])} {...rest}>
-    <ul class="flex gap-2 justify-end">
+    <ul class="flex gap-2 justify-end items-center">
       {
         items.map((item) => (
           <li>
-            <a href={item.href} class="text-azure-6" >
+            <Link href={item.href} >
               {item.label}
-            </a>
+            </Link>
           </li>
         ))
       }
+      <li class="ml-4">
+        <ThemeSwitch />
+      </li>
     </ul>
-  </nav >
-
+  </nav>
 }
 
 export default Nav;
