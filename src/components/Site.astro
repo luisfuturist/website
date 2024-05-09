@@ -21,11 +21,13 @@ const navItems = [
   keywords={t("Luis Emidio, website, technology, developer")}
 >
   <main>
-    <section id="home" class="max-w-4xl mx-auto relative">
+    <section id="home" class="relative">
       <Hero />
     </section>
 
-    <header class="border-t border-azure-8 dark:border-azure-3 px-4 sm:px-0 py-4 max-w-4xl mx-auto">
+    <header
+      class="px-4 sm:px-4 py-4 max-w-4xl mx-auto"
+    >
       <Nav items={navItems} client:idle />
     </header>
 
@@ -44,7 +46,7 @@ const navItems = [
     <section class="px-4 max-w-4xl mx-auto mt-12">
       <a
         href="/#contact"
-        class="flex items-end rounded-lg bg-azure-6 dark:bg-azure-6 text-azure-2 dark:text-black p-4 text-4xl font-display mb-12 min-h-[50dvh]"
+        class="flex items-end rounded-lg bg-black text-azure-6 p-4 text-4xl font-display mb-12 min-h-[50dvh]"
       >
         <p class="flex gap-2 items-center">
           {t("Let's connect!")}

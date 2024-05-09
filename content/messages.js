@@ -14,8 +14,8 @@ export default {
   "That's all it is: information. Even a simulated experience or a dream; simultaneous reality and fantasy. Any way you look at it, all the information that a person accumulates in a lifetime is just a drop in the bucket.\" — Batou": {
     "pt": "Isso é tudo: informação. Mesmo uma experiência simulada ou um sonho; realidade e fantasia simultâneas. De qualquer forma que você olhe para isso, toda a informação que uma pessoa acumula em uma vida é apenas uma gota no balde.\" — Batou"
   },
-  "Full Stack Developer": {
-    "pt": "Desenvolvedor Full Stack"
+  "Full Stack Developer Future-oriented": {
+    "pt": "Desenvolvedor Full Stack Orientado ao Futuro"
   },
   "About me": {
     "pt": "Sobre mim"
@@ -23,14 +23,14 @@ export default {
   "Who I am": {
     "pt": "Quem sou eu?"
   },
-  "I'm a natural neural network navigating the digital cosmos, powered by curiosity and a relentless drive to explore the future. As a self-taught Full Stack Web Developer, I merge technology and creativity, weaving code into innovative solutions. My journey unfolds in the realm of cybernetic creativity, where every line of code is a brushstroke on the canvas of tomorrow.": {
-    "pt": "Sou uma rede neural natural navegando pelo cosmos digital, impulsionado pela curiosidade e um impulso implacável para explorar o futuro. Como um Desenvolvedor Full Stack autodidata, eu fundo tecnologia e criatividade, tecendo código em soluções inovadoras. Minha jornada se desdobra no reino da criatividade cibernética, onde cada linha de código é uma pincelada no quadro do amanhã."
+  "I'm a natural neural network passionate about technology and the future, working as a full-stack developer. With experience in Software Development and a passion for programming, I specialize in a wide range of technologies that enable me to create innovative solutions. My journey in software development is driven by curiosity about the future, always seeking innovation and self-improvement. In addition to programming, I find inspiration in exploring the intersection of technology, language, and philosophy. This combination of technical expertise and creative passion drives me to create innovative projects and explore the possibilities of tomorrow.": {
+    "pt": "Eu sou uma rede neural natural apaixonada por tecnologia e o futuro, atuando como desenvolvedor full-stack. Com experiência em Desenvolvimento de Software e uma paixão pela programação, especializo-me em uma ampla gama de tecnologias que me capacitam a criar soluções inovadoras. Minha jornada no desenvolvimento de software é impulsionada pela curiosidade em relação ao futuro, sempre em busca de inovação e autoaperfeiçoamento. Além da programação, encontro inspiração em explorar a interseção entre tecnologia, linguagem e filosofia. Essa combinação de expertise técnica e paixão criativa impulsiona-me a criar projetos inovadores e explorar as possibilidades do amanhã."
   },
   "My mission": {
     "pt": "Minha missão"
   },
-  "My mission is deeply rooted in the observation that technology evolves exponentially and rapidly, far outpacing the pace of advancements in other contexts. I aim to explore and innovate in the intersection of technology and other realms, with a focus on understanding how technology can be seamlessly integrated into various aspects of life, from professional endeavors in tech development to hobbies. This mission involves fostering a holistic approach to embracing technology's potential, creating a convergence where slower aspects can catch up and align with the lightning-fast pace of technological progress.": {
-    "pt": "Minha missão está profundamente enraizada na observação de que a tecnologia evolui de forma exponencial e rápida, superando em muito o ritmo dos avanços em outros contextos. Meu objetivo é explorar e inovar na interseção da tecnologia e de outros domínios, com foco em compreender como a tecnologia pode ser integrada de forma perfeita em vários aspectos da vida, desde empreendimentos profissionais no desenvolvimento de tecnologia até hobbies. Esta missão envolve fomentar uma abordagem holística para abraçar o potencial da tecnologia, criando uma convergência onde os aspectos mais lentos podem alcançar e se alinhar com o ritmo veloz do progresso tecnológico."
+  "My mission is deeply rooted in the observation that technology has been evolving rapidly, far surpassing the pace of advances in other contexts. My goal is to explore and innovate at the intersection of technology and other domains, focusing on understanding how technology can be integrated into various aspects of life, both professional and personal. This mission involves fostering a holistic approach to embrace the potential of technology, creating a convergence where slower aspects can reach and align with the rapid pace of technological progress.": {
+    "pt": "Minha missão está profundamente enraizada na observação de que a tecnologia vem evoluindo de forma acelerada, superando em muito o ritmo dos avanços em outros contextos. Meu objetivo é explorar e inovar na interseção da tecnologia e de outros domínios, com foco em compreender como a tecnologia pode ser integrada em vários aspectos da vida, tanto profissional quanto pessoal. Esta missão envolve fomentar uma abordagem holística para abraçar o potencial da tecnologia, criando uma convergência onde os aspectos mais lentos podem alcançar e se alinhar com o ritmo veloz do progresso tecnológico."
   },
   "TL;DR": {
     "pt": "Resumo"
@@ -41,11 +41,8 @@ export default {
   "My skills": {
     "pt": "Minhas habilidades"
   },
-  "Skills, whether innate or acquired, are instrumental in fulfilling my mission to embrace and harness the power of technology for transformative endeavors.": {
-    "pt": "Habilidades, sejam inatas ou adquiridas, são instrumentais para cumprir minha missão de abraçar e aproveitar o poder da tecnologia para empreendimentos transformadores."
-  },
   "I'm not one to often list my skills publicly, as they constantly evolve through continuous study and improvement. However, I'd like to highlight some innate rare skills that I leverage:": {
-    "pt": "Não costumo listar minhas habilidades publicamente, pois elas evoluem constantemente por meio de estudo e melhoria contínuos. No entanto, gostaria de destacar algumas habilidades raras inatas que eu utilizo:"
+    "pt": "Não costumo listar minhas habilidades publicamente, pois elas evoluem constantemente por meio de estudo e melhoria contínuos. No entanto, gostaria de destacar algumas habilidades raras inatas que eu possuo:"
   },
   "Want to know more about me?": {
     "pt": "Quer saber mais sobre mim?"
@@ -104,13 +101,13 @@ export default {
   "I learn things fast": {
     "pt": "Eu aprendo rápido"
   },
-  "I possess a keen ability to swiftly absorb new concepts and technologies, enabling me to stay ahead in a fast-paced tech environment.": {
-    "pt": "Possuo uma habilidade aguçada para absorver rapidamente novos conceitos e tecnologias, permitindo-me manter-me à frente em um ambiente de tecnologia acelerado."
+  "I have a keen ability to quickly absorb new concepts and technologies, which allows me to stay ahead in a rapidly evolving environment.": {
+    "pt": "Tenho uma habilidade aguçada para absorver rapidamente novos conceitos e tecnologias, o que me permite manter-me à frente em um ambiente em rápida evolução."
   },
   "The new cativates me": {
     "pt": "O novo me cativa"
   },
-  "I am constantly captivated by new developments in technology, maintaining a perpetual curiosity that drives me to explore without succumbing to boredom.": {
+  "I'm constantly captivated by new developments in technology, maintaining a perpetual curiosity that drives me to explore without succumbing to boredom.": {
     "pt": "Sou constantemente cativado por novos desenvolvimentos na tecnologia, mantendo uma curiosidade perpétua que me impulsiona a explorar sem sucumbir ao tédio."
   },
   "I think computationally": {
@@ -122,14 +119,14 @@ export default {
   "I have a creative mindset": {
     "pt": "Eu tenho uma mentalidade criativa"
   },
-  "I possess a creative mindset, constantly generating new ideas and thinking outside the box when tackling tech-related challenges.": {
-    "pt": "Possuo uma mentalidade criativa, gerando constantemente novas ideias e pensando fora da caixa ao enfrentar desafios relacionados à tecnologia."
+  "I possess a creative mindset, constantly generating new ideas and thinking outside the box when tackling challenges and issues.": {
+    "pt": "Possuo uma mentalidade criativa, gerando constantemente novas ideias e pensando fora da caixa ao enfrentar desafios e problemas."
   },
-  "I am future-focused": {
+  "I'm future-focused": {
     "pt": "Eu estou focado no futuro"
   },
-  "I prioritize potential over past knowledge, embracing a deep understanding of forthcoming technologies and focusing on what I can deeply continue to comprehend and improve even more in the future.": {
-    "pt": "Priorizo o potencial sobre o conhecimento passado, abraçando uma compreensão profunda das tecnologias futuras e concentrando-me no que posso continuar a compreender e aprimorar ainda mais no futuro."
+  "I prioritize potential over past knowledge, embracing a deep understanding of future technologies and focusing on what I can continue to learn and improve upon in the future.": {
+    "pt": "Priorizo o potencial futuro sobre o conhecimento passado, buscando compreender profundamente as tecnologias emergentes e concentrando-me no que posso continuar a aprender e aprimorar no futuro."
   },
   "I like to go deep on topics": {
     "pt": "Eu gosto de aprofundar nos temas"

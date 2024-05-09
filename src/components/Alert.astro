@@ -25,10 +25,10 @@ const icon = icons[type || "info"] || icons.info;
   class:list={[
     "rounded-lg px-4 py-2 text-sm flex gap-2 mb-8",
     {
-      "bg-azure-6 dark:bg-green-6/20 text-azure-2 dark:text-azure-9": type === "success",
-      "bg-red-5/20 dark:bg-red-6/20 text-red-5 dark:text-azure-9": type === "error",
-      "bg-yellow-6 dark:bg-orange-6/20 text-azure-2 dark:text-azure-9": type === "warning",
-      "bg-azure-6 dark:bg-yellow-6/20 text-azure-2 dark:text-azure-9": type === "info",
+      "bg-green-5/20 dark:bg-black text-azure-3 dark:text-azure-6": type === "success",
+      "bg-red-5/20 dark:bg-black text-red-5 dark:text-red-5": type === "error",
+      "bg-yellow-5/20 dark:bg-black text-orange-5 dark:text-yellow-5": type === "warning",
+      "bg-azure-6 dark:bg-black text-azure-2 dark:text-azure-5": type === "info",
     },
     className,
   ]}

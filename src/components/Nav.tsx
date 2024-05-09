@@ -16,16 +16,18 @@ const Nav = (props: Props) => {
   const { class: className, items, ...rest } = props;
 
   return <nav class={clsx([className])} {...rest}>
-    <ul class="flex gap-2 justify-end items-center">
-      {
-        items.map((item) => (
-          <li>
-            <Link href={item.href} >
-              {item.label}
-            </Link>
-          </li>
-        ))
-      }
+    <ul class="flex gap-2 justify-between items-center">
+      <div class="flex gap-2">
+        {
+          items.map((item) => (
+            <li>
+              <Link href={item.href} class="no-underline">
+                {item.label}
+              </Link>
+            </li>
+          ))
+        }
+      </div>
       <li class="ml-4">
         <ThemeSwitch />
       </li>

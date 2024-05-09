@@ -9,8 +9,7 @@ export default {
     },
     fontFamily: {
       mono: ['Roboto Mono', 'monospace'],
-      sans: ['Roboto Condensed', 'sans-serif'],
-      display: ['Michroma', 'sans-serif'],
+      sans: ['Roboto', 'sans-serif'],
     },
   },
   darkMode: "class",

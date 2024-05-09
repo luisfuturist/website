@@ -8,11 +8,11 @@ const skills = [
   {
     name: t("I learn things fast"),
     description:
-      t("I possess a keen ability to swiftly absorb new concepts and technologies, enabling me to stay ahead in a fast-paced tech environment."),
+      t("I have a keen ability to quickly absorb new concepts and technologies, which allows me to stay ahead in a rapidly evolving environment."),
   },
   {
     name: t("The new cativates me"),
-    description: t("I am constantly captivated by new developments in technology, maintaining a perpetual curiosity that drives me to explore without succumbing to boredom."),
+    description: t("I'm constantly captivated by new developments in technology, maintaining a perpetual curiosity that drives me to explore without succumbing to boredom."),
   },
   {
     name: t("I think computationally"),
@@ -22,12 +22,12 @@ const skills = [
   {
     name: t("I have a creative mindset"),
     description:
-      t("I possess a creative mindset, constantly generating new ideas and thinking outside the box when tackling tech-related challenges."),
+      t("I possess a creative mindset, constantly generating new ideas and thinking outside the box when tackling challenges and issues."),
   },
   {
-    name: t("I am future-focused"),
+    name: t("I'm future-focused"),
     description:
-      t("I prioritize potential over past knowledge, embracing a deep understanding of forthcoming technologies and focusing on what I can deeply continue to comprehend and improve even more in the future."),
+      t("I prioritize potential over past knowledge, embracing a deep understanding of future technologies and focusing on what I can continue to learn and improve upon in the future."),
   },
   {
     name: t("I like to go deep on topics"),
@@ -35,6 +35,7 @@ const skills = [
       t("I have a passion for delving deep into topics, exploring intricate details and gaining a comprehensive understanding that goes beyond surface-level knowledge. This depth of exploration enables me to uncover valuable insights and innovative solutions."),
   },
 ];
+
 ---
 
 <Title>
@@ -42,21 +43,21 @@ const skills = [
 </Title>
 
 <div class="grid grid-cols-1 sm:grid-cols-2">
-  <h3 class="w-full font-display mb-4 text-sm text-azure-3 dark:text-azure-6">
+  <h3 class="w-full uppercase font-mono text-azure-1 dark:text-azure-6 mb-4 text-sm">
     {t('Who I am')}
   </h3>
 
-  <p class="text-azure-2 dark:text-azure-9 text-xl mb-4">
+  <p class="text-azure-2 dark:text-azure-9 mb-4">
     {
       t(
-        "I'm a natural neural network navigating the digital cosmos, powered by curiosity and a relentless drive to explore the future. As a self-taught Full Stack Web Developer, I merge technology and creativity, weaving code into innovative solutions. My journey unfolds in the realm of cybernetic creativity, where every line of code is a brushstroke on the canvas of tomorrow.",
+        "I'm a natural neural network passionate about technology and the future, working as a full-stack developer. With experience in Software Development and a passion for programming, I specialize in a wide range of technologies that enable me to create innovative solutions. My journey in software development is driven by curiosity about the future, always seeking innovation and self-improvement. In addition to programming, I find inspiration in exploring the intersection of technology, language, and philosophy. This combination of technical expertise and creative passion drives me to create innovative projects and explore the possibilities of tomorrow.",
       )
     }
   </p>
 </div>
 
 <h3
-  class="mt-16 mb-4 font-display text-azure-3 dark:text-azure-6 text-center"
+  class="mt-16 mb-4 font-mono uppercase text-azure-1 dark:text-azure-6 text-center"
 >
   {t("My mission")}
 </h3>
@@ -65,45 +66,37 @@ const skills = [
   <p class="mb-4 text-azure-2 dark:text-azure-9">
     {
       t(
-        "My mission is deeply rooted in the observation that technology evolves exponentially and rapidly, far outpacing the pace of advancements in other contexts. I aim to explore and innovate in the intersection of technology and other realms, with a focus on understanding how technology can be seamlessly integrated into various aspects of life, from professional endeavors in tech development to hobbies. This mission involves fostering a holistic approach to embracing technology's potential, creating a convergence where slower aspects can catch up and align with the lightning-fast pace of technological progress.",
+        "My mission is deeply rooted in the observation that technology has been evolving rapidly, far surpassing the pace of advances in other contexts. My goal is to explore and innovate at the intersection of technology and other domains, focusing on understanding how technology can be integrated into various aspects of life, both professional and personal. This mission involves fostering a holistic approach to embrace the potential of technology, creating a convergence where slower aspects can reach and align with the rapid pace of technological progress.",
       )
     }
   </p>
 
   <span class="text-azure-4 dark:text-azure-5 italic"> {t("TL;DR")} </span>
 
-  <span class="text-azure-2 dark:text-azure-6"> {t("Embracing tech integration")} </span>
+  <span class="text-azure-1 dark:text-azure-6"> {t("Embracing tech integration")} </span>
 </div>
 
-<div class="grid gap-8 grid-cols-1 sm:grid-cols-2 mt-12 mb-12">
+<div class="grid gap-8 grid-cols-1 sm:grid-cols-2 mt-16 mb-12">
   <hgroup>
-    <h3 class="text-azure-2 font-display dark:text-azure-6 w-full mb-4 text-sm">{t("My skills")}</h3>
+    <h3 class="text-azure-1 uppercase dark:text-azure-6 w-full mb-4 font-mono text-sm">{t("My skills")}</h3>
 
-    <p class="text-azure-4 dark:text-azure-6 text-xs font-mono w-full">
-      {
-        t(
-          "Skills, whether innate or acquired, are instrumental in fulfilling my mission to embrace and harness the power of technology for transformative endeavors.",
-        )
-      }
-    </p>
-  </hgroup>
-
-  <div class="text-azure-2 dark:text-azure-9 w-full">
-    <p>
+    <p class="text-azure-2 dark:text-azure-9">
       {
         t(
           "I'm not one to often list my skills publicly, as they constantly evolve through continuous study and improvement. However, I'd like to highlight some innate rare skills that I leverage:",
         )
       }
     </p>
+  </hgroup>
 
+  <div class="text-azure-2 dark:text-azure-9 w-full">
     <div class="space-y-4 mt-8">
       {
         skills.map((skill, i) => (
-          <Accordion name="accordion-skills" class="border-b border-azure-8 dark:border-azure-3">
+          <Accordion name="accordion-skills" class="border-b border-azure-6 dark:border-azure-3">
             <div
               slot="title"
-              class="text-base font-display text-azure-1 dark:text-azure-6 flex items-center pb-4"
+              class="text-base text-azure-1 dark:text-azure-6 flex items-center pb-4"
             >
               {skill.name}
             </div>
@@ -118,7 +111,7 @@ const skills = [
 </div>
 
 <div class="sm:w-1/2 sm:pr-8">
-  <h3 class="text-azure-2 dark:text-azure-6 font-display text-4xl mb-4">
+  <h3 class="text-azure-1 dark:text-azure-6 uppercase font-mono text-xs mb-4">
     {t("Want to know more about me?")}
   </h3>
 
@@ -140,4 +133,4 @@ const skills = [
   </p>
 </div>
 
-<hr class="border-azure-2 mt-12" />
+<hr class="border-azure-6 mt-12" />

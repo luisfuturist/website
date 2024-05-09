@@ -35,7 +35,7 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Michroma&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
 
@@ -73,7 +73,7 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
   }
 
   html {
-    font-family: "Roboto", sans-serif;
+    @apply font-sans;
   }
 
   /* #endregion */
@@ -88,19 +88,19 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
 
   /* #region scrollbar */
 
-  ::-webkit-scrollbar {
+  body::-webkit-scrollbar {
     @apply w-[6px] z-[-10];
   }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-transparent;
+  body::-webkit-scrollbar-track {
+    @apply bg-white dark:bg-azure-1;
   }
 
-  ::-webkit-scrollbar-thumb {
+  body::-webkit-scrollbar-thumb {
     @apply bg-azure-6 rounded-full;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
+  body::-webkit-scrollbar-thumb:hover {
     @apply bg-azure-5 dark:bg-azure-5;
   }
 

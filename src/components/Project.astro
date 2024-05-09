@@ -11,20 +11,25 @@ interface Props extends Repo {
 
 const { i, class: className, ...repo } = Astro.props;
 
-const locale = getLocale()
+const locale = getLocale();
 ---
 
 <article
   class:list={[
-    "border border-azure-6 dark:border-azure-6 min-h-36 flex w-full h-full flex-col justify-between rounded-lg p-4",
+    "min-h-36 flex w-full h-full flex-col justify-between rounded-lg p-4",
+    i === 0 ? "bg-black" : "border border-azure-6 dark:border-azure-6",
     className,
   ]}
 >
   <div class="w-full">
     <header>
       <h1
-        class="text-azure-2 dark:text-azure-6 mb-4 font-medium font-mono"
-        class:list={[i === 0 ? "text-2xl" : "text-lg"]}
+        class="mb-4"
+        class:list={[
+          i === 0
+            ? "text-2xl text-azure-6"
+            : "text-lg text-azure-1 dark:text-azure-6",
+        ]}
       >
         <a target="_blank" href={repo.website || repo.html_url}>
           {repo.name}
@@ -33,12 +38,23 @@ const locale = getLocale()
     </header>
 
     <main>
-      <p class="text-azure-2 dark:text-azure-9 mb-4 leading-5">{repo.description}</p>
+      <p
+        class="mb-4 leading-5"
+        class:list={[
+          i === 0 ? "text-azure-9" : "text-azure-2 dark:text-azure-9",
+        ]}
+      >
+        {repo.description}
+      </p>
 
-      <ul class="text-azure-4 dark:text-azure-5 flex justify-end gap-1 flex-wrap text-xs">
+      <ul
+        class="text-azure-4 dark:text-azure-5 flex justify-end gap-1 flex-wrap text-xs"
+      >
         {
           repo.keywords.map((keyword) => (
-            <li class="bg-azure-5/10 dark:bg-azure-6/10 rounded-lg px-2">{keyword}</li>
+            <li class="bg-azure-5/10 dark:bg-azure-6/10 rounded-lg px-2">
+              {keyword}
+            </li>
           ))
         }
       </ul>
@@ -47,16 +63,35 @@ const locale = getLocale()
 
   <footer>
     <div class="flex gap-1 flex-wrap items-center justify-between mt-4">
-      <div class="text-azure-4 dark:text-azure-9 flex gap-2">
-        <Link target="_blank" class="no-underline" href={repo.html_url}>
+      <div class="flex gap-2">
+        <Link
+          target="_blank"
+          class="no-underline"
+          class:list={[
+            i === 0 ? "text-azure-9" : "text-azure-2 dark:text-azure-9",
+          ]}
+          href={repo.html_url}
+        >
           <Icon name="code" />
         </Link>
-        <Link target="_blank" class="no-underline" href={repo.website}>
+        {repo.website && <Link
+          target="_blank"
+          class="no-underline"
+          class:list={[
+            i === 0 ? "text-azure-9" : "text-azure-2 dark:text-azure-9",
+          ]}
+          href={repo.website}
+        >
           <Icon name="globe" />
-        </Link>
+        </Link>}
       </div>
 
-      <small class="font-mono text-azure-2 dark:text-azure-6">
+      <small
+        class="font-mono"
+        class:list={[
+          i === 0 ? "text-azure-9" : "text-azure-2 dark:text-azure-9",
+        ]}
+      >
         {
           new Date(repo.updated_at).toLocaleString(locale, {
             dateStyle: "medium",
