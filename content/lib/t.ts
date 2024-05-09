@@ -1,4 +1,4 @@
-import { collect, formatToString, getConfig, getDefaultLocale, getFormatOptions, localizeKey, type InferValues, type Locale, type RegisteredMessages, type Values, collection, getTranslationsObject } from '@psitta/core';
+import { collect, formatToString, prepareFormat, type InferValues, type Locale, type RegisteredMessages, type Values } from '@psitta/core';
 import { getLocale } from './state';
 
 type ValueOf<T> = T[keyof T]
@@ -9,23 +9,20 @@ type EveryTranslationOf<D extends keyof RegisteredMessages> = Extract<
 >
 
 function t<T extends keyof RegisteredMessages>(
-  key: T,
+  message: T,
   values?: Partial<InferValues<T | EveryTranslationOf<T>>>,
   locale?: Locale,
 ) {
   if (import.meta.env.DEV) {
-    collect(key, values as Values)
+    collect(message, values as Values)
   }
-
-  const options = getConfig()
 
   if (!locale)
     locale = getLocale()
 
-  const message = localizeKey(key, locale, options)
-  const formatOptions = getFormatOptions(locale, options)
+  const { localizedMessage, formatOptions } = prepareFormat(message, locale)
 
-  return formatToString(message, values, formatOptions)
+  return formatToString(localizedMessage, values, formatOptions)
 }
 
 export default t;

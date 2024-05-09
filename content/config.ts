@@ -1,12 +1,10 @@
-import { initPsitta } from '@psitta/core'
+import { psitta } from '@psitta/core'
 import messages from './messages.js'
 import { getTranslationBoilerplate } from './lib/utils'
 
-initPsitta({
+psitta({
   locales: ['en', 'pt'],
-  translations: messages,
-  datetimeFormats: { en: 'en-US', pt: 'pt-BR' },
-  numberFormats: { en: 'en-US', pt: 'pt-BR' },
+  messages,
 })
 
 declare module '@psitta/core' {

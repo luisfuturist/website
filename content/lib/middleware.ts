@@ -1,11 +1,11 @@
 import "../config";
 import { setLocale } from "./state";
 
-import { detectLocaleFromAcceptLanguage, detectLocaleFromCookie, detectLocaleFromPathname, getDefaultLocale } from "@psitta/core"
+import { detectLocaleFromAcceptLanguage, detectLocaleFromCookie, detectLocaleFromPathname, getConfig } from "@psitta/core"
 import { defineMiddleware } from "astro:middleware"
 
 export default defineMiddleware((c, next) => {
-  const defaultLocale = getDefaultLocale()
+  const { defaultLocale } = getConfig()
   const pathname = c.url.pathname
 
   const { urlWithoutLocale, locale } = detectLocaleFromPathname(pathname)
@@ -18,7 +18,7 @@ export default defineMiddleware((c, next) => {
     if (!locale) {
       const header = c.request.headers.get('accept-language')
       locale = header
-        ? detectLocaleFromAcceptLanguage(header)?.lang || defaultLocale
+        ? detectLocaleFromAcceptLanguage(header)?.language || defaultLocale
         : defaultLocale
     }
 

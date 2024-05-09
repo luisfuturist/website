@@ -1,18 +1,10 @@
 ---
-import type { Register, RegisteredMessages } from "@psitta/core";
-import {
-  collect,
-  formatToSegments,
-  getConfig,
-  getFormatOptions,
-  localizeKey,
-} from "@psitta/core";
-import { getLocale } from "../lib/state";
-import type { Segment } from "@psitta/core";
+import type { InferValues, Register, Segment } from "@psitta/core";
+import { collect, formatToSegments, prepareFormat } from "@psitta/core";
 import type { HTMLAttributes } from "astro/types";
-import type { InferValues } from "@psitta/core";
+import { getLocale } from "../lib/state";
 
-interface Props extends HTMLAttributes<'span'> {
+interface Props extends HTMLAttributes<"span"> {
   text: keyof Register["messages"];
   values?: InferValues<keyof Register["messages"]>;
   tag?: string;
@@ -26,14 +18,11 @@ const {
   ...rest
 } = Astro.props;
 
-const options = getConfig();
 const locale = getLocale();
 
 const getSegments = () => {
-  const localeValue = locale;
-  const localizedText = localizeKey(text as any, localeValue, options);
-  const formatOptions = getFormatOptions(localeValue, options);
-  const segments = formatToSegments(localizedText, values, formatOptions);
+  const { localizedMessage, formatOptions } = prepareFormat(text, locale);
+  const segments = formatToSegments(localizedMessage, values, formatOptions);
 
   return segments;
 };

@@ -1,9 +1,8 @@
-import { type FormatContext, type InferValues, type Values, collect, formatToSegments, getConfig, getFormatOptions, localizeKey } from '@psitta/core';
-import { type Register } from '@psitta/core';
+import { collect, formatToSegments, prepareFormat, type FormatContext, type InferValues, type Register, type Values } from '@psitta/core';
+import { createElement, type ComponentChildren, type JSX } from 'preact';
 import { useEffect, useMemo } from 'preact/hooks';
 import { Fragment } from 'preact/jsx-runtime';
 import { getLocale } from '../lib/state';
-import { createElement, type ComponentChildren, type JSX } from 'preact';
 
 type SlotProps<V> = V & { decline: FormatContext<any>['decline'] }
 type Slots<V> = Partial<Record<keyof V, (ComponentChildren | ((slotProps: SlotProps<V>) => ComponentChildren))>>
@@ -30,10 +29,9 @@ const T = <
   const locale = getLocale();
 
   const segments = useMemo(() => {
-    const options = getConfig();
-    const formatOptions = getFormatOptions(locale, options)
-    const textToFormat = localizeKey(text as any, locale, options)
-    return formatToSegments(textToFormat, values || {}, formatOptions);
+    const { localizedMessage, formatOptions } = prepareFormat(locale, locale)
+
+    return formatToSegments(localizedMessage, values || {}, formatOptions);
   }, [text, values]);
 
   useEffect(() => {
