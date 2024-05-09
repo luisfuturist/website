@@ -4,8 +4,10 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro build && wrangler pages dev ./dist",
+    "deploy": "astro build && wrangler pages deploy ./dist",
+    "astro": "astro",
+    "cf": "wrangler"
   },
   "repository": {
     "type": "git",
@@ -13,6 +15,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.8",
+    "@astrojs/cloudflare": "^10.2.5",
     "@astrojs/preact": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
     "@preact/signals": "^1.2.3",
@@ -23,11 +26,12 @@
     "js-cookie": "^3.0.5",
     "lodash-es": "^4.17.21",
     "preact": "^10.20.1",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.4.2"
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
-    "@types/lodash-es": "^4.17.12"
+    "@types/lodash-es": "^4.17.12",
+    "typescript": "^5.4.2",
+    "wrangler": "^3.53.1"
   }
 }

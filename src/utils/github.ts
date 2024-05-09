@@ -11,9 +11,11 @@ export type Repo = {
 export async function getPinnedRepos(username: string) {
   const res = await fetch(`https://api.github.com/users/${username}/repos`, {
     headers: {
-      'Authorization': `Bearer ${import.meta.env.GH_API_TOKEN}`
+      'Authorization': `Bearer ${import.meta.env.GH_API_TOKEN}`,
+      'User-Agent': 'request',
     }
   });
+
   const data = await res.json();
   
   if(!res.ok) {
