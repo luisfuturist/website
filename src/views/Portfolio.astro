@@ -8,20 +8,26 @@ import t from "../../content/lib/t";
 import Alert from "../components/Alert.astro";
 import Link from "../components/Link";
 import { sortByDate } from "../utils/sort";
+import { query } from "../utils/state";
 
-let repos: Repo[] | null;
-let error;
-
-try {
-  const myRepos = await getPinnedRepos("luisfuturist");
-  const neogaiaRepos = await getPinnedRepos("neogaialab");
-  repos = [...myRepos, ...neogaiaRepos];
-  sortByDate(repos, "updated_at");
-} catch (e) {
-  console.error(e);
-  error = e;
-  repos = null;
-}
+const { data: myRepos, error: myReposError } = await query(
+  () => getPinnedRepos("luisfuturist"),
+  {
+    onError(error) {
+      console.error(error);
+    },
+  },
+);
+const { data: gaiaRepos, error: gaiaReposError } = await query(
+  () => getPinnedRepos("9aia"),
+  {
+    onError(error) {
+      console.error(error);
+    },
+  },
+);
+const repos: Repo[] = (myRepos ?? []).concat(gaiaRepos ?? []);
+sortByDate(repos, "updated_at");
 ---
 
 <Title>
@@ -70,10 +76,30 @@ try {
       </>
     ))
   }
+
+  {
+    myReposError && !gaiaReposError && (
+      <div class="w-full h-full p-2">
+        <small class="text-red-6">
+          {t("There was an error loading my projects from GitHub. 😭")}
+        </small>
+      </div>
+    )
+  }
+
+  {
+    gaiaReposError && !myReposError && (
+      <div class="w-full h-full p-2">
+        <small class="text-red-6">
+          {t("There was an error loading Gaia projects from GitHub. 😭")}
+        </small>
+      </div>
+    )
+  }
 </div>
 
 {
-  error && (
+  gaiaReposError && myReposError && (
     <small class="text-red-6">
       {t("There was an error loading projects from GitHub. 😭")}
     </small>

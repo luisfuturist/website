@@ -149,6 +149,12 @@ export default {
   "There was an error loading projects from GitHub. 😭": {
     "pt": "Ocorreu um erro ao carregar os projetos do GitHub. 😭"
   },
+  "There was an error loading my projects from GitHub. 😭": {
+    "pt": "Ocorreu um erro ao carregar meus projetos do GitHub. 😭"
+  },
+  "There was an error loading Gaia projects from GitHub. 😭": {
+    "pt": "Ocorreu um erro ao carregar os projetos da Gaia do GitHub. 😭"
+  },
   "Home": {
     "pt": "Início"
   },
