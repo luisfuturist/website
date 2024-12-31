@@ -45,7 +45,7 @@ const Element = tag;
 
 <Element class:list={[className]} {...rest}>
   {
-    segments.map((segment, i) =>
+    segments.map((segment) =>
       segment.type === "text" ||
       (segment.key && !Astro.slots.has(segment.key)) ? (
         segment.part
