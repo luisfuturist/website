@@ -45,14 +45,6 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
     <slot />
 
     <Toast client:idle />
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const id = new URL(location.href).hash.replace("#", "");
-        const el = document.getElementById(id);
-        el?.scrollIntoView();
-      });
-    </script>
   </body>
 </html>
 
@@ -60,20 +52,16 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
   /* #region reset */
 
   * {
-    @apply scroll-smooth;
-  }
-
-  * {
     font: inherit;
   }
 
   html,
   body {
-    @apply w-full bg-white dark:bg-azure-1 transition-colors duration-500;
+    @apply transition-colors duration-500;
   }
 
   html {
-    @apply font-sans;
+    @apply font-sans overflow-hidden;
   }
 
   /* #endregion */

@@ -20,7 +20,26 @@ const navItems = [
   description={t("Explore my personal website.")}
   keywords={t("Luis Emidio, website, technology, developer")}
 >
-  <main>
+<div class="bg-black flex w-[300vw]">
+  <div class="hidden remove-hidden-on-load">
+    <div id="__projects" class="w-[100vw] h-[100vh] text-white">projects</div>
+  </div>
+  <div class="flex flex-col">
+    <div id="__home" class="w-[100vw] h-[100vh] text-white">
+      home
+
+      <a href="#projects" class="__anchor text-white"> projects </a>
+      <a href="#about" class="__anchor text-white"> about </a>
+      <a href="#contact" class="__anchor text-white"> contact </a>
+    </div>
+    <div id="__about" class="w-[100vw] h-[100vh] text-white">about</div>
+  </div>
+
+  <div>
+    <div id="__contact" class="w-[100vw] h-[100vh] text-white">contact</div>
+  </div>
+
+  <!-- <main>
     <section id="home" class="relative">
       <Hero />
     </section>
@@ -56,5 +75,7 @@ const navItems = [
     </section>
   </main>
 
-  <Footer />
+  <Footer /> -->
 </Document>
+
+<script src="../scripts/scroll.ts">
