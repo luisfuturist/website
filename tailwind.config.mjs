@@ -10,6 +10,7 @@ export default {
     fontFamily: {
       mono: ['Roboto Mono', 'monospace'],
       sans: ['Roboto', 'sans-serif'],
+      display: ['Michroma', 'sans-serif'],
     },
   },
   darkMode: "class",

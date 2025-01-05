@@ -1,13 +1,8 @@
 ---
-import Document from "../layouts/Document.astro";
-import Hero from "../views/Hero.astro";
-import About from "../views/About.astro";
-import Portfolio from "../views/Portfolio.astro";
-import Contact from "../views/Contact.astro";
-import Footer from "../views/Footer.astro";
-import Icon from "./Icon";
 import t from "../../content/lib/t";
-import Nav from "./Nav";
+import Document from "../layouts/Document.astro";
+import Home from "../views/Home.astro";
+import Navbar from "./Navbar.astro";
 
 const navItems = [
   { label: "English", href: "/en" },
@@ -20,62 +15,122 @@ const navItems = [
   description={t("Explore my personal website.")}
   keywords={t("Luis Emidio, website, technology, developer")}
 >
-<div class="bg-black flex w-[300vw]">
-  <div class="hidden remove-hidden-on-load">
-    <div id="__projects" class="w-[100vw] h-[100vh] text-white">projects</div>
-  </div>
-  <div class="flex flex-col">
-    <div id="__home" class="w-[100vw] h-[100vh] text-white">
-      home
-
-      <a href="#projects" class="__anchor text-white"> projects </a>
-      <a href="#about" class="__anchor text-white"> about </a>
-      <a href="#contact" class="__anchor text-white"> contact </a>
+  <div class="flex w-[300vw]">
+    <div class="hidden remove-hidden-on-load">
+      <div id="__projects" class="w-[80vw] h-dvh text-white bg-black">projects</div>
     </div>
-    <div id="__about" class="w-[100vw] h-[100vh] text-white">about</div>
+
+    <div class="flex flex-col">
+      <div id="__home" class="w-[100vw] h-dvh text-white relative">
+        <Navbar />
+
+        <div class="global-gradient"></div>
+        <div class="metal-container">
+          <div class="grid"></div>
+        </div>
+
+        <Home />
+      </div>
+      
+      <div id="__about" class="w-[100vw] h-[80vh] text-white bg-black">
+        about
+      </div>
+    </div>
+
+    <div>
+      <div id="__contact" class="w-[80vw] h-dvh text-white bg-black">
+        contact
+      </div>
+    </div>
   </div>
-
-  <div>
-    <div id="__contact" class="w-[100vw] h-[100vh] text-white">contact</div>
-  </div>
-
-  <!-- <main>
-    <section id="home" class="relative">
-      <Hero />
-    </section>
-
-    <header
-      class="px-4 sm:px-4 py-4 max-w-4xl mx-auto"
-    >
-      <Nav items={navItems} client:idle />
-    </header>
-
-    <section id="about" class="px-4 py-8 max-w-4xl mx-auto">
-      <About />
-    </section>
-
-    <section id="portfolio" class="px-4 py-8 max-w-4xl mx-auto">
-      <Portfolio />
-    </section>
-
-    <section id="contact" class="px-4 py-8 max-w-4xl mx-auto">
-      <Contact />
-    </section>
-
-    <section class="px-4 max-w-4xl mx-auto mt-12">
-      <a
-        href="/#contact"
-        class="flex items-end rounded-lg bg-black text-azure-6 p-4 text-4xl font-display mb-12 min-h-[50dvh]"
-      >
-        <p class="flex gap-2 items-center">
-          {t("Let's connect!")}
-          <Icon name="arrow-up-right" />
-        </p>
-      </a>
-    </section>
-  </main>
-
-  <Footer /> -->
 </Document>
 
-<script src="../scripts/scroll.ts">
+<script src="../scripts/scroll.ts"></script>
+
+<style>
+  .metal-container {
+    @apply absolute top-0 left-0 w-full h-full -z-10;
+  }
+
+  .metal {
+    --dot-size: 1px;
+    --size: 80px;
+    --dot1-color: #222;
+    --dot2-color: #222;
+    --line-hor-color: #090909;
+    --line-ver-color: #090909;
+
+    @apply w-full h-full;
+
+    background-image: radial-gradient(
+        var(--dot1-color) var(--dot-size),
+        transparent var(--dot-size)
+      ),
+      radial-gradient(
+        var(--dot2-color) var(--dot-size),
+        transparent var(--dot-size)
+      ),
+      radial-gradient(
+        var(--dot2-color) var(--dot-size),
+        transparent var(--dot-size)
+      ),
+      linear-gradient(
+        to right,
+        var(--line-ver-color) var(--dot-size),
+        transparent var(--dot-size)
+      ),
+      linear-gradient(
+        to bottom,
+        var(--line-hor-color) var(--dot-size),
+        transparent var(--dot-size)
+      );
+    background-size:
+      var(--size) var(--size),
+      var(--size) var(--size),
+      var(--size) var(--size),
+      var(--size) var(--size);
+    background-position:
+      0 0,
+      calc(var(--size) / 2 + var(--dot-size) / 2)
+        calc(var(--size) / 2 + var(--dot-size) / 2),
+      calc(var(--size)) calc(var(--size) / 2 + var(--dot-size) / 2),
+      0 0,
+      calc(var(--size) / 2 - var(--dot-size) / 2)
+        calc(var(--size) / 2 - var(--dot-size) / 2);
+    background-color: #000;
+    background-repeat: repeat;
+  }
+  .grid {
+    @apply -z-10;
+    @apply w-full h-full;
+
+    --dot-size: 1px;
+    --dot1-color: theme(colors.slate.900);
+    --size: 64px;
+
+    background-image: radial-gradient(
+      var(--dot1-color) var(--dot-size),
+      transparent var(--dot-size)
+    );
+    background-size: var(--size) var(--size);
+    background-color: #000;
+    background-repeat: repeat;
+  }
+
+  .global-gradient {
+    @apply absolute top-0 left-0 w-full h-full;
+
+    background: radial-gradient(circle at center 0, #000 0%, transparent 75%);
+  }
+  /* 
+    .global-gradient {
+      @apply absolute top-0 left-0 w-full h-full -z-10;
+
+      background: radial-gradient(
+        circle at 20% 0,
+        #A0522D11 0%,
+        #80808011 75%
+      );
+
+    } */
+</style>

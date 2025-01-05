@@ -1,0 +1,70 @@
+---
+import NavLink from "./NavLink";
+import t from "../../content/lib/t";
+
+const goBackMessage = t('Go back')
+---
+
+<nav class="layout absolute top-0 left-0 w-full h-dvh z-[5] ">
+  <NavLink
+    client:load
+    icon="arrow-left"
+    class="flex gap-1 justify-start pl-4 items-center"
+    href="/#projects"
+    goBackMessage={goBackMessage}
+  >
+    { t('Projects' )}
+  </NavLink>
+
+  <NavLink
+    client:load
+    icon="arrow-right"
+    class="flex gap-1 justify-end pr-4 items-center"
+    href="/#contact"
+    goBackMessage={goBackMessage}
+  >
+    { t('Contact' )}
+  </NavLink>
+
+  <NavLink
+    client:load
+    icon="arrow-down"
+    class="flex gap-1 justify-center items-end pb-8"
+    href="/#about"
+    goBackMessage={goBackMessage}
+  >
+    { t('About me' )}
+  </NavLink>
+</nav>
+
+<div class="light bottom-0 left-0 bg-gradient-to-t" data-light="bottom"></div>
+<div class="light top-0 left-0 bg-gradient-to-r" data-light="left"></div>
+<div class="light top-0 right-0 bg-gradient-to-l" data-light="right"></div>
+<script src="../scripts/light.ts"></script>
+
+<style>
+  .layout {
+    @apply grid grid-cols-[20vw_60vw_20vw] grid-rows-[70dvh_30dvh];
+    grid-template-areas:
+      "projects . contact"
+      "about about about";
+  }
+
+  a[href="/#about"] {
+    grid-area: about;
+  }
+  a[href="/#projects"] {
+    grid-area: projects;
+  }
+  a[href="/#contact"] {
+    grid-area: contact;
+  }
+
+  .light {
+    @apply absolute from-black to-transparent z-[1];
+  }
+
+  a {
+    @apply z-[2] text-azure-6 hover:text-azure-5;
+  }
+</style>

@@ -14,11 +14,11 @@ export default {
   "That's all it is: information. Even a simulated experience or a dream; simultaneous reality and fantasy. Any way you look at it, all the information that a person accumulates in a lifetime is just a drop in the bucket.\" — Batou": {
     "pt": "Isso é tudo: informação. Mesmo uma experiência simulada ou um sonho; realidade e fantasia simultâneas. De qualquer forma que você olhe para isso, toda a informação que uma pessoa acumula em uma vida é apenas uma gota no balde.\" — Batou"
   },
-  "Future-oriented Full Stack Developer": {
-    "pt": "Desenvolvedor Full Stack Orientado ao Futuro"
+  "Developer": {
+    "pt": "Dev"
   },
-  "About me": {
-    "pt": "Sobre mim"
+  "AI / Web": {
+    "pt": "IA / Web"
   },
   "Who I am": {
     "pt": "Quem sou eu?"
@@ -166,5 +166,14 @@ export default {
   },
   "Portuguese": {
     "pt": "Português"
+  },
+  "About me": {
+    "pt": "Sobre mim"
+  },
+  "Projects": {
+    "pt": "Projetos"
+  },
+  "Go back": {
+    "pt": "Voltar"
   },
 }

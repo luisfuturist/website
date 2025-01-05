@@ -11,7 +11,7 @@ interface Props {
 }
 
 const lang = getLocale();
-Astro.cookies.set('locale', lang);
+Astro.cookies.set("locale", lang);
 
 const { title, description, keywords } = Astro.props;
 
@@ -30,12 +30,17 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
     <meta name="keywords" content={keywords} />
     <title>{title}</title>
 
-    <link rel="icon" href={theme === 'dark' ? '/fav.png' : '/fav-light.png'} id="fav-icon" />
+    <link
+      rel="icon"
+      href={theme === "dark" ? "/fav.png" : "/fav-light.png"}
+      id="fav-icon"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Michroma&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
 
@@ -61,7 +66,7 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
   }
 
   html {
-    @apply font-sans;
+    @apply font-sans bg-black;
   }
 
   /* #endregion */
@@ -96,9 +101,9 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
 
   /* #region Focus */
 
-  *:focus {
+  /* *:focus {
     @apply focus:outline focus:outline-2 focus:outline-offset-[0.5em] focus:outline-azure-4 dark:focus:outline-azure-6 focus:rounded-lg;
-  }
+  } */
 
   /* #endregion */
 
