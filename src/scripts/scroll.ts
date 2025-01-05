@@ -6,8 +6,7 @@ document.querySelectorAll(".remove-hidden-on-load").forEach((el) => {
 // Disable scroll restoration
 history.scrollRestoration = "manual";
 
-// Scroll to the element with the id of the hash when the back button is clicked
-window.addEventListener("popstate", () => {
+function fixScroll() {
     if (!window.location.hash) return;
 
     const hash = location.hash.slice(1);
@@ -16,7 +15,11 @@ window.addEventListener("popstate", () => {
     if (!element) return;
 
     element.scrollIntoView({ behavior: "smooth" });
-});
+}
+
+// Scroll to the element with the id of the hash when the back button is clicked
+window.addEventListener("popstate", () => fixScroll());
+window.addEventListener("resize", () => fixScroll());
 
 window.addEventListener("DOMContentLoaded", () => {
     if (!window.location.hash) return;
@@ -28,13 +31,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         // Animate scroll to the element using scrollIntoView based on hash (id=hash)
         setTimeout(() => {
-            if (!window.location.hash) return;
-
-            const hash = location.hash.slice(1);
-            const element = document.getElementById("__" + hash);
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-            }
+            fixScroll();
         }, 300);
     });
 });
