@@ -14,7 +14,7 @@ export default {
   "That's all it is: information. Even a simulated experience or a dream; simultaneous reality and fantasy. Any way you look at it, all the information that a person accumulates in a lifetime is just a drop in the bucket.\" — Batou": {
     "pt": "Isso é tudo: informação. Mesmo uma experiência simulada ou um sonho; realidade e fantasia simultâneas. De qualquer forma que você olhe para isso, toda a informação que uma pessoa acumula em uma vida é apenas uma gota no balde.\" — Batou"
   },
-  "Developer": {
+  "Dev": {
     "pt": "Dev"
   },
   "AI / Web": {
@@ -26,8 +26,8 @@ export default {
   "I'm a natural neural network passionate about technology and the future, working as a full-stack developer. With experience in Software Development and a passion for programming, I specialize in a wide range of technologies that enable me to create innovative solutions. My journey in software development is driven by curiosity about the future, always seeking innovation and self-improvement. In addition to programming, I find inspiration in exploring the intersection of technology, language, and philosophy. This combination of technical expertise and creative passion drives me to create innovative projects and explore the possibilities of tomorrow.": {
     "pt": "Eu sou uma rede neural natural apaixonada por tecnologia e o futuro, atuando como desenvolvedor full-stack. Com experiência em Desenvolvimento de Software e uma paixão pela programação, especializo-me em uma ampla gama de tecnologias que me capacitam a criar soluções inovadoras. Minha jornada no desenvolvimento de software é impulsionada pela curiosidade em relação ao futuro, sempre em busca de inovação e autoaperfeiçoamento. Além da programação, encontro inspiração em explorar a interseção entre tecnologia, linguagem e filosofia. Essa combinação de expertise técnica e paixão criativa impulsiona-me a criar projetos inovadores e explorar as possibilidades do amanhã."
   },
-  "My mission": {
-    "pt": "Minha missão"
+  "My Mission": {
+    "pt": "Minha Missão"
   },
   "My mission is deeply rooted in the observation that technology has been evolving rapidly, far surpassing the pace of advances in other contexts. My goal is to explore and innovate at the intersection of technology and other domains, focusing on understanding how technology can be integrated into various aspects of life, both professional and personal. This mission involves fostering a holistic approach to embrace the potential of technology, creating a convergence where slower aspects can reach and align with the rapid pace of technological progress.": {
     "pt": "Minha missão está profundamente enraizada na observação de que a tecnologia vem evoluindo de forma acelerada, superando em muito o ritmo dos avanços em outros contextos. Meu objetivo é explorar e inovar na interseção da tecnologia e de outros domínios, com foco em compreender como a tecnologia pode ser integrada em vários aspectos da vida, tanto profissional quanto pessoal. Esta missão envolve fomentar uma abordagem holística para abraçar o potencial da tecnologia, criando uma convergência onde os aspectos mais lentos podem alcançar e se alinhar com o ritmo veloz do progresso tecnológico."
@@ -38,8 +38,8 @@ export default {
   "Embracing tech integration": {
     "pt": "Abraçar a integração tecnológica"
   },
-  "My skills": {
-    "pt": "Minhas habilidades"
+  "My Skills": {
+    "pt": "Minhas Habilidades"
   },
   "I'm not one to often list my skills publicly, as they constantly evolve through continuous study and improvement. However, I'd like to highlight some innate rare skills that I leverage:": {
     "pt": "Não costumo listar minhas habilidades publicamente, pois elas evoluem constantemente por meio de estudo e melhoria contínuos. No entanto, gostaria de destacar algumas habilidades raras inatas que eu possuo:"

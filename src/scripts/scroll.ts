@@ -1,3 +1,5 @@
+import { translateAboutView } from "../components/NavLink";
+
 // Remove the hidden class from elements with the class of remove-hidden-on-load
 document.querySelectorAll(".remove-hidden-on-load").forEach((el) => {
     el.classList.remove("hidden");
@@ -15,6 +17,8 @@ function fixScroll() {
     if (!element) return;
 
     element.scrollIntoView({ behavior: "smooth" });
+
+    translateAboutView();
 }
 
 // Scroll to the element with the id of the hash when the back button is clicked

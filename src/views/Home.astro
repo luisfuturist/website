@@ -1,31 +1,23 @@
 ---
 import t from "../../content/lib/t";
 import Marquee from "../components/Markee.astro";
+
+const year = new Date().getFullYear();
 ---
 
-<Marquee
-  text={t(`That's all it is: information. Even a simulated experience or a dream; simultaneous reality and fantasy. Any way you look at it, all the information that a person accumulates in a lifetime is just a drop in the bucket.\" — Batou`)}
-/>
-
-<div class="flex items-end w-full h-dvh">
-  <div
-    class="px-4 py-8 w-full flex flex-col md:flex-row items-start md:justify-between md:items-end gap-2"
-  >
-    <h1
-      class="scroll-text order-0 sm:order-1 font-display animate-fadein font-medium text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-tr from-slate-950 to-slate-600"
+<div class="absolute w-full overflow-hidden h-fit top-0 bottom-0 flex animate-slidedown">
+  <div class="w-max pl-4 pr-2 bg-slate-950 flex gap-1 items-center text-xs">
+    <div
+      class="flex w-max items-center scroll-text font-sans text-slate-500"
     >
-      Luis<span aria-hidden class="text-slate-400">^</span><span class=""
-        >Emidio</span
-      >
-    </h1>
-
-    <div class="flex w-full gap-2 md:w-auto justify-between order:1 sm:order-2 text-slate-700 font-display animate-fadein text-right text-lg md:text-xl lg:text-2xl">
-      <span
-        class=""
-      >
-        { t('AI / Web') }
-      </span>
-      <span>{ t('Developer') }</span>
+      Luis Emidio
     </div>
+    <span class="font-mono text-slate-700">{year}</span>
   </div>
+  <Marquee
+    class="py-2"
+    text={t(
+      `That's all it is: information. Even a simulated experience or a dream; simultaneous reality and fantasy. Any way you look at it, all the information that a person accumulates in a lifetime is just a drop in the bucket.\" — Batou`,
+    )}
+  />
 </div>

@@ -23,7 +23,7 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
 <html lang={lang} class={themeClass}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content={Astro.generator} />
 
     <meta name="description" content={description} />
@@ -74,27 +74,27 @@ const { themeClass, colorScheme } = getThemeMeta(theme);
   /* #region selection */
 
   *::selection {
-    @apply bg-azure-6 text-black;
+    @apply bg-slate-950 text-slate-500;
   }
 
   /* #endregion */
 
   /* #region scrollbar */
 
-  body::-webkit-scrollbar {
+  *::-webkit-scrollbar {
     @apply w-[6px] z-[-10];
   }
 
-  body::-webkit-scrollbar-track {
-    @apply bg-white dark:bg-azure-1;
+  *::-webkit-scrollbar-track {
+    @apply bg-black dark:bg-azure-1;
   }
 
-  body::-webkit-scrollbar-thumb {
-    @apply bg-azure-6 rounded-full;
+  *::-webkit-scrollbar-thumb {
+    @apply bg-slate-950 rounded-full;
   }
 
-  body::-webkit-scrollbar-thumb:hover {
-    @apply bg-azure-5 dark:bg-azure-5;
+  *::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-900 dark:bg-azure-5;
   }
 
   /* #endregion */

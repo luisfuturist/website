@@ -5,7 +5,7 @@ import t from "../../content/lib/t";
 const goBackMessage = t('Go back')
 ---
 
-<nav class="layout absolute top-0 left-0 w-full h-dvh z-[5] ">
+<nav class="layout absolute top-0 left-0 w-full h-dvh">
   <NavLink
     client:load
     icon="arrow-left"
@@ -29,7 +29,7 @@ const goBackMessage = t('Go back')
   <NavLink
     client:load
     icon="arrow-down"
-    class="flex gap-1 justify-center items-end pb-8"
+    class="flex gap-1 justify-center items-end pb-4"
     href="/#about"
     goBackMessage={goBackMessage}
   >
@@ -61,10 +61,10 @@ const goBackMessage = t('Go back')
   }
 
   .light {
-    @apply absolute from-black to-transparent z-[1];
+    @apply absolute from-black to-transparent z-20;
   }
 
   a {
-    @apply z-[2] text-azure-6 hover:text-azure-5;
+    @apply z-30 text-azure-6 hover:text-azure-5;
   }
 </style>

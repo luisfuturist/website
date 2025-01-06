@@ -9,7 +9,7 @@ function Link(props: Props) {
   const { class: className, ...rest } = props;
 
   return <a
-    class={clsx(["text-azure-2 dark:text-azure-6 underline hover:text-azure-1 dark:hover:text-azure-5", className])}
+    class={clsx(["text-slate-600 underline hover:text-slate-500", className])}
     {...rest}
   >
   </a>

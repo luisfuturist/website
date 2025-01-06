@@ -4,6 +4,26 @@ import type { ComponentChildren } from 'preact';
 import { createRef, useEffect, type HTMLAttributes } from 'preact/compat';
 import Icon from './Icon';
 
+export const translateAboutView = () => {
+  const hash = location.hash.slice(1);
+
+  if(hash === 'about') {
+    const about = document.getElementById("__about")!;
+    about.style.transform = 'translateY(-15dvh)';
+    
+    const title = document.getElementById("___title")!;
+    title.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+  }
+}
+
+export const resetTranslateAboutView = () => {
+  const about = document.getElementById("__about")!;
+  about.style.transform = 'translateY(0)';
+
+  const title = document.getElementById("___title")!;
+  title.style.backgroundColor = 'rgba(0, 0, 0)';
+}
+
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
   class?: string
   children?: ComponentChildren
@@ -26,6 +46,8 @@ function NavLink(props: Props) {
   }
 
   useEffect(() => {
+    updateIsBack()
+
     if (elRef.current) {
       elRef.current.style.opacity = '1';
     }
@@ -45,10 +67,14 @@ function NavLink(props: Props) {
 
     element.scrollIntoView({ behavior: "smooth" });
     history.pushState(null, "", "#" + hash);
+
+    translateAboutView()
   }
 
   const goBack = () => {
     if (!href) return;
+
+    resetTranslateAboutView()
 
     const hash = href.slice(2);
     history.pushState(null, "", "#" + hash);
@@ -72,7 +98,7 @@ function NavLink(props: Props) {
   }
 
   return <a
-    class={clsx(['__anchor transition-all duration-[600ms] opacity-0', className])}
+    class={clsx(['transition-all duration-[600ms] opacity-0', className])}
     onClick={handleClick}
     href={href}
     ref={elRef}
