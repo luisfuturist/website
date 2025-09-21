@@ -34,6 +34,31 @@ const { title, titleTemplate = defaultTitleTemplate }: Props = Astro.props
   }
 </script>
 
+<script>
+  function updateSVGViewBox() {
+    const svgs = document.querySelectorAll('svg.w-fitbbox')
+    svgs.forEach((element) => {
+      const bbox = element.querySelector('text')?.getBBox()
+      if (bbox) {
+        // Read the fitbox adjustment value from data-fitbbox, default to 1.5 if not set
+        const fitbox = Number.parseFloat(element.getAttribute('data-fitbbox-adjustment') ?? '1.5')
+        element.setAttribute('viewBox', [bbox.x, bbox.y, bbox.width - fitbox, bbox.height].join(' '))
+      }
+    })
+  }
+
+  // Initial update
+  updateSVGViewBox()
+
+  // Update on resize for responsiveness
+  window.addEventListener('resize', updateSVGViewBox)
+
+  // Optional: update on font load (for custom fonts)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateSVGViewBox)
+  }
+</script>
+
 <html lang="en" class="font-mono">
   <head>
     <meta charset="utf-8" />
@@ -55,3 +80,10 @@ const { title, titleTemplate = defaultTitleTemplate }: Props = Astro.props
     <Toaster client:idle />
   </body>
 </html>
+
+<style is:global>
+  svg.w-fitbbox {
+    width: 100%;
+    fill: currentColor;
+  }
+</style>

@@ -11,7 +11,7 @@ import MaterialMailSharp from '~icons/material-symbols/mail-sharp'
   <!-- Main heading -->
   <div class="text-center mb-16">
     <svg class="w-fitbbox pt-4 font-display">
-      <text>I will become - Luis Emidio</text>
+      <text transform="translate(-1,0)">I will become - Luis Emidio</text>
     </svg>
   </div>
 
@@ -103,27 +103,5 @@ import MaterialMailSharp from '~icons/material-symbols/mail-sharp'
     --aug-inlay-all: 0px !important;
     --aug-border-bg: var(--background-secondary);
     --aug-inlay-bg: var(--background-secondary);
-  }
-</style>
-
-<script>
-  /* Select all SVGs */
-  const svg = document.querySelectorAll('svg.w-fitbbox')
-
-  /* Loop all SVGs */
-  svg.forEach((element) => {
-    /* Get bounding box of <text> element */
-    const bbox = element.querySelector('text')?.getBBox()
-    if (bbox) {
-      /* Apply bounding box to SVG element as viewBox */
-      element.setAttribute('viewBox', [bbox.x, bbox.y, bbox.width, bbox.height].join(' '))
-    }
-  })
-</script>
-
-<style>
-  svg {
-    width: 100%;
-    fill: currentColor;
   }
 </style>

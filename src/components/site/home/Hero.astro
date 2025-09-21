@@ -25,46 +25,8 @@
 
   <!-- Main headline -->
   <div class="text-center z-10">
-    <!-- <h1 class="text-[12vw] leading-48">
-      Send the future with <span>⟠</span> Technology <span>⟠</span>
-    </h1> -->
-    <svg class="w-fitbbox pt-4 font-display">
-      <!-- <defs>
-        <radialGradient id="hero-gradient" cx="50%" cy="50%" r="20%" fx="50%" fy="50%">
-          <stop offset="0%" stop-color="var(--white)"></stop>
-          <stop offset="100%" stop-color="var(--foreground)"></stop>
-        </radialGradient>
-      </defs>
-      <text fill="url(#hero-gradient)">Embrace the Future</text> -->
-      <text>Embrace the Future</text>
+    <svg class="w-fitbbox font-flex">
+      <text transform="translate(-1,0)">Embrace the Future</text>
     </svg>
-    <!-- <h1 class="text-6xl md:text-8xl lg:text-10xl text-foreground leading-tight">
-      <div class="block">Build The Future</div>
-      <div class="block mt-2">
-        with <span class="text-green-400">{'{Blockchain}'}</span>
-      </div>
-    </h1> -->
   </div>
 </section>
-
-<script>
-  /* Select all SVGs */
-  const svg = document.querySelectorAll('svg.w-fitbbox')
-
-  /* Loop all SVGs */
-  svg.forEach((element) => {
-    /* Get bounding box of <text> element */
-    const bbox = element.querySelector('text')?.getBBox()
-    if (bbox) {
-      /* Apply bounding box to SVG element as viewBox */
-      element.setAttribute('viewBox', [bbox.x, bbox.y, bbox.width, bbox.height].join(' '))
-    }
-  })
-</script>
-
-<style>
-  svg {
-    width: 100%;
-    fill: currentColor;
-  }
-</style>
