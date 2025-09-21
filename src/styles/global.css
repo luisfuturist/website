@@ -117,31 +117,31 @@
 
   /* Secondary colors */
   --background-secondary: var(--gray-1);
-  --foreground-secondary: var(--blue);
+  --foreground-secondary: var(--cyan);
 
   /* Semantic colors */
   --primary: var(--blue);
-  --primary-foreground: var(--black);
+  --primary-foreground: var(--white);
   --secondary: var(--magenta);
-  --secondary-foreground: var(--black);
+  --secondary-foreground: var(--white);
   --muted: var(--gray-1);
-  --muted-foreground: var(--black);
+  --muted-foreground: var(--white);
   --accent: var(--magenta);
-  --accent-foreground: var(--black);
+  --accent-foreground: var(--white);
   --destructive: var(--red);
 
   /* Shadcn utilities colors */
   --ring: var(--blue);
-  --border: var(--black);
+  --border: var(--white);
 
   /* Shadcn component colors */
   --card: var(--gray-1);
-  --card-foreground: var(--black);
+  --card-foreground: var(--blue);
 
   --popover: var(--background-secondary);
   --popover-foreground: var(--foreground);
   
-  --input: var(--black);
+  --input: var(--white);
   
   --chart-1: var(--blue);
   --chart-2: var(--green);
@@ -150,7 +150,7 @@
   --chart-5: var(--red);
 
   --sidebar: var(--background-secondary);
-  --sidebar-foreground: var(--foreground-secondary);
+  --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--primary-foreground);
   --sidebar-accent: var(--accent);
@@ -183,7 +183,7 @@
 
   /* Secondary colors */
   --background-secondary: var(--gray-1);
-  --foreground-secondary: var(--blue);
+  --foreground-secondary: var(--cyan);
 
   /* Semantic colors */
   --primary: var(--blue);
@@ -191,7 +191,7 @@
   --secondary: var(--magenta);
   --secondary-foreground: var(--black);
   --muted: var(--gray-3);
-  --muted-foreground: var(--black);
+  --muted-foreground: var(--blue);
   --accent: var(--yellow);
   --accent-foreground: var(--black);
   --destructive: var(--red);
@@ -202,7 +202,7 @@
 
   /* Shadcn component colors */
   --card: var(--gray-1);
-  --card-foreground: var(--black);
+  --card-foreground: var(--blue);
 
   --popover: var(--background-secondary);
   --popover-foreground: var(--foreground);
@@ -216,7 +216,7 @@
   --chart-5: var(--red);
 
   --sidebar: var(--background-secondary);
-  --sidebar-foreground: var(--foreground-secondary);
+  --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--primary-foreground);
   --sidebar-accent: var(--accent);
