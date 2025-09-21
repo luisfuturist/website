@@ -1,0 +1,129 @@
+---
+import DiscordUsernameButton from './DiscordUsernameButton.tsx'
+import MaterialMailSharp from '~icons/material-symbols/mail-sharp'
+---
+
+<footer
+  id="footer"
+  class="bg-background text-foreground py-12 px-24 aug-footer mb-8"
+  data-augmented-ui="bl-clip b-clip-xy br-rect both"
+>
+  <!-- Main heading -->
+  <div class="text-center mb-16">
+    <svg class="w-fitbbox pt-4 font-display">
+      <text>I will become - Luis Emidio</text>
+    </svg>
+  </div>
+
+  <!-- Main content grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16 justify-between">
+    <!-- Left side - Email subscription -->
+    <div class="space-y-6">
+      <p class="text-foreground text-sm max-w-md">
+        Interested in connecting or chatting? Feel free to reach out to me on Discord or any social media—I'm always
+        open to conversation!
+      </p>
+    </div>
+
+    <!-- Right side - Navigation links -->
+    <div class="flex flex-col justify-end items-end mb-12">
+      <div class="flex flex-col space-y-4 min-w-xs max-w-xs">
+        <a
+          href="#my-story"
+          class="text-foreground hover:text-link-primary-hover transition-colors text-xs uppercase border-y border-foreground py-2 w-full"
+        >
+          About
+        </a>
+        <a
+          href="#projects"
+          class="text-foreground hover:text-link-primary-hover transition-colors text-xs uppercase border-b border-foreground pb-2 w-full"
+        >
+          Projects
+        </a>
+        <a
+          href="#footer"
+          class="text-foreground hover:text-link-primary-hover transition-colors text-xs uppercase border-b border-foreground pb-2 w-full"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom section -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <!-- Get in touch section -->
+    <div class="flex items-center gap-8">
+      <DiscordUsernameButton client:visible />
+
+      <a
+        href="mailto:luisfuturist@gmail.com"
+        class="text-foreground hover:text-link-primary-hover transition-colors font-mono text-xl flex gap-1 items-center"
+      >
+        <MaterialMailSharp className="w-6 h-6" />
+        luisfuturist@gmail.com
+      </a>
+    </div>
+
+    <div class="flex justify-end items-center space-x-12 text-2xl">
+      <a
+        href="https://x.com/luisfuturist"
+        target="_blank"
+        class="text-foreground hover:text-link-primary-hover transition-colors font-mono uppercase"
+      >
+        {'{ X (Twitter) }'}
+      </a>
+      <a
+        href="https://www.linkedin.com/in/luisfuturist"
+        target="_blank"
+        class="text-foreground hover:text-link-primary-hover transition-colors font-mono uppercase"
+      >
+        {'{ LinkedIn }'}
+      </a>
+      <a
+        href="https://github.com/luisfuturist"
+        target="_blank"
+        class="text-foreground hover:text-link-primary-hover transition-colors font-mono uppercase"
+      >
+        {'{ GitHub }'}
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .aug-footer {
+    --aug-tr: 48px !important;
+    --aug-bl: 48px !important;
+    --aug-tl: 48px !important;
+    --aug-t: 48px !important;
+    --aug-b: 48px !important;
+    --aug-br: 48px !important;
+    --aug-border-all: 0px !important;
+    --aug-inlay-all: 0px !important;
+    --aug-border-bg: var(--background-secondary);
+    --aug-inlay-bg: var(--background-secondary);
+  }
+</style>
+
+<script>
+  /* Select all SVGs */
+  const svg = document.querySelectorAll('svg.w-fitbbox')
+
+  /* Loop all SVGs */
+  svg.forEach((element) => {
+    /* Get bounding box of <text> element */
+    const bbox = element.querySelector('text')?.getBBox()
+    if (bbox) {
+      /* Apply bounding box to SVG element as viewBox */
+      element.setAttribute('viewBox', [bbox.x, bbox.y, bbox.width, bbox.height].join(' '))
+    }
+  })
+</script>
+
+<style>
+  svg {
+    width: 100%;
+    fill: currentColor;
+  }
+</style>

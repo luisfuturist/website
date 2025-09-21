@@ -1,0 +1,107 @@
+---
+// Projects component data
+const services = [
+  {
+    title: 'neuralmind.ai',
+    subtitle: 'AI R&D',
+    link: 'https://neuralmind.ai',
+  },
+  {
+    title: 'Gaia',
+    subtitle: 'Independent RD&I',
+    link: 'https://9aia.com',
+  },
+  {
+    title: 'A. Garage',
+    subtitle: 'Indie Game Studio',
+    link: 'https://github.com/agarage',
+  },
+  {
+    title: 'Luis Emidio',
+    subtitle: 'Future-Oriented Developer',
+    link: 'https://github.com/luisfuturist',
+  },
+]
+---
+
+<section id="projects" class="min-h-screen font-display grid grid-cols-4 mb-48">
+  <!-- Header -->
+  <div class="mb-24 col-span-1">
+    <h2 class="text-xl font-normal tracking-[0.2em] leading-relaxed uppercase">
+      <span class="block">PROJECTS</span>
+      <span class="block">& ORGANIZATIONS</span>
+    </h2>
+  </div>
+
+  <!-- Services List -->
+  <div class="border-t border-foreground pt-8 col-span-3">
+    {
+      services.map((service, index) => (
+        <a
+          href={service.link}
+          target="_blank"
+          class="group flex flex-col w-full mb-16 pl-12 border-b border-foreground pb-8"
+        >
+          <div class="text-xl text-foreground font-mono group-hover:text-link-primary-hover">0{index + 1}</div>
+
+          <div class="pl-4 flex justify-between items-end w-full">
+            <div class="text-10xl font-light leading-[0.9] text-foreground uppercase tracking-[-0.02em]">
+              <div class="block font-display group-hover:text-link-primary-hover">{service.title}</div>
+            </div>
+          </div>
+
+          <div class="w-full flex justify-end">
+            <div class="text-sm font-normal tracking-[0.15em] text-foreground no-underline transition-opacity duration-300 group-hover:text-link-primary-hover uppercase">
+              [ View Projects ]
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<!-- Responsive Design -->
+<style>
+  @media (max-width: 768px) {
+    .grid-cols-\[auto_1fr_auto\] {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .text-6xl {
+      font-size: 2.5rem;
+    }
+
+    .text-4xl {
+      font-size: 2rem;
+    }
+
+    .text-xl {
+      font-size: 1rem;
+    }
+
+    .self-start {
+      align-self: start;
+    }
+
+    .self-end {
+      align-self: start;
+    }
+
+    .mt-2 {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .text-6xl {
+      font-size: 2rem;
+    }
+
+    .text-4xl {
+      font-size: 1.5rem;
+    }
+  }
+</style>

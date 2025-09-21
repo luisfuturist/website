@@ -1,18 +1,24 @@
-import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
-import preact from "@astrojs/preact";
-import cloudflare from '@astrojs/cloudflare'
+// @ts-check
+
+import react from '@astrojs/react'
+import tailwindcss from '@tailwindcss/vite'
+
+import { defineConfig } from 'astro/config'
+
+import Icons from 'unplugin-icons/vite'
+import svgr from 'vite-plugin-svgr'
 
 // https://astro.build/config
 export default defineConfig({
-  devToolbar: {
-    enabled: false
+  vite: {
+    plugins: [
+      tailwindcss(),
+      Icons({
+        compiler: 'jsx',
+      }),
+      svgr(),
+    ],
   },
-  integrations: [tailwind(), preact()],
-  output: 'server',
-  adapter: cloudflare({
-    runtime: {
-      mode: "local",
-    },
-  }),
-});
+
+  integrations: [react()],
+})

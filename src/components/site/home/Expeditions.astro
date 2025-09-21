@@ -1,0 +1,74 @@
+---
+import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sharp'
+---
+
+<div
+  class="relative bg-background-secondary p-12 overflow-hidden aug-expeditions mb-48"
+  data-augmented-ui="tr-clip bl-clip t-clip-x bl-clip-x br-2-clip-y both"
+>
+  <!-- Download button in top right corner -->
+  <div class="absolute top-12 right-12">
+    <div class="w-full">
+      <a
+        href="https://en.wikipedia.org/wiki/Technological_singularity"
+        target="_blank"
+        class="text-foreground text-sm font-mono tracking-wider hover:text-link-primary-hover transition-colors duration-300 uppercase inline-flex items-center gap-2"
+      >
+        <MaterialArrowOutwardSharp className="w-6 h-6" />
+        <span>[ READ MORE ]</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="space-y-8 mb-12">
+    <!-- Title stacked -->
+    <h2 class="text-foreground text-5xl font-display max-w-xs">Countdown to Singularity</h2>
+
+    <!-- Description paragraph -->
+    <p class="text-foreground text-sm leading-relaxed font-mono max-w-sm">
+      The singularity will be the future event where AI's intelligence accelerates uncontrollably, leading to a
+      self-improving superintelligence far beyond human comprehension.
+    </p>
+  </div>
+
+  <!-- Timeline -->
+  <div class="grid grid-cols-1 sm:grid-cols-7 gap-4 pr-48 items-end -translate-y-48 h-96">
+    <!-- First paper of AI -->
+    <div class="col-span-2 flex gap-4 border-t border-foreground pt-4 pb-12 h-20">
+      <div class="text-foreground text-sm font-mono tracking-wider">1943</div>
+    </div>
+
+    <!-- Today -->
+    <div class="col-span-2 flex gap-4 border-t border-foreground pt-4 pb-12 h-32">
+      <div class="text-foreground text-sm font-mono tracking-wider">
+        {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: '2-digit' })}
+      </div>
+    </div>
+
+    <!-- Singularity -->
+    <div class="col-span-3 flex flex-col justify-between gap-4 border-t border-foreground pt-4 translate-y-48">
+      <div class="text-foreground text-sm font-mono tracking-wider">Singularity</div>
+      <!-- Large 45 - Bottom right, dominating -->
+      <div class="relative overflow-hidden">
+        <div class="font-display text-[24rem] sm:text-[32rem] lg:text-[42.5rem] leading-[0.9]">45</div>
+
+        <div class="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-background-secondary to-transparent">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .aug-expeditions {
+    --aug-tr: 48px !important;
+    --aug-bl: 48px !important;
+    --aug-tl: 48px !important;
+    --aug-t: 48px !important;
+    --aug-br: 48px !important;
+    --aug-border-all: 0px !important;
+    --aug-inlay-all: 0px !important;
+    --aug-border-bg: var(--background) !important;
+    --aug-inlay-bg: var(--background-secondary) !important;
+  }
+</style>

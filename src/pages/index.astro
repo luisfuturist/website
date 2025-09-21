@@ -1,5 +1,24 @@
 ---
-import Site from "../components/Site.astro";
+import Navbar from '@/components/site/layout/Navbar.astro'
+import Hero from '@/components/site/home/Hero.astro'
+import MyStory from '@/components/site/home/MyStory.astro'
+import '../styles/global.css'
+import 'augmented-ui/augmented-ui.css'
+import MainLayout from '@/layouts/main.astro'
+import Projects from '@/components/site/home/Projects.astro'
+import Expeditions from '@/components/site/home/Expeditions.astro'
+import ContactCTA from '@/components/site/layout/ContactCTA.astro'
+import Footer from '@/components/site/layout/Footer.astro'
 ---
 
-<Site />
+<MainLayout title="Home">
+  <div class="max-w-[1920px] mx-auto px-4 sm:px-12 pb-4">
+    <Navbar />
+    <Hero />
+    <MyStory />
+    <Projects />
+    <Expeditions />
+    <ContactCTA />
+    <Footer />
+  </div>
+</MainLayout>

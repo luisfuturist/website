@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "astro-build.astro-vscode",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "antfu.iconify",
+    "yzhang.markdown-all-in-one"
+  ],
+  "unwantedRecommendations": []
+}

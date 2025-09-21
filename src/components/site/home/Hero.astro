@@ -1,0 +1,70 @@
+---
+// Hero component with blockchain theme
+---
+
+<section class="relative pt-12 mb-48">
+  <!-- Background gradient for depth -->
+  <!-- <div class="absolute inset-0 bg-gradient-to-br from-green-900/20 to-black"></div> -->
+
+  <!-- Top text sections -->
+  <div class="grid grid-cols-2 gap-4">
+    <!-- Left text -->
+    <div class="max-w-md">
+      <p class="text-foreground text-sm font-light leading-relaxed">
+        Crafting and sharing experiences at the nexus of technology and imagination.
+      </p>
+    </div>
+
+    <!-- Right text -->
+    <div class="max-w-md">
+      <p class="text-foreground text-sm font-light leading-relaxed">
+        A journey of creation and discovery, where curiosity fuels innovation and every project is a new adventure.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main headline -->
+  <div class="text-center z-10">
+    <!-- <h1 class="text-[12vw] leading-48">
+      Send the future with <span>⟠</span> Technology <span>⟠</span>
+    </h1> -->
+    <svg class="w-fitbbox pt-4 font-display">
+      <!-- <defs>
+        <radialGradient id="hero-gradient" cx="50%" cy="50%" r="20%" fx="50%" fy="50%">
+          <stop offset="0%" stop-color="var(--white)"></stop>
+          <stop offset="100%" stop-color="var(--foreground)"></stop>
+        </radialGradient>
+      </defs>
+      <text fill="url(#hero-gradient)">Embrace the Future</text> -->
+      <text>Embrace the Future</text>
+    </svg>
+    <!-- <h1 class="text-6xl md:text-8xl lg:text-10xl text-foreground leading-tight">
+      <div class="block">Build The Future</div>
+      <div class="block mt-2">
+        with <span class="text-green-400">{'{Blockchain}'}</span>
+      </div>
+    </h1> -->
+  </div>
+</section>
+
+<script>
+  /* Select all SVGs */
+  const svg = document.querySelectorAll('svg.w-fitbbox')
+
+  /* Loop all SVGs */
+  svg.forEach((element) => {
+    /* Get bounding box of <text> element */
+    const bbox = element.querySelector('text')?.getBBox()
+    if (bbox) {
+      /* Apply bounding box to SVG element as viewBox */
+      element.setAttribute('viewBox', [bbox.x, bbox.y, bbox.width, bbox.height].join(' '))
+    }
+  })
+</script>
+
+<style>
+  svg {
+    width: 100%;
+    fill: currentColor;
+  }
+</style>
