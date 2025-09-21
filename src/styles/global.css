@@ -107,6 +107,7 @@
   --magenta: #b300b3;
   --red: #b30000;
   --yellow: #b3b300;
+  --orange: #ff7700;
   --gray-1: #ddd; 
   --gray-2: #aaa;
   --gray-3: #888;
@@ -124,9 +125,9 @@
   --primary-foreground: var(--white);
   --secondary: var(--magenta);
   --secondary-foreground: var(--white);
-  --muted: var(--gray-1);
+  --muted: var(--gray-3);
   --muted-foreground: var(--white);
-  --accent: var(--magenta);
+  --accent: var(--orange);
   --accent-foreground: var(--white);
   --destructive: var(--red);
 
@@ -173,6 +174,7 @@
   --magenta: #ffb3ff;
   --red: #ff0000;
   --yellow: #eeffb3;
+  --orange: #ff7700;
   --gray-1: #222;
   --gray-2: #444;
   --gray-3: #666;
@@ -192,7 +194,7 @@
   --secondary-foreground: var(--black);
   --muted: var(--gray-3);
   --muted-foreground: var(--blue);
-  --accent: var(--yellow);
+  --accent: var(--orange);
   --accent-foreground: var(--black);
   --destructive: var(--red);
 
@@ -249,6 +251,12 @@
   html {
     scroll-behavior: smooth;
   }
+
+  *:focus {
+    @apply ring-0 ring-offset-0 ring-transparent ring-offset-transparent;
+    @apply transition-none duration-0;
+    @apply outline-1 outline-[var(--accent)] -outline-offset-1 rounded-none;
+  }
 }
 
 
@@ -260,6 +268,18 @@
   --aug-border-bg: var(--background) !important;
   --aug-inlay-all: 0px !important;
   --aug-inlay-bg: var(--background-secondary) !important;
+  @apply cursor-pointer;
+  @apply focus:outline-none focus:ring-0 focus:ring-offset-0 focus:ring-transparent focus:ring-offset-transparent;
+}
+
+.aug-button:focus {
+  --aug-border-bg: var(--accent) !important;
+  --aug-border-all: 1px !important;
+}
+
+.aug-button[data-state="open"] {
+  --aug-inlay-bg: var(--accent) !important;
+  color: var(--accent-foreground) !important;
 }
 
 .aug-button:hover {
