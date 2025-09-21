@@ -1,6 +1,5 @@
 # TODO
 
-- Add responsive design
 - Improve content styling
 - Add contact page
 - Add pt_BR locale
