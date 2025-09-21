@@ -240,8 +240,9 @@
   }
 
   ::selection {
-    background: var(--gray-3);
-    color: var(--foreground);
+    background: var(--accent);
+    color: var(--background);
+    fill: var(--background);
   }
   
   section {
@@ -256,6 +257,16 @@
     @apply ring-0 ring-offset-0 ring-transparent ring-offset-transparent;
     @apply transition-none duration-0;
     @apply outline-1 outline-[var(--accent)] -outline-offset-1 rounded-none;
+  }
+  
+  /* Scrollbar */
+
+  /* Firefox */
+  @-moz-document url-prefix() {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--foreground) var(--background);
+    }
   }
 }
 
