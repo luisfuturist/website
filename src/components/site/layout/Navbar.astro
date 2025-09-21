@@ -1,7 +1,9 @@
 ---
 import Logo from '@/components/site/brand/Logo.astro'
 import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sharp'
+import { NavbarMenu } from './NavbarMenu'
 import { SettingsMenu } from './SettingsMenu'
+import links from './navbar-links'
 
 interface Props {
   className?: string
@@ -16,29 +18,26 @@ const { className }: Props = Astro.props
   </a>
 
   <nav class="space-x-6 pl-8 pr-4 py-2 aug-navbar hidden lg:flex" data-augmented-ui="tr-clip bl-clip bl-clip-x both">
-    <a href="#my-story" class="text-foreground hover:text-link-primary-hover transition-colors px-4 py-2">My Story</a>
-    <a href="#projects" class="text-foreground hover:text-link-primary-hover transition-colors px-4 py-2">Projects</a>
-    <a
-      href="https://x.com/luisfuturist"
-      target="_blank"
-      class="text-foreground hover:text-link-primary-hover transition-colors px-4 py-2 flex gap-1"
-    >
-      X (Twitter)
-      <MaterialArrowOutwardSharp className="w-6 h-6" />
-    </a>
-    <a
-      href="https://www.linkedin.com/in/luisfuturist"
-      class="text-foreground hover:text-link-primary-hover transition-colors px-4 py-2 flex gap-1"
-      target="_blank"
-    >
-      LinkedIn
-      <MaterialArrowOutwardSharp className="w-6 h-6" />
-    </a>
-    <a href="#footer" class="text-foreground hover:text-link-primary-hover transition-colors px-4 py-2">Contact Me</a>
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class="flex gap-1 text-foreground hover:text-link-primary-hover transition-colors px-4 py-2"
+        >
+          {link.label}
+          {link.href.startsWith('https') && <MaterialArrowOutwardSharp className="size-6" />}
+        </a>
+      ))
+    }
   </nav>
 
   <div>
-    <SettingsMenu client:load />
+    <div class="hidden lg:block">
+      <SettingsMenu client:media="(width >= 64rem)" />
+    </div>
+    <div class="block lg:hidden">
+      <NavbarMenu client:media="(width < 64rem)" />
+    </div>
   </div>
 </div>
 
