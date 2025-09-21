@@ -24,7 +24,7 @@ const services = [
 ]
 ---
 
-<section id="projects" class="min-h-screen font-display grid grid-cols-4 mb-48">
+<section id="projects" class="min-h-screen font-display grid grid-cols-1 lg:grid-cols-4 mb-48">
   <!-- Header -->
   <div class="mb-24 col-span-1">
     <h2 class="text-xl font-normal tracking-[0.2em] leading-relaxed uppercase">
@@ -44,9 +44,11 @@ const services = [
         >
           <div class="text-xl text-foreground font-mono group-hover:text-link-primary-hover">0{index + 1}</div>
 
-          <div class="pl-4 flex justify-between items-end w-full">
-            <div class="text-10xl font-light leading-[0.9] text-foreground uppercase tracking-[-0.02em]">
-              <div class="block font-display group-hover:text-link-primary-hover">{service.title}</div>
+          <div class="pl-5 flex justify-between items-end w-full">
+            <div class="text-5xl sm:text-7xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-10xl font-light leading-[0.9] text-foreground uppercase tracking-[-0.02em]">
+              <div class="block font-display group-hover:text-link-primary-hover break-words break-all">
+                {service.title}
+              </div>
             </div>
           </div>
 
@@ -60,48 +62,3 @@ const services = [
     }
   </div>
 </section>
-
-<!-- Responsive Design -->
-<style>
-  @media (max-width: 768px) {
-    .grid-cols-\[auto_1fr_auto\] {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      text-align: left;
-    }
-
-    .text-6xl {
-      font-size: 2.5rem;
-    }
-
-    .text-4xl {
-      font-size: 2rem;
-    }
-
-    .text-xl {
-      font-size: 1rem;
-    }
-
-    .self-start {
-      align-self: start;
-    }
-
-    .self-end {
-      align-self: start;
-    }
-
-    .mt-2 {
-      margin-top: 0;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .text-6xl {
-      font-size: 2rem;
-    }
-
-    .text-4xl {
-      font-size: 1.5rem;
-    }
-  }
-</style>

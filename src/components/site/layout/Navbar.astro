@@ -10,12 +10,12 @@ interface Props {
 const { className }: Props = Astro.props
 ---
 
-<div class="flex items-center justify-between gap-2 sticky top-0 py-4 z-50 font-code" class:list={className}>
+<div class="flex items-center justify-between gap-2 sticky top-0 py-4 z-50 font-code w-full" class:list={className}>
   <a href="/" class="focus:outline-offset-1">
     <Logo />
   </a>
 
-  <nav class="flex space-x-6 pl-8 pr-4 py-2 aug-navbar" data-augmented-ui="tr-clip bl-clip bl-clip-x both">
+  <nav class="space-x-6 pl-8 pr-4 py-2 aug-navbar hidden lg:flex" data-augmented-ui="tr-clip bl-clip bl-clip-x both">
     <a href="#my-story" class="text-foreground hover:text-link-primary-hover transition-colors px-4 py-2">My Story</a>
     <a href="#projects" class="text-foreground hover:text-link-primary-hover transition-colors px-4 py-2">Projects</a>
     <a

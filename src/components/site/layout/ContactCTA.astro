@@ -4,32 +4,33 @@ import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sha
 
 <a
   href="#footer"
-  class="relative bg-foreground px-20 py-20 flex justify-between items-center aug-contact-cta mb-32 group"
+  class="relative aug-contact-cta mb-32 group bg-foreground min-h-[calc(100vh-12rem)] lg:min-h-0 py-20 px-16 lg:p-20 flex flex-col lg:flex-row justify-between lg:justify-center items-center flex-wrap lg:pl-24 gap-8"
   data-augmented-ui="bl-rect br-clip-y both"
 >
   <!-- Download button in top right corner -->
 
-  <div class="flex justify-between items-center w-full">
-    <h2 class="text-background text-5xl font-display max-w-xl font-medium">Let's Antecipate the Future Together.</h2>
+  <h2 class="text-background text-6xl flex w-full pt-16 lg:pt-0 font-display lg:max-w-xl font-medium">
+    Let's Antecipate the Future Together.
+  </h2>
 
-    <div
-      class="flex justify-between items-center gap-8 bg-background max-w-lg cursor-pointer pl-8 mr-8 aug-button group-focus:[--aug-border-bg:var(--accent)_!important]"
-      data-augmented-ui="tr-clip bl-clip both"
-    >
-      Contact Me
-      <div class="p-4 aug-button-div" data-augmented-ui="tr-clip bl-clip both">
-        <MaterialArrowOutwardSharp className="size-6 flex-shrink-0 text-background" />
-      </div>
+  <div
+    class="text-lg flex justify-between items-center gap-8 bg-background max-w-lg cursor-pointer pl-8 aug-button group-focus:[--aug-border-bg:var(--accent)_!important]"
+    data-augmented-ui="tr-clip bl-clip both"
+  >
+    Contact Me
+    <div class="p-4 aug-button-div" data-augmented-ui="tr-clip bl-clip both">
+      <MaterialArrowOutwardSharp className="size-6 flex-shrink-0 text-background" />
     </div>
   </div>
+  <!-- </div> -->
 </a>
 
 <style>
   .aug-contact-cta {
-    --aug-tr: 48px !important;
-    --aug-bl: 48px !important;
-    --aug-tl: 48px !important;
-    --aug-br: 48px !important;
+    --aug-tr: var(--aug-size) !important;
+    --aug-bl: var(--aug-size) !important;
+    --aug-tl: var(--aug-size) !important;
+    --aug-br: var(--aug-size) !important;
     --aug-border-all: 1px !important;
     --aug-border-bg: var(--background) !important;
     --aug-inlay-all: 0px !important;

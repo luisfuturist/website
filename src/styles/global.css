@@ -234,16 +234,25 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    transition: clip-path 300ms ease;
   }
   body {
     @apply bg-background text-foreground;
   }
+
+  html, body {
+    @apply overflow-x-hidden w-full;
+  }
+
+  /* Selection */
 
   ::selection {
     background: var(--accent);
     color: var(--background);
     fill: var(--background);
   }
+
+  /* Scroll */
   
   section {
     scroll-margin-top: 132px;
@@ -252,6 +261,8 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Focus */
 
   *:focus {
     @apply ring-0 ring-offset-0 ring-transparent ring-offset-transparent;
@@ -270,7 +281,23 @@
   }
 }
 
+/* Augmented UI */
 
+:root {
+  --aug-size: 32px;
+}
+
+@media (width >= 48rem) {
+  :root {
+    --aug-size: 40px;
+  }
+}
+
+@media (width >= 64rem) {
+  :root {
+    --aug-size: 48px;
+  }
+}
 
 .aug-button {
   --aug-tr: 12px !important;

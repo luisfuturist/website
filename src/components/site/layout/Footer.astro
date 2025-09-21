@@ -1,22 +1,75 @@
 ---
 import DiscordUsernameButton from './DiscordUsernameButton.tsx'
 import MaterialMailSharp from '~icons/material-symbols/mail-sharp'
+
+// Footer links configuration
+const footerLinks = {
+  navigation: [
+    {
+      href: '#my-story',
+      label: 'About',
+      classes:
+        'text-foreground hover:text-link-primary-hover transition-colors text-xs uppercase border-y border-foreground py-2 w-full',
+    },
+    {
+      href: '#projects',
+      label: 'Projects',
+      classes:
+        'text-foreground hover:text-link-primary-hover transition-colors text-xs uppercase border-b border-foreground pb-2 w-full',
+    },
+    {
+      href: '#footer',
+      label: 'Contact',
+      classes:
+        'text-foreground hover:text-link-primary-hover transition-colors text-xs uppercase border-b border-foreground pb-2 w-full',
+    },
+  ],
+  social: [
+    {
+      href: 'https://x.com/luisfuturist',
+      label: 'X',
+      target: '_blank',
+      classes: 'text-foreground hover:text-link-primary-hover transition-colors uppercase flex gap-1 items-center',
+      icon: '{ }',
+    },
+    {
+      href: 'https://www.linkedin.com/in/luisfuturist',
+      label: 'LinkedIn',
+      target: '_blank',
+      classes: 'text-foreground hover:text-link-primary-hover transition-colors uppercase flex gap-1 items-center',
+      icon: '{ }',
+    },
+    {
+      href: 'https://github.com/luisfuturist',
+      label: 'GitHub',
+      target: '_blank',
+      classes: 'text-foreground hover:text-link-primary-hover transition-colors uppercase flex gap-1 items-center',
+      icon: '{ }',
+    },
+  ],
+}
 ---
 
 <footer
   id="footer"
-  class="bg-background text-foreground py-12 px-24 aug-footer mb-8"
+  class="bg-background text-foreground px-12 sm:px-24 pt-12 pb-32 2xl:pb-12 aug-footer mb-8"
   data-augmented-ui="bl-clip b-clip-xy br-rect both"
 >
   <!-- Main heading -->
   <div class="text-center mb-16">
-    <svg class="w-fitbbox pt-4 font-display">
-      <text transform="translate(-1,0)">I will become - Luis Emidio</text>
+    <svg class="w-fitbbox font-display hidden lg:block" aria-label="I will become—Luis Emidio">
+      <text transform="translate(-1,0)">I will become—Luis Emidio</text>
+    </svg>
+    <svg class="w-fitbbox font-display block lg:hidden leading-3" aria-hidden="true">
+      <text transform="translate(-1,0)">I will become</text>
+    </svg>
+    <svg class="w-fitbbox font-display block lg:hidden" aria-hidden="true">
+      <text transform="translate(-1,-2)">—Luis Emidio</text>
     </svg>
   </div>
 
   <!-- Main content grid -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16 justify-between">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-16 mb-16 justify-between">
     <!-- Left side - Email subscription -->
     <div class="space-y-6">
       <p class="text-foreground text-sm max-w-md">
@@ -27,78 +80,59 @@ import MaterialMailSharp from '~icons/material-symbols/mail-sharp'
 
     <!-- Right side - Navigation links -->
     <div class="flex flex-col justify-end items-end mb-12">
-      <div class="flex flex-col space-y-4 min-w-xs max-w-xs">
-        <a
-          href="#my-story"
-          class="text-foreground hover:text-link-primary-hover transition-colors text-xs uppercase border-y border-foreground py-2 w-full"
-        >
-          About
-        </a>
-        <a
-          href="#projects"
-          class="text-foreground hover:text-link-primary-hover transition-colors text-xs uppercase border-b border-foreground pb-2 w-full"
-        >
-          Projects
-        </a>
-        <a
-          href="#footer"
-          class="text-foreground hover:text-link-primary-hover transition-colors text-xs uppercase border-b border-foreground pb-2 w-full"
-        >
-          Contact
-        </a>
+      <div class="flex flex-col space-y-4 w-full xl:w-xs">
+        {
+          footerLinks.navigation.map((link) => (
+            <a href={link.href} class={link.classes}>
+              {link.label}
+            </a>
+          ))
+        }
       </div>
     </div>
   </div>
 
   <!-- Bottom section -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+  <div class="grid grid-cols-1 2xl:grid-cols-2 gap-8 items-center">
     <!-- Get in touch section -->
-    <div class="flex items-center gap-8">
+    <div class="flex flex-col sm:flex-row items-center justify-center 2xl:justify-start gap-4 sm:gap-8">
       <DiscordUsernameButton client:visible />
 
       <a
         href="mailto:luisfuturist@gmail.com"
-        class="text-foreground hover:text-link-primary-hover transition-colors font-mono text-xl flex gap-1 items-center"
+        class="text-foreground hover:text-link-primary-hover transition-colors text-xl flex gap-1 items-center"
       >
         <MaterialMailSharp className="w-6 h-6" />
         luisfuturist@gmail.com
       </a>
     </div>
 
-    <div class="flex justify-end items-center space-x-12 text-2xl">
-      <a
-        href="https://x.com/luisfuturist"
-        target="_blank"
-        class="text-foreground hover:text-link-primary-hover transition-colors font-mono uppercase"
-      >
-        {'{ X (Twitter) }'}
-      </a>
-      <a
-        href="https://www.linkedin.com/in/luisfuturist"
-        target="_blank"
-        class="text-foreground hover:text-link-primary-hover transition-colors font-mono uppercase"
-      >
-        {'{ LinkedIn }'}
-      </a>
-      <a
-        href="https://github.com/luisfuturist"
-        target="_blank"
-        class="text-foreground hover:text-link-primary-hover transition-colors font-mono uppercase"
-      >
-        {'{ GitHub }'}
-      </a>
+    <div class="flex flex-col sm:flex-row justify-center sm:justify-center 2xl:justify-end items-center sm:space-x-12">
+      {
+        footerLinks.social.map((link) => (
+          <a href={link.href} target={link.target} class={link.classes}>
+            <span aria-hidden="true" class="font-mono text-4xl">
+              {'{ '}
+            </span>
+            <span class="text-2xl">{link.label}</span>
+            <span aria-hidden="true" class="font-mono text-4xl">
+              {' }'}
+            </span>
+          </a>
+        ))
+      }
     </div>
   </div>
 </footer>
 
 <style>
   .aug-footer {
-    --aug-tr: 48px !important;
-    --aug-bl: 48px !important;
-    --aug-tl: 48px !important;
-    --aug-t: 48px !important;
-    --aug-b: 48px !important;
-    --aug-br: 48px !important;
+    --aug-tr: var(--aug-size) !important;
+    --aug-bl: var(--aug-size) !important;
+    --aug-tl: var(--aug-size) !important;
+    --aug-t: var(--aug-size) !important;
+    --aug-b: var(--aug-size) !important;
+    --aug-br: var(--aug-size) !important;
     --aug-border-all: 0px !important;
     --aug-inlay-all: 0px !important;
     --aug-border-bg: var(--background-secondary);
