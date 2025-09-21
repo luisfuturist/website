@@ -41,8 +41,9 @@ const { title, titleTemplate = defaultTitleTemplate }: Props = Astro.props
       const bbox = element.querySelector('text')?.getBBox()
       if (bbox) {
         // Read the fitbox adjustment value from data-fitbbox, default to 1.5 if not set
-        const fitbox = Number.parseFloat(element.getAttribute('data-fitbbox-adjustment') ?? '1.5')
-        element.setAttribute('viewBox', [bbox.x, bbox.y, bbox.width - fitbox, bbox.height].join(' '))
+        const wa = Number.parseFloat(element.getAttribute('data-fitbbox-wa') ?? '0')
+        const ha = Number.parseFloat(element.getAttribute('data-fitbbox-ha') ?? '0')
+        element.setAttribute('viewBox', [bbox.x, bbox.y, bbox.width - wa, bbox.height - ha].join(' '))
       }
     })
   }
