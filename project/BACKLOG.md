@@ -4,6 +4,10 @@
 
 - Fix system theme setting
 
+## Enhancements
+
+- Config print
+
 ## Design
 
 - Improve animations
