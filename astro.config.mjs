@@ -1,10 +1,9 @@
 // @ts-check
 
+import cloudflare from '@astrojs/cloudflare'
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
-
 import { defineConfig } from 'astro/config'
-
 import Icons from 'unplugin-icons/vite'
 import svgr from 'vite-plugin-svgr'
 
@@ -21,4 +20,5 @@ export default defineConfig({
   },
 
   integrations: [react()],
+  adapter: cloudflare(),
 })
