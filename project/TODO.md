@@ -8,4 +8,3 @@
 
 - Add about page
 - Improve SEO
-

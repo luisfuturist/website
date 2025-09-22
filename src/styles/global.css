@@ -53,7 +53,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
-  
+
   /* Shadcn utilities colors */
   --color-ring: var(--ring);
   --color-border: var(--border);
@@ -64,15 +64,15 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   /* Shadcn component colors */
-  
+
   --color-input: var(--input);
-  
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  
+
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -95,7 +95,7 @@
 :root {
   /* Common shadcn utilities */
   --radius: 0.625rem;
-  
+
   /* ----- light theme ----- */
 
   /* Normal colors */
@@ -108,7 +108,7 @@
   --red: #b30000;
   --yellow: #b3b300;
   --orange: #ff7700;
-  --gray-1: #ddd; 
+  --gray-1: #ddd;
   --gray-2: #aaa;
   --gray-3: #888;
 
@@ -141,9 +141,9 @@
 
   --popover: var(--background-secondary);
   --popover-foreground: var(--foreground);
-  
+
   --input: var(--white);
-  
+
   --chart-1: var(--blue);
   --chart-2: var(--green);
   --chart-3: var(--yellow);
@@ -208,9 +208,9 @@
 
   --popover: var(--background-secondary);
   --popover-foreground: var(--foreground);
-  
+
   --input: var(--black);
-  
+
   --chart-1: var(--blue);
   --chart-2: var(--green);
   --chart-3: var(--yellow);
@@ -240,10 +240,6 @@
     @apply bg-background text-foreground;
   }
 
-  html, body {
-    /* @apply overflow-x-hidden w-full; */
-  }
-
   /* Selection */
 
   ::selection {
@@ -253,11 +249,11 @@
   }
 
   /* Scroll */
-  
+
   section {
     scroll-margin-top: 132px;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
@@ -269,7 +265,7 @@
     @apply transition-none duration-0;
     @apply outline-1 outline-[var(--accent)] -outline-offset-1 rounded-none;
   }
-  
+
   /* Scrollbar */
 
   /* Firefox */
@@ -340,7 +336,7 @@
   --aug-border-all: 1px !important;
 }
 
-.aug-button[data-state="open"] {
+.aug-button[data-state='open'] {
   --aug-inlay-bg: var(--accent) !important;
   color: var(--accent-foreground) !important;
 }
