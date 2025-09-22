@@ -7,4 +7,5 @@
 - Add FAQ section on home page
 
 - Add about page
+- Improve SEO
 

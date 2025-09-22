@@ -7,11 +7,12 @@ type TitleTemplate = (title?: string) => string
 interface Props {
   title?: string
   titleTemplate?: TitleTemplate
+  description?: string
 }
 
 const defaultTitleTemplate: TitleTemplate = (title) => (title ? `${title} | Luis Emidio` : 'Luis Emidio')
 
-const { title, titleTemplate = defaultTitleTemplate }: Props = Astro.props
+const { title, titleTemplate = defaultTitleTemplate, description }: Props = Astro.props
 ---
 
 <!-- Dark mode toggle -->
@@ -67,6 +68,7 @@ const { title, titleTemplate = defaultTitleTemplate }: Props = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{titleTemplate(title)}</title>
+    <meta name="description" content={description} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
