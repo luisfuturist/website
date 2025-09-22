@@ -281,6 +281,31 @@
   }
 }
 
+@utility link {
+  color: var(--link-primary);
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    position: absolute;
+    height: 0px;
+    bottom: 1px;
+    left: 0;
+    border-bottom: 1px dashed var(--link-primary);
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: var(--link-primary-hover);
+    &:after {
+      border-bottom: 1px dashed var(--link-primary-hover);
+    }
+  }
+}
+
 /* Augmented UI */
 
 :root {

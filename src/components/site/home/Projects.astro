@@ -5,21 +5,25 @@ const services = [
     title: 'neuralmind.ai',
     subtitle: 'AI R&D',
     link: 'https://neuralmind.ai',
+    cta: 'GOTO Website',
   },
   {
     title: 'Gaia',
     subtitle: 'Independent RD&I',
     link: 'https://9aia.com',
+    cta: 'GOTO Website',
   },
   {
     title: 'A. Garage',
     subtitle: 'Indie Game Studio',
     link: 'https://github.com/agarage',
+    cta: 'GOTO GitHub',
   },
   {
     title: 'Luis Emidio',
     subtitle: 'Future-Oriented Developer',
     link: 'https://github.com/luisfuturist',
+    cta: 'GOTO GitHub',
   },
 ]
 ---
@@ -53,8 +57,14 @@ const services = [
           </div>
 
           <div class="w-full flex justify-end mt-12">
-            <div class="text-sm font-normal tracking-[0.15em] text-foreground no-underline transition-opacity duration-300 group-hover:text-link-primary-hover uppercase">
-              [ View Projects ]
+            <div class="flex text-sm font-normal text-foreground no-underline transition-opacity duration-300 group-hover:text-link-primary-hover uppercase">
+              <span aria-hidden="true" class="font-mono">
+                {'['}
+              </span>
+              {service.cta}
+              <span aria-hidden="true" class="font-mono">
+                {']'}
+              </span>
             </div>
           </div>
         </a>
