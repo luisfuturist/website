@@ -241,7 +241,7 @@
   }
 
   html, body {
-    @apply overflow-x-hidden w-full;
+    /* @apply overflow-x-hidden w-full; */
   }
 
   /* Selection */
