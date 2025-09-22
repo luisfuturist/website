@@ -3,7 +3,7 @@ import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sha
 ---
 
 <div
-  class="relative bg-background-secondary px-12 pt-12 pb-0 overflow-hidden aug-expeditions mb-48"
+  class="relative bg-background-secondary px-12 md:px-24 pt-12 pb-0 overflow-hidden aug-expeditions mb-48"
   data-augmented-ui="tr-clip bl-clip t-clip-x bl-clip-x br-2-clip-y both"
 >
   <div class="mb-12">
@@ -18,15 +18,23 @@ import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sha
       moments, reshaping reality beyond prediction or comprehension, akin to crossing an inescapable cosmic threshold.
     </p>
 
-    <div class="lg:absolute top-12 right-12">
+    <div class="lg:absolute top-12 right-12 md:right-24">
       <div class="w-full">
         <a
           href="https://en.wikipedia.org/wiki/Technological_singularity"
           target="_blank"
-          class="text-foreground text-sm font-mono tracking-wider hover:text-link-primary-hover transition-colors duration-300 uppercase inline-flex items-center gap-2"
+          class="text-foreground text-sm font-mono hover:text-link-primary-hover transition-colors duration-300 uppercase inline-flex items-center gap-2"
         >
           <MaterialArrowOutwardSharp className="w-6 h-6" />
-          <span>[ READ MORE ]</span>
+          <div class="flex items-center gap-0">
+            <span aria-hidden="true" class="font-mono">
+              {'['}
+            </span>
+            READ MORE
+            <span aria-hidden="true" class="font-mono">
+              {']'}
+            </span>
+          </div>
         </a>
       </div>
     </div>

@@ -52,8 +52,8 @@ const footerLinks = {
 
 <footer
   id="footer"
-  class="bg-background text-foreground px-12 sm:px-24 pt-12 pb-32 2xl:pb-12 aug-footer mb-8"
-  data-augmented-ui="bl-clip b-clip-xy br-rect both"
+  class="bg-background text-foreground px-12 md:px-24 pt-12 pb-20 md:pb-24 2xl:pb-12 aug-footer mb-8 flex flex-col"
+  data-augmented-ui="bl-clip b-clip-x br-rect both"
 >
   <!-- Main heading -->
   <div class="text-center mb-16">
@@ -79,7 +79,7 @@ const footerLinks = {
     </div>
 
     <!-- Right side - Navigation links -->
-    <div class="flex flex-col justify-end items-end mb-12">
+    <div class="hidden sm:flex flex-col justify-end items-end mb-12">
       <div class="flex flex-col space-y-4 w-full xl:w-xs">
         {
           footerLinks.navigation.map((link) => (
@@ -93,7 +93,7 @@ const footerLinks = {
   </div>
 
   <!-- Bottom section -->
-  <div class="grid grid-cols-1 2xl:grid-cols-2 gap-8 items-center">
+  <div class="grid grid-cols-1 2xl:grid-cols-2 gap-8 items-center mb-12 sm:mb-0">
     <!-- Get in touch section -->
     <div class="flex flex-col sm:flex-row items-center justify-center 2xl:justify-start gap-4 sm:gap-8">
       <DiscordUsernameButton client:visible />
@@ -107,7 +107,7 @@ const footerLinks = {
       </a>
     </div>
 
-    <div class="flex flex-col sm:flex-row justify-center sm:justify-center 2xl:justify-end items-center sm:space-x-12">
+    <div class="flex flex-row justify-center sm:justify-center 2xl:justify-end items-center sm:space-x-12">
       {
         footerLinks.social.map((link) => (
           <a href={link.href} target={link.target} class={link.classes}>
@@ -118,6 +118,18 @@ const footerLinks = {
             <span aria-hidden="true" class="font-mono text-4xl">
               {' }'}
             </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="flex sm:hidden flex-col justify-end items-end">
+    <div class="flex flex-col space-y-4 w-full xl:w-xs">
+      {
+        footerLinks.navigation.map((link) => (
+          <a href={link.href} class={link.classes}>
+            {link.label}
           </a>
         ))
       }
