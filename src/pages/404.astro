@@ -1,0 +1,67 @@
+---
+import Navbar from '@/components/site/layout/Navbar.astro'
+import Footer from '@/components/site/layout/Footer.astro'
+import '../styles/global.css'
+import 'augmented-ui/augmented-ui.css'
+import MainLayout from '@/layouts/main.astro'
+---
+
+<MainLayout title="404" description="Page not found - The page you're looking for doesn't exist.">
+  <div class="w-full lg:max-w-[1920px] lg:mx-auto px-4 lg:px-12 pb-4">
+    <Navbar />
+
+    <section class="min-h-[60vh] flex flex-col items-center justify-center py-24">
+      <!-- Main 404 heading -->
+      <div class="text-center z-10 mt-12 lg:mt-0 mb-48 w-full">
+        <svg class="w-fitbbox font-flex" data-fitbbox-adjustment="0" aria-label="404 Not Found">
+          <text transform="translate(-0,0)">
+            404
+            {'<'}NOT FOUND{'>'}
+          </text>
+        </svg>
+      </div>
+
+      <!-- Error message -->
+      <div class="space-y-8 mb-48 w-full">
+        <p class="text-foreground text-4xl font-sans leading-relaxed">
+          The page you're looking for has drifted into the void.
+          <br /> Perhaps it was never here, or perhaps it's waiting in a future that hasn't arrived yet.
+        </p>
+      </div>
+
+      <!-- Navigation back home -->
+      <div class="flex flex-col gap-6 w-full">
+        <a
+          href="/"
+          class="flex w-fit text-sm font-normal text-foreground no-underline transition-opacity duration-300 hover:text-link-primary-hover uppercase"
+        >
+          <span aria-hidden="true" class="font-mono">
+            {'['}
+          </span>
+          Return Home
+          <span aria-hidden="true" class="font-mono">
+            {']'}
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</MainLayout>
+
+<style>
+  .aug-link {
+    --aug-tr: 8px !important;
+    --aug-bl: 8px !important;
+    --aug-border-all: 1px !important;
+    --aug-inlay-all: 0px !important;
+    --aug-border-bg: var(--background) !important;
+    --aug-inlay-bg: transparent !important;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .aug-link:hover {
+    --aug-border-bg: var(--link-primary-hover) !important;
+  }
+</style>

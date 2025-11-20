@@ -1,10 +1,10 @@
 const links = [
   {
-    href: '#readme',
+    href: '/#readme',
     label: 'README',
   },
   {
-    href: '#projects',
+    href: '/#projects',
     label: 'Projects',
   },
   {

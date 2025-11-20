@@ -1,6 +1,10 @@
 ---
 import DiscordUsernameButton from './DiscordUsernameButton.tsx'
 import MaterialMailSharp from '~icons/material-symbols/mail-sharp'
+import LinkedInIcon from '@/components/icons/linkedin.svg?react'
+import GitHubIcon from '@/components/icons/github.svg?react'
+import XIcon from '@/components/icons/x.svg?react'
+import { cn } from '@/lib/utils'
 
 // Footer links configuration
 const footerLinks = {
@@ -29,22 +33,22 @@ const footerLinks = {
       href: 'https://x.com/luisfuturist',
       label: 'X',
       target: '_blank',
-      classes: 'text-foreground hover:text-link-primary-hover transition-colors uppercase flex gap-1 items-center',
-      icon: '{ }',
+      classes: 'text-foreground hover:text-link-primary-hover transition-colors flex gap-1 items-center',
+      icon: XIcon,
     },
     {
       href: 'https://www.linkedin.com/in/luisfuturist',
       label: 'LinkedIn',
       target: '_blank',
-      classes: 'text-foreground hover:text-link-primary-hover transition-colors uppercase flex gap-1 items-center',
-      icon: '{ }',
+      classes: 'text-foreground hover:text-link-primary-hover transition-colors flex gap-1 items-center',
+      icon: LinkedInIcon,
     },
     {
       href: 'https://github.com/luisfuturist',
       label: 'GitHub',
       target: '_blank',
-      classes: 'text-foreground hover:text-link-primary-hover transition-colors uppercase flex gap-1 items-center',
-      icon: '{ }',
+      classes: 'text-foreground hover:text-link-primary-hover transition-colors flex gap-1 items-center',
+      icon: GitHubIcon,
     },
   ],
 }
@@ -93,33 +97,35 @@ const footerLinks = {
   </div>
 
   <!-- Bottom section -->
-  <div class="grid grid-cols-1 2xl:grid-cols-2 gap-8 items-center mb-12 sm:mb-0">
+  <div class="grid grid-cols-1 2xl:grid-cols-2 gap-8 items-center mb-20 sm:mb-0">
     <!-- Get in touch section -->
-    <div class="flex flex-col sm:flex-row items-center justify-center 2xl:justify-start gap-4 sm:gap-8">
+    <div class="flex flex-col sm:flex-row justify-center 2xl:justify-start sm:items-center gap-4 sm:gap-8">
       <DiscordUsernameButton client:visible />
 
       <a
         href="mailto:luisfuturist@gmail.com"
         class="text-foreground hover:text-link-primary-hover transition-colors text-xl flex gap-1 items-center"
       >
-        <MaterialMailSharp className="w-6 h-6" />
+        <MaterialMailSharp className="size-6" />
         luisfuturist@gmail.com
       </a>
     </div>
 
-    <div class="flex flex-row justify-center sm:justify-center 2xl:justify-end items-center sm:space-x-12">
+    <div class="flex flex-col sm:flex-row justify-center 2xl:justify-end sm:items-center gap-4 sm:gap-8">
       {
-        footerLinks.social.map((link) => (
-          <a href={link.href} target={link.target} class={link.classes}>
-            <span aria-hidden="true" class="font-mono text-4xl">
-              {'{ '}
-            </span>
-            <span class="text-2xl">{link.label}</span>
-            <span aria-hidden="true" class="font-mono text-4xl">
-              {' }'}
-            </span>
-          </a>
-        ))
+        footerLinks.social.map((link) => {
+          const IconComponent = link.icon
+          return (
+            <a
+              href={link.href}
+              target={link.target}
+              class={cn(link.classes, 'fill-foreground hover:fill-link-primary-hover transition-colors')}
+            >
+              <IconComponent className="size-6" />
+              <span class="text-2xl">{link.label}</span>
+            </a>
+          )
+        })
       }
     </div>
   </div>
