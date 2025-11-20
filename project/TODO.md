@@ -6,5 +6,7 @@
 
 - Add FAQ section on home page
 
+- Add error page
+
 - Add about page
 - Improve SEO
