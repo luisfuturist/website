@@ -48,9 +48,9 @@ function DiscordUsernameButton() {
   }
 
   return (
-    <button type="button" className="flex items-center gap-1 text-xl text-foreground hover:text-link-primary-hover cursor-pointer" onClick={handleCopy}>
+    <button type="button" className="flex items-center gap-1 text-2xl text-foreground hover:text-link-primary-hover cursor-pointer" onClick={handleCopy}>
       <LogosDiscord className="size-6 flex-shrink-0 fill-current mr-1" />
-      @luisfuturist
+      luisfuturist
       <MaterialContentCopySharp className="size-6 flex-shrink-0" />
     </button>
   )
