@@ -1,13 +1,46 @@
-# Astro with Tailwind
+# luisfuturist website
+
+Personal website built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and [React](https://react.dev), deployed to [Cloudflare Pages](https://pages.cloudflare.com).
+
+## Tech stack
+
+- [Astro](https://astro.build) v5 with the [Cloudflare adapter](https://docs.astro.build/en/guides/integrations-guide/cloudflare/)
+- [Tailwind CSS](https://tailwindcss.com) v4 via `@tailwindcss/vite`
+- [React](https://react.dev) for interactive components
+- [Wrangler](https://developers.cloudflare.com/workers/wrangler/) for local preview and deployment
+- [pnpm](https://pnpm.io) as the package manager
+
+## Getting started
 
 ```sh
-pnpm create astro@latest -- --template with-tailwindcss
+pnpm install
+pnpm dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/with-tailwindcss/devcontainer.json)
+The dev server starts at `http://localhost:4321` by default.
 
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
+## Scripts
 
-For complete setup instructions, please see our [Tailwind Integration Guide](https://docs.astro.build/en/guides/integrations-guide/tailwind).
+```sh
+pnpm dev          # Start the dev server
+pnpm build        # Type check and build for production
+pnpm preview      # Build and preview with Wrangler locally
+pnpm deploy       # Build and deploy to Cloudflare Pages
+pnpm typecheck    # Run Astro check and ESLint
+pnpm lint         # Run ESLint
+pnpm lint:fix     # Run ESLint with auto-fix
+```
+
+## Project structure
+
+```text
+src/
+  components/   # Astro and React components
+  layouts/      # Page layouts
+  lib/          # Shared utilities
+  pages/        # Astro routes
+```
+
+- Top-level pages live in `src/pages/`.
+- Site-specific sections and layout components are in `src/components/site/`.
+- Reusable UI primitives (button, dropdown menu, etc.) are in `src/components/ui/`.
