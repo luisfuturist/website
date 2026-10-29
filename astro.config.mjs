@@ -10,6 +10,9 @@ import svgr from 'vite-plugin-svgr'
 // https://astro.build/config
 export default defineConfig({
   vite: {
+    optimizeDeps: {
+      exclude: ['@luisfuturist/ui'],
+    },
     plugins: [
       tailwindcss(),
       Icons({

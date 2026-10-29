@@ -1,8 +1,8 @@
+import { DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem } from '@luisfuturist/ui'
 import { useEffect, useState } from 'react'
 import MaterialComputerSharp from '~icons/material-symbols/computer-sharp'
 import MaterialDarkMode from '~icons/material-symbols/dark-mode'
 import MaterialLightMode from '~icons/material-symbols/light-mode'
-import { DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuRadioItem } from '@/components/ui/dropdown-menu'
 
 export type Theme = 'theme-light' | 'dark' | 'system'
 

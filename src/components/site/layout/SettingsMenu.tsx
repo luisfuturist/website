@@ -1,12 +1,12 @@
-import MaterialSettingsSharp from '~icons/material-symbols/settings-sharp'
-import { Button } from '@/components/ui/button'
 import {
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@luisfuturist/ui'
+import MaterialSettingsSharp from '~icons/material-symbols/settings-sharp'
 import { ThemeToggleMenuItems } from './ThemeToggleMenuItems'
 
 export function SettingsMenu() {

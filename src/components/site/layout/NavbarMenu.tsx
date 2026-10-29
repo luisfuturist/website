@@ -1,13 +1,13 @@
-import MaterialMenuSharp from '~icons/material-symbols/menu-sharp'
-import { Button } from '@/components/ui/button'
 import {
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@luisfuturist/ui'
+import MaterialMenuSharp from '~icons/material-symbols/menu-sharp'
 import links from './navbar-links'
 import { ThemeToggleMenuItems } from './ThemeToggleMenuItems'
 
