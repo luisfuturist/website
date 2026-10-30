@@ -1,30 +1,51 @@
+---
+import { linkify } from '@/lib/i18n'
+import { m } from '@/paraglide/messages.js'
+
+const bioLinks = [
+  { href: 'https://neuralmind.ai', text: 'NeuralMind' },
+  { href: 'https://9aia.com', text: 'Gaia' },
+  { href: 'https://github.com/handl-lang', text: 'Handl' },
+  { href: 'https://fiap.com.br', text: 'FIAP' },
+  { href: 'https://github.com/m7tlab', text: 'm7tlab' },
+]
+
+const bioText = m.readme_bio({
+  neuralmind: 'NeuralMind',
+  gaia: 'Gaia',
+  handl: 'Handl',
+  fiap: 'FIAP',
+  m7tlab: 'm7tlab',
+})
+const bioParts = linkify(bioText, bioLinks)
+---
+
 <section id="readme" class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-48">
   <!-- Left side - Section Title -->
   <div class="space-y-8">
-    <h2 class="text-foreground text-2xl font-mono tracking-wider uppercase">README</h2>
+    <h2 class="text-foreground text-2xl font-mono tracking-wider uppercase">{m.nav_readme()}</h2>
   </div>
 
   <!-- Right side - Main Content -->
   <div class="space-y-4">
     <!-- Lyrical vision statement -->
     <p class="text-foreground text-4xl font-sans">
-      I will live this technological transformation, and so will you. Together, we will witness the acceleration of
-      intelligence, the merging of imagination with code, and the unfolding of possibilities that will reshape how we
-      think, create, and interact with the world. Every innovation, every discovery, every moment that emerges—we will
-      experience in a future that is already taking form.
+      {m.readme_vision()}
     </p>
 
     <!-- Bio -->
     <p class="text-foreground text-xs leading-relaxed font-sans max-w-md">
-      I'm a technologist with a focus on R&D and a generalist's curiosity. By day, I do AI R&D at
-      <a href="https://neuralmind.ai" class="link">NeuralMind</a>, and in my own time, I lead experimental projects as
-      founder of <a href="https://9aia.com" class="link">Gaia</a> and
-      <a href="https://github.com/handl-lang" class="link">Handl</a> — work that sits at the intersection of
-      programming languages, logic, and math. I graduated with a degree in AI from
-      <a href="https://fiap.com.br" class="link">FIAP</a>, though most of what I know I learned independently. Lately
-      I'm drawn to orchestrating AI agents and treating everything as code. My Minecraft projects live at
-      <a href="https://github.com/m7tlab" class="link">m7tlab</a> — Minecraft is what introduced me to engineering.
-      Cyberpunk is my favorite genre.
+      {
+        bioParts.map((part) =>
+          typeof part === 'string' ? (
+            part
+          ) : (
+            <a href={part.href} class="link">
+              {part.text}
+            </a>
+          ),
+        )
+      }
     </p>
 
     <!-- Call to action link -->
@@ -37,7 +58,7 @@
         <span aria-hidden="true" class="font-mono">
           {'['}
         </span>
-        View More
+        {m.readme_view_more()}
         <span aria-hidden="true" class="font-mono">
           {']'}
         </span>

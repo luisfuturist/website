@@ -1,35 +1,37 @@
 ---
+import { m } from '@/paraglide/messages.js'
+
 // Projects component data
 const services = [
   {
     title: 'Luis Emidio',
-    subtitle: 'Future-Oriented Developer',
+    subtitle: () => m.project_luis_subtitle(),
     link: 'https://github.com/luisfuturist',
-    cta: 'GOTO GitHub',
+    cta: () => m.project_cta_github(),
   },
   {
     title: 'Gaia',
-    subtitle: 'Independent RD&I',
+    subtitle: () => m.project_gaia_subtitle(),
     link: 'https://9aia.com',
-    cta: 'GOTO Website',
+    cta: () => m.project_cta_website(),
   },
   {
     title: 'neuralmind.ai',
-    subtitle: 'AI R&D',
+    subtitle: () => m.project_neuralmind_subtitle(),
     link: 'https://neuralmind.ai',
-    cta: 'GOTO Website',
+    cta: () => m.project_cta_website(),
   },
   {
     title: 'Handl',
-    subtitle: 'Formal Language R&D',
+    subtitle: () => m.project_handl_subtitle(),
     link: 'https://github.com/handl-lang',
-    cta: 'GOTO GitHub',
+    cta: () => m.project_cta_github(),
   },
   {
     title: 'm7tlab',
-    subtitle: 'Minecraft Playground',
+    subtitle: () => m.project_m7tlab_subtitle(),
     link: 'https://github.com/m7tlab',
-    cta: 'GOTO GitHub',
+    cta: () => m.project_cta_github(),
   },
 ]
 ---
@@ -38,8 +40,8 @@ const services = [
   <!-- Header -->
   <div class="mb-24 col-span-1">
     <h2 class="text-xl font-normal tracking-[0.2em] leading-relaxed uppercase">
-      <span class="block">PROJECTS</span>
-      <span class="block">& ORGANIZATIONS</span>
+      <span class="block">{m.projects_heading_a()}</span>
+      <span class="block">{m.projects_heading_b()}</span>
     </h2>
   </div>
 
@@ -67,7 +69,7 @@ const services = [
               <span aria-hidden="true" class="font-mono">
                 {'['}
               </span>
-              {service.cta}
+              {service.cta()}
               <span aria-hidden="true" class="font-mono">
                 {']'}
               </span>

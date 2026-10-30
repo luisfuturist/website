@@ -1,0 +1,10 @@
+---
+import Home from '@/components/site/pages/home.astro'
+import { locales } from '@/paraglide/runtime.js'
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale } }))
+}
+---
+
+<Home />

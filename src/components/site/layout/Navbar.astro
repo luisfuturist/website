@@ -1,5 +1,6 @@
 ---
 import Logo from '@/components/site/brand/Logo.astro'
+import { localizeInternalHref } from '@/lib/i18n'
 import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sharp'
 import { NavbarMenu } from './NavbarMenu'
 import { SettingsMenu } from './SettingsMenu'
@@ -21,10 +22,10 @@ const { className }: Props = Astro.props
     {
       links.map((link) => (
         <a
-          href={link.href}
+          href={localizeInternalHref(link.href)}
           class="flex gap-1 text-foreground hover:text-link-primary-hover transition-colors px-4 py-2"
         >
-          {link.label}
+          {link.label()}
           {link.href.startsWith('https') && <MaterialArrowOutwardSharp className="size-6" />}
         </a>
       ))

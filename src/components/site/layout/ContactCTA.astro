@@ -1,4 +1,5 @@
 ---
+import { m } from '@/paraglide/messages.js'
 import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sharp'
 ---
 
@@ -10,14 +11,14 @@ import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sha
   <!-- Download button in top right corner -->
 
   <h2 class="text-background text-6xl flex w-full pt-16 lg:pt-0 font-display lg:max-w-xl font-medium">
-    Connect with me now—Let's UDP or TCP.
+    {m.contact_heading()}
   </h2>
 
   <div
     class="text-lg flex justify-between items-center gap-8 bg-background max-w-lg cursor-pointer pl-8 aug-button group-focus:[--aug-border-bg:var(--accent)_!important]"
     data-augmented-ui="tr-clip bl-clip both"
   >
-    Contact Me
+    {m.contact_cta()}
     <div class="p-4 aug-button-div" data-augmented-ui="tr-clip bl-clip both">
       <MaterialArrowOutwardSharp className="size-6 flex-shrink-0 text-background" />
     </div>

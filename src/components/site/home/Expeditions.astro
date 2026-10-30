@@ -1,4 +1,5 @@
 ---
+import { m } from '@/paraglide/messages.js'
 import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sharp'
 ---
 
@@ -8,14 +9,11 @@ import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sha
 >
   <div class="mb-12">
     <!-- Title stacked -->
-    <h2 class="text-foreground text-5xl font-display max-w-xs mb-8">Countdown to Singularity</h2>
+    <h2 class="text-foreground text-5xl font-display max-w-xs mb-8">{m.expeditions_title()}</h2>
 
     <!-- Description paragraph -->
     <p class="text-foreground text-sm leading-relaxed font-mono max-w-sm mb-6">
-      Much like a black hole’s gravitational pull, which grows exponentially stronger near its event horizon, the
-      Technological Singularity describes a future where AI surpasses human intelligence, triggering rapid,
-      uncontrollable progress. This self-improving AI creates a feedback loop, compressing vast advancements into
-      moments, reshaping reality beyond prediction or comprehension, akin to crossing an inescapable cosmic threshold.
+      {m.expeditions_description()}
     </p>
 
     <div class="lg:absolute top-12 right-12 md:right-24">
@@ -30,7 +28,7 @@ import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sha
             <span aria-hidden="true" class="font-mono">
               {'['}
             </span>
-            READ MORE
+            {m.expeditions_read_more()}
             <span aria-hidden="true" class="font-mono">
               {']'}
             </span>
@@ -56,7 +54,7 @@ import MaterialArrowOutwardSharp from '~icons/material-symbols/arrow-outward-sha
     <div
       class="w-full lg:col-span-4 xl:col-span-3 flex flex-col gap-4 border-t border-foreground pt-4 h-56 sm:h-72 md:h-120 lg:h-64 xl:h-72 2xl:h-92 overflow-hidden"
     >
-      <div class="text-foreground text-sm font-mono">Singularity</div>
+      <div class="text-foreground text-sm font-mono">{m.expeditions_singularity()}</div>
 
       <div class="relative overflow-hidden">
         <svg class="w-fitbbox font-flex" data-fitbbox-ha="7.1" aria-label="Embrace the Future">

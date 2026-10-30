@@ -13,16 +13,16 @@ export default function ErrorSection({ code, heading, lines, returnLabel }: Erro
       code={code}
       heading={heading}
       lines={lines}
-      action={
+      action={(
         <a
           href="/"
           className="w-fit font-mono text-sm text-foreground no-underline uppercase transition-opacity duration-300 hover:text-link-primary-hover"
         >
-          {'['}
+          [
           {returnLabel}
-          {']'}
+          ]
         </a>
-      }
+      )}
     />
   )
 }

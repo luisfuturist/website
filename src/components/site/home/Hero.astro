@@ -1,5 +1,5 @@
 ---
-// Hero component with blockchain theme
+import { m } from '@/paraglide/messages.js'
 ---
 
 <section class="relative pt-12 mb-48">
@@ -8,29 +8,22 @@
     <!-- Left text -->
     <div class="max-w-md">
       <p class="text-foreground text-sm font-light leading-relaxed">
-        Today: AI and Machine Learning, Blockchain, Cloud Computing, 5G Networks, IoT Devices, Renewable Energy Tech,
-        Cybersecurity Tools, Quantum Computing, Biotech, Electric Vehicles, AR/VR, Edge Computing, Data Analytics,
-        Robotics, Fintech Platforms
+        {m.hero_today()}
       </p>
     </div>
 
     <!-- Right text -->
     <div class="max-w-md">
       <p class="text-foreground text-sm font-light leading-relaxed">
-        Tomorrow: AGI, Fusion Energy, BCIs, Nanotech, Space Colonization Tech, Sustainable Materials, Advanced Genomics,
-        Metaverse Infrastructure, Autonomous Everything, Climate Engineering, Holographic Displays, Personalized
-        Medicine, Orbital Manufacturing, Neurotech Enhancements, Global AI Governance
+        {m.hero_tomorrow()}
       </p>
     </div>
   </div>
 
   <!-- Main headline -->
   <div class="text-center z-10 mt-12 lg:mt-0">
-    <svg class="w-fitbbox font-flex" data-fitbbox-adjustment="0" aria-label="Embrace the Future">
-      <text transform="translate(-0,0)">
-        Future
-        {'<'}Awaits{'>'}
-      </text>
+    <svg class="w-fitbbox font-flex" data-fitbbox-adjustment="0" aria-label={m.hero_aria()}>
+      <text transform="translate(-0,0)">{m.hero_headline()}</text>
     </svg>
   </div>
 </section>

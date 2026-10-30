@@ -4,6 +4,7 @@ import MaterialClose from '~icons/material-symbols/close'
 import MaterialContentCopySharp from '~icons/material-symbols/content-copy-sharp'
 import MaterialError from '~icons/material-symbols/error'
 import LogosDiscord from '@/components/icons/discord.svg?react'
+import { m } from '@/paraglide/messages.js'
 
 function DiscordUsernameButton() {
   const handleCopy = () => {
@@ -12,7 +13,7 @@ function DiscordUsernameButton() {
         <div className="aug-button-2 flex items-center gap-4 p-4" data-augmented-ui="tr-clip bl-clip both">
           <MaterialError className="size-6 flex-shrink-0 text-destructive" />
           <h1 className="text-destructive">
-            Discord username won't be copied—clipboard not supported.
+            {m.discord_unsupported()}
           </h1>
           <button type="button" onClick={() => toast.dismiss(t)} className="text-primary hover:text-link-primary-hover cursor-pointer">
             <MaterialClose className="size-6 flex-shrink-0" />
@@ -27,7 +28,7 @@ function DiscordUsernameButton() {
         toast.custom(t => (
           <div className="aug-button-2 text-accent flex items-center gap-4 p-4" data-augmented-ui="tr-clip bl-clip both">
             <MaterialCheck className="size-6 flex-shrink-0 text-accent" />
-            <h1>Discord username copied to clipboard</h1>
+            <h1>{m.discord_copied()}</h1>
             <button type="button" onClick={() => toast.dismiss(t)} className="text-primary hover:text-link-primary-hover cursor-pointer">
               <MaterialClose className="size-6 flex-shrink-0" />
             </button>
@@ -38,7 +39,7 @@ function DiscordUsernameButton() {
         toast.custom(t => (
           <div className="aug-button-2 flex items-center gap-4 p-4" data-augmented-ui="tr-clip bl-clip both">
             <MaterialError className="size-6 flex-shrink-0 text-destructive" />
-            <h1 className="text-destructive">Failed to copy Discord username</h1>
+            <h1 className="text-destructive">{m.discord_failed()}</h1>
             <button type="button" onClick={() => toast.dismiss(t)} className="text-primary hover:text-link-primary-hover cursor-pointer">
               <MaterialClose className="size-6 flex-shrink-0" />
             </button>

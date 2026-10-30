@@ -1,23 +1,25 @@
+import { m } from '@/paraglide/messages.js'
+
 const links = [
   {
     href: '/#readme',
-    label: 'README',
+    label: () => m.nav_readme(),
   },
   {
     href: '/#projects',
-    label: 'Projects',
+    label: () => m.nav_projects(),
   },
   {
     href: 'https://x.com/luisfuturist',
-    label: 'X',
+    label: () => 'X',
   },
   {
     href: 'https://www.linkedin.com/in/luisfuturist',
-    label: 'LinkedIn',
+    label: () => 'LinkedIn',
   },
   {
-    href: '#footer',
-    label: 'CONTACTME',
+    href: '/#footer',
+    label: () => m.nav_contact(),
   },
 ]
 

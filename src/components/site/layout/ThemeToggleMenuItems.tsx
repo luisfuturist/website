@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import MaterialComputerSharp from '~icons/material-symbols/computer-sharp'
 import MaterialDarkMode from '~icons/material-symbols/dark-mode'
 import MaterialLightMode from '~icons/material-symbols/light-mode'
+import { m } from '@/paraglide/messages.js'
 
 export type Theme = 'theme-light' | 'dark' | 'system'
 
@@ -25,19 +26,19 @@ export function ThemeToggleMenuItems() {
 
   return (
     <>
-      <DropdownMenuLabel>Theme</DropdownMenuLabel>
+      <DropdownMenuLabel>{m.menu_theme()}</DropdownMenuLabel>
       <DropdownMenuRadioGroup value={theme} onValueChange={value => setThemeState(value as typeof theme)}>
         <DropdownMenuRadioItem value="system">
           <MaterialComputerSharp className="size-6" />
-          System
+          {m.menu_theme_system()}
         </DropdownMenuRadioItem>
         <DropdownMenuRadioItem value="theme-light">
           <MaterialLightMode className="size-6" />
-          Light
+          {m.menu_theme_light()}
         </DropdownMenuRadioItem>
         <DropdownMenuRadioItem value="dark">
           <MaterialDarkMode className="size-6" />
-          Dark
+          {m.menu_theme_dark()}
         </DropdownMenuRadioItem>
       </DropdownMenuRadioGroup>
     </>

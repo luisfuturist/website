@@ -1,5 +1,6 @@
 ---
 import { Toaster } from '@luisfuturist/ui'
+import { baseLocale, locales, localizeHref } from '@/paraglide/runtime.js'
 import '../styles/global.css'
 
 type TitleTemplate = (title?: string) => string
@@ -13,6 +14,9 @@ interface Props {
 const defaultTitleTemplate: TitleTemplate = (title) => (title ? `${title} | Luis Emidio` : 'Luis Emidio')
 
 const { title, titleTemplate = defaultTitleTemplate, description }: Props = Astro.props
+
+const currentLocale = Astro.currentLocale ?? baseLocale
+const currentUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined
 ---
 
 <!-- Dark mode toggle -->
@@ -61,7 +65,37 @@ const { title, titleTemplate = defaultTitleTemplate, description }: Props = Astr
   }
 </script>
 
-<html lang="en" class="font-sans">
+<!-- Preferred-language redirect (only on the unprefixed default-locale page) -->
+<script is:inline>
+  ;(() => {
+    const supported = ['en', 'pt-br', 'zh', 'ja', 'ko', 'vi', 'id']
+    const hasLocalePrefix = supported.some(
+      (l) => l !== 'en' && (location.pathname === `/${l}` || location.pathname.startsWith(`/${l}/`)),
+    )
+    if (hasLocalePrefix) {
+      return
+    }
+
+    const normalize = (tag) => {
+      const t = tag.toLowerCase()
+      if (t.startsWith('pt')) {
+        return 'pt-br'
+      }
+      if (t.startsWith('zh')) {
+        return 'zh'
+      }
+      return supported.find((s) => t === s || t.startsWith(`${s}-`))
+    }
+
+    const stored = localStorage.getItem('preferred-locale')
+    const pref = stored || (navigator.languages || [navigator.language]).map(normalize).find(Boolean)
+    if (pref && pref !== 'en') {
+      location.replace(`/${pref}${location.pathname}${location.search}${location.hash}`)
+    }
+  })()
+</script>
+
+<html lang={currentLocale} class="font-sans">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -77,10 +111,21 @@ const { title, titleTemplate = defaultTitleTemplate, description }: Props = Astr
     <title>{titleTemplate(title)}</title>
     <meta name="description" content={description} />
 
+    {
+      currentUrl && (
+        <>
+          {locales.map((locale) => (
+            <link rel="alternate" hreflang={locale} href={localizeHref(currentUrl, { locale })} />
+          ))}
+          <link rel="alternate" hreflang="x-default" href={localizeHref(currentUrl, { locale: baseLocale })} />
+        </>
+      )
+    }
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
     />
   </head>

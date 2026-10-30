@@ -5,4 +5,8 @@ export default antfu({
   react: true,
   astro: true,
   typescript: true,
+  ignores: [
+    'src/paraglide',
+    'project.inlang',
+  ],
 })
