@@ -18,7 +18,7 @@ export function NavbarMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size={null} data-augmented-ui="tr-clip bl-clip both" className="aug-button p-4 text-foreground bg-background-secondary">
+        <Button variant="augmented" size="icon-xl">
           <MaterialMenuSharp className="size-6" />
         </Button>
       </DropdownMenuTrigger>
