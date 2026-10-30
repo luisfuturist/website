@@ -1,31 +1,19 @@
-import {
-  Button,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@luisfuturist/ui'
-import MaterialSettingsSharp from '~icons/material-symbols/settings-sharp'
+import { SettingsMenu as LfdsSettingsMenu } from '@luisfuturist/ui'
 import { m } from '@/paraglide/messages.js'
 import { LanguageMenuItems } from './LanguageMenuItems'
-import { ThemeToggleMenuItems } from './ThemeToggleMenuItems'
 
 export function SettingsMenu() {
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="augmented" size="icon-xl">
-          <MaterialSettingsSharp className="size-6" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end">
-        <DropdownMenuLabel>{m.menu_settings()}</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <ThemeToggleMenuItems />
-        <DropdownMenuSeparator />
-        <LanguageMenuItems />
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <LfdsSettingsMenu
+      labels={{
+        settings: m.menu_settings(),
+        theme: m.menu_theme(),
+        light: m.menu_theme_light(),
+        dark: m.menu_theme_dark(),
+        system: m.menu_theme_system(),
+      }}
+    >
+      <LanguageMenuItems />
+    </LfdsSettingsMenu>
   )
 }

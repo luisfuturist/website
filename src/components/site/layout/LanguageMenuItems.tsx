@@ -23,6 +23,10 @@ const LANGUAGE_NAMES: Record<string, string> = {
 export function LanguageMenuItems() {
   const handleSelect = (locale: string) => {
     localStorage.setItem('preferred-locale', locale)
+    const parts = window.location.hostname.split('.')
+    if (parts.length >= 2 && window.location.hostname !== 'localhost') {
+      document.cookie = `preferred-locale=${locale}; domain=.${parts.slice(-2).join('.')}; path=/; max-age=31536000; samesite=lax`
+    }
     window.location.href = localizeHref(
       window.location.pathname + window.location.search + window.location.hash,
       { locale: locale as typeof locales[number] },

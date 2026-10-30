@@ -1,5 +1,5 @@
 ---
-import { Toaster } from '@luisfuturist/ui'
+import { THEME_INIT_SCRIPT, Toaster } from '@luisfuturist/ui'
 import { baseLocale, locales, localizeHref } from '@/paraglide/runtime.js'
 import '../styles/global.css'
 
@@ -19,25 +19,9 @@ const currentLocale = Astro.currentLocale ?? baseLocale
 const currentUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined
 ---
 
-<!-- Dark mode toggle -->
-<script is:inline>
-  function getThemePreference() {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme')
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  }
-  const isDark = getThemePreference() === 'dark'
-  document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
-
-  if (typeof localStorage !== 'undefined') {
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains('dark')
-      localStorage.setItem('theme', isDark ? 'dark' : 'light')
-    })
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
-  }
-</script>
+<!-- Dark mode toggle — reads the shared parent-domain cookie first, then
+     localStorage; persists via LFDS useTheme in the settings menu. -->
+<script is:inline set:html={THEME_INIT_SCRIPT} />
 
 <script>
   function updateSVGViewBox() {
