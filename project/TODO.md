@@ -1,12 +1,9 @@
-# TODO
+# TODO — website
 
-- Improve content styling
-- Add contact page
-- Add pt_BR locale
-
-- Add FAQ section on home page
-
-- Add error page
-
-- Add about page
-- Improve SEO
+- [ ] T-001 Improve content styling
+- [ ] T-002 Add contact page
+- [ ] T-003 Add pt\_BR locale
+- [ ] T-004 Add FAQ section on home page
+- [ ] T-005 Add error page
+- [ ] T-006 Add about page
+- [ ] T-007 Improve SEO

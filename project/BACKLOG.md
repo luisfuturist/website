@@ -2,20 +2,20 @@
 
 ## Bugs
 
-- Fix system theme setting
+- T-008 Fix system theme setting
 
 ## Enhancements
 
-- Config print
+- T-009 Config print
 
 ## Design
 
-- Improve animations
+- T-010 Improve animations
 
 ## Accessibility
 
-- Improve a11y
+- T-011 Improve a11y
 
 ## DX
 
-- Refactor theme to its own file
+- T-012 Refactor theme to its own file
