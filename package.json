@@ -11,14 +11,15 @@
     "astro": "astro",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "check:i18n": "inlang check --project ./project.inlang"
+    "check:i18n": "inlang check --project ./project.inlang",
+    "screens": "node scripts/screenshot.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.3.5",
     "@astrojs/react": "^4.3.1",
     "@inlang/paraglide-js": "2.29.1",
-    "@luisfuturist/ui": "github:luisfuturist/ui#c941271",
+    "@luisfuturist/ui": "github:luisfuturist/ui#website-pin",
     "@tailwindcss/vite": "^4.1.13",
     "@types/canvas-confetti": "^1.9.0",
     "@types/react": "^19.1.13",
@@ -46,6 +47,7 @@
     "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "playwright": "^1.64.1",
     "prettier-plugin-astro": "^0.14.1",
     "tw-animate-css": "^1.3.8",
     "typescript": "^5.7.2",
